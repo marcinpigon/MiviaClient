@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiviaMaui.DirectoriesPage"
+             Title="Directories Page">
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Padding="20">
+
+            <!-- Button to monitor a new directory -->
+            <Button Text="Monitor New Directory"
+                    Clicked="OnMonitorNewDirectoryClicked"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    Margin="0,0,0,20" />
+
+            <!-- CollectionView to display monitored directories -->
+            <CollectionView x:Name="directoriesCollectionView"
+                            ItemsSource="{Binding MonitoredDirectories}"
+                            VerticalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid WidthRequest="100"
+                              HeightRequest="120"
+                              Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image Source="folder.png"
+                                   Aspect="AspectFit"
+                                   Grid.Row="0"
+                                   HeightRequest="80"
+                                   WidthRequest="80" />
+                            <Label Text="{Binding Name}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Grid.Row="1" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="3" />
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+
+            <!-- Label to display when there are no monitored directories -->
+            <Label x:Name="noDirectoriesLabel"
+                   Text="No directories being monitored."
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   IsVisible="False" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

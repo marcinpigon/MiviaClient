@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiviaMaui.MainPage"
+             Title="Main Page">
+
+    <StackLayout VerticalOptions="StartAndExpand"
+                 HorizontalOptions="CenterAndExpand"
+                 Padding="20">
+
+        <Label Text="MIVIA"
+               FontSize="Large"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <Button Text="Go to Configuration Page"
+                Clicked="OnNavigateToConfigurationPageButtonClicked"
+                Margin="0,20,0,0"/>
+        <Button Text="Go to Directories Page"
+                Clicked="OnNavigateToDirectoriesPageButtonClicked"
+                Margin="0,10,0,0"/>
+        <Button Text="Go to History Page"
+                Clicked="OnNavigateToHistoryPageButtonClicked"
+                Margin="0,10,0,0"/>
+
+    </StackLayout>
+
+</ContentPage>
