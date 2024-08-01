@@ -7,7 +7,9 @@ namespace MiviaMaui.ViewModels;
 public class ModelsViewModel : BaseViewModel
 {
     private readonly IMiviaClient _miviaClient;
+    public bool _modelsLoaded = false;
     public ObservableCollection<ModelDto> Models { get; } = new ObservableCollection<ModelDto>();
+    private readonly object _lock = new object();
 
     public ModelsViewModel(IMiviaClient miviaClient)
     {
@@ -16,9 +18,12 @@ public class ModelsViewModel : BaseViewModel
 
     public async Task LoadModelsAsync()
     {
-        if (IsBusy) return;
+        lock (_lock)
+        {
+            if (IsBusy || _modelsLoaded) return;
 
-        IsBusy = true;
+            IsBusy = true;
+        }
 
         try
         {
@@ -28,6 +33,7 @@ public class ModelsViewModel : BaseViewModel
             {
                 Models.Add(model);
             }
+            _modelsLoaded = true;
         }
         catch (Exception ex)
         {

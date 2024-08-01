@@ -26,8 +26,9 @@ namespace MiviaMaui
                 client.BaseAddress = new Uri("https://app.mivia.ai");
             });
 
+            builder.Services.AddSingleton<DirectoryWatcherService>();
             builder.Services.AddSingleton<DirectoryService>();
-            builder.Services.AddTransient<ModelsViewModel>();
+            builder.Services.AddSingleton<ModelsViewModel>();
             builder.Services.AddTransient<ModelsPage>();
 
 #if DEBUG

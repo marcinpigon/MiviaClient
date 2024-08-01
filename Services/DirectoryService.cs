@@ -20,6 +20,14 @@ namespace MiviaMaui.Services
             MonitoredDirectories = LoadDirectories();
         }
 
+        public void WriteAllDirectories()
+        {
+            foreach (MonitoredDirectory directory in MonitoredDirectories)
+            {
+                Console.WriteLine(directory.Name);
+            }
+        }
+
         private ObservableCollection<MonitoredDirectory> LoadDirectories()
         {
             try

@@ -13,6 +13,7 @@ namespace MiviaMaui
         {
             InitializeComponent();
             _directoryService = directoryService;
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private async void OnNavigateToConfigurationPageButtonClicked(object sender, EventArgs e)

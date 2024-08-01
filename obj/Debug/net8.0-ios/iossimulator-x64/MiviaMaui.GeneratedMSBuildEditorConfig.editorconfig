@@ -12,71 +12,71 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MiviaMaui
-build_property.ProjectDir = C:\Users\marci\OneDrive\Pulpit\MiviaMaui\
+build_property.ProjectDir = C:\Users\Marcin\Desktop\PI\ProjektIn-ynierski\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/App.xaml]
+[C:/Users/Marcin/Desktop/PI/ProjektIn-ynierski/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/AppShell.xaml]
+[C:/Users/Marcin/Desktop/PI/ProjektIn-ynierski/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/ConfigurationPage.xaml]
+[C:/Users/Marcin/Desktop/PI/ProjektIn-ynierski/ConfigurationPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.ConfigurationPage.xaml
 build_metadata.AdditionalFiles.TargetPath = ConfigurationPage.xaml
 build_metadata.AdditionalFiles.RelativePath = ConfigurationPage.xaml
 
-[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/DirectoriesPage.xaml]
+[C:/Users/Marcin/Desktop/PI/ProjektIn-ynierski/DirectoriesPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.DirectoriesPage.xaml
 build_metadata.AdditionalFiles.TargetPath = DirectoriesPage.xaml
 build_metadata.AdditionalFiles.RelativePath = DirectoriesPage.xaml
 
-[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/EditDirectoryPage.xaml]
+[C:/Users/Marcin/Desktop/PI/ProjektIn-ynierski/EditDirectoryPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.EditDirectoryPage.xaml
 build_metadata.AdditionalFiles.TargetPath = EditDirectoryPage.xaml
 build_metadata.AdditionalFiles.RelativePath = EditDirectoryPage.xaml
 
-[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/HistoryPage.xaml]
+[C:/Users/Marcin/Desktop/PI/ProjektIn-ynierski/HistoryPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.HistoryPage.xaml
 build_metadata.AdditionalFiles.TargetPath = HistoryPage.xaml
 build_metadata.AdditionalFiles.RelativePath = HistoryPage.xaml
 
-[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/MainPage.xaml]
+[C:/Users/Marcin/Desktop/PI/ProjektIn-ynierski/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/ModelsPage.xaml]
+[C:/Users/Marcin/Desktop/PI/ProjektIn-ynierski/ModelsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.ModelsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = ModelsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = ModelsPage.xaml
 
-[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/NewDirectory.xaml]
+[C:/Users/Marcin/Desktop/PI/ProjektIn-ynierski/NewDirectory.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.NewDirectory.xaml
 build_metadata.AdditionalFiles.TargetPath = NewDirectory.xaml
 build_metadata.AdditionalFiles.RelativePath = NewDirectory.xaml
 
-[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/Resources/Styles/Colors.xaml]
+[C:/Users/Marcin/Desktop/PI/ProjektIn-ynierski/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/Resources/Styles/Styles.xaml]
+[C:/Users/Marcin/Desktop/PI/ProjektIn-ynierski/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
