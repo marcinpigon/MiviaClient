@@ -40,6 +40,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.DirectoriesPage.
 build_metadata.AdditionalFiles.TargetPath = DirectoriesPage.xaml
 build_metadata.AdditionalFiles.RelativePath = DirectoriesPage.xaml
 
+[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/EditDirectoryPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.EditDirectoryPage.xaml
+build_metadata.AdditionalFiles.TargetPath = EditDirectoryPage.xaml
+build_metadata.AdditionalFiles.RelativePath = EditDirectoryPage.xaml
+
 [C:/Users/marci/OneDrive/Pulpit/MiviaMaui/HistoryPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.HistoryPage.xaml
@@ -51,6 +57,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/ModelsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.ModelsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = ModelsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = ModelsPage.xaml
 
 [C:/Users/marci/OneDrive/Pulpit/MiviaMaui/NewDirectory.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

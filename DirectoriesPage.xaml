@@ -38,6 +38,11 @@
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center"
                                    Grid.Row="1" />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    NumberOfTapsRequired="2" 
+                                    Tapped="OnDirectoryDoubleTapped" />
+                            </Grid.GestureRecognizers>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

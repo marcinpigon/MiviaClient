@@ -5,15 +5,18 @@ namespace MiviaMaui
 {
     public partial class App : Application
     {
-        public App()
+        public App(IServiceProvider serviceProvider)
         {
             InitializeComponent();
 
-            var directoryService = ServiceProvider.GetService<DirectoryService>();
+            // Use the serviceProvider to set up the MainPage
+            MainPage = new NavigationPage(new MainPage(serviceProvider.GetRequiredService<DirectoryService>()));
 
-            MainPage = new NavigationPage(new MainPage(directoryService));
+            // Store the serviceProvider in a static property
+            ServiceProvider = serviceProvider;
         }
 
-        public static IServiceProvider ServiceProvider { get; set; }
+        // Static property to hold the ServiceProvider
+        public static IServiceProvider ServiceProvider { get; private set; }
     }
 }

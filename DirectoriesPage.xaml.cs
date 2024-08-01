@@ -41,5 +41,15 @@ namespace MiviaMaui
         {
             await Navigation.PushAsync(new NewDirectory(_directoryService));
         }
+
+        private async void OnDirectoryDoubleTapped(object sender, EventArgs e)
+        {
+            var grid = sender as Grid;
+            var monitoredDirectory = grid?.BindingContext as MonitoredDirectory;
+            if (monitoredDirectory != null)
+            {
+                await Navigation.PushAsync(new EditDirectoryPage(_directoryService, monitoredDirectory));
+            }
+        }
     }
 }

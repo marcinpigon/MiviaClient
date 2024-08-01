@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cnm+eFZtuqSZObOopSDdAc7HV10KcE9rR4Nfy0JrGjoOTKmm7PjZtL1dcnMJ/GkylgstmOKR8HbFsQ1SkzqTFg==",
+  "dgSpecHash": "BB5iEiqOXUo=",
   "success": true,
   "projectFilePath": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaMaui.csproj",
   "expectedPackageFiles": [
@@ -38,8 +38,8 @@
     "C:\\Users\\marci\\.nuget\\packages\\microsoft.maui.graphics\\8.0.70\\microsoft.maui.graphics.8.0.70.nupkg.sha512",
     "C:\\Users\\marci\\.nuget\\packages\\microsoft.maui.graphics.win2d.winui.desktop\\8.0.70\\microsoft.maui.graphics.win2d.winui.desktop.8.0.70.nupkg.sha512",
     "C:\\Users\\marci\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.70\\microsoft.maui.resizetizer.8.0.70.nupkg.sha512",
-    "C:\\Users\\marci\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.5\\microsoft.net.illink.tasks.8.0.5.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22621.756\\microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512",
+    "C:\\Users\\marci\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.7\\microsoft.net.illink.tasks.8.0.7.nupkg.sha512",
+    "C:\\Users\\marci\\.nuget\\packages\\microsoft.windows.sdk.buildtools\\10.0.22621.756\\microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512",
     "C:\\Users\\marci\\.nuget\\packages\\microsoft.windowsappsdk\\1.5.240607001\\microsoft.windowsappsdk.1.5.240607001.nupkg.sha512",
     "C:\\Users\\marci\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
     "C:\\Users\\marci\\.nuget\\packages\\system.speech\\8.0.0\\system.speech.8.0.0.nupkg.sha512",

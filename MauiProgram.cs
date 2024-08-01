@@ -1,8 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
-using System.Reflection;
 using MiviaMaui.Services;
+using MiviaMaui.ViewModels;
+using MiviaMaui.Views;
 
 namespace MiviaMaui
 {
@@ -26,17 +27,18 @@ namespace MiviaMaui
             });
 
             builder.Services.AddSingleton<DirectoryService>();
-
+            builder.Services.AddTransient<ModelsViewModel>();
+            builder.Services.AddTransient<ModelsPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
 
+            // Build the app
             var mauiApp = builder.Build();
 
-            // Set the ServiceProvider to be used in App.xaml.cs
-            App.ServiceProvider = mauiApp.Services;
-
+            // Set the ServiceProvider in the App class
+            var app = new App(mauiApp.Services);
             return mauiApp;
         }
     }

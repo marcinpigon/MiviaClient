@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiviaMaui.Views.ModelsPage"
+             Title="Available Models">
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <!-- CollectionView to display models -->
+            <CollectionView ItemsSource="{Binding Models}"
+                            VerticalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5" BorderColor="LightGray" CornerRadius="5" HasShadow="True">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding DisplayName}"
+                                       FontSize="20"
+                                       VerticalOptions="Center"
+                                       Grid.Column="0"
+                                       Margin="0,0,10,0" />
+                                <Label Text="{Binding Id}"
+                                       FontSize="16"
+                                       VerticalOptions="Center"
+                                       TextColor="Gray"
+                                       HorizontalOptions="End"
+                                       Grid.Column="1" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- ActivityIndicator to show loading state -->
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

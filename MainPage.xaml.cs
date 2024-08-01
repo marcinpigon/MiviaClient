@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.DependencyInjection;
 using MiviaMaui.Services;
+using MiviaMaui.ViewModels;
+using MiviaMaui.Views;
 
 namespace MiviaMaui
 {
@@ -26,6 +28,15 @@ namespace MiviaMaui
         private async void OnNavigateToHistoryPageButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new HistoryPage());
+        }
+
+        private async void OnNavigateToModelsPage(object sender, EventArgs e)
+        {
+            // Use ServiceProvider to get the ModelsViewModel
+            var modelsViewModel = App.ServiceProvider.GetRequiredService<ModelsViewModel>();
+            var modelsPage = new ModelsPage(modelsViewModel);
+
+            await Navigation.PushAsync(modelsPage);
         }
     }
 }
