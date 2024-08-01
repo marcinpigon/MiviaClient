@@ -73,8 +73,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg"/>
-
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#008080" />
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
@@ -90,12 +89,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\AppIcon\applogo.png" />
+	  <None Remove="Resources\AppIcon\appicon.svg" />
 	  <None Remove="Resources\Images\mivia_background.jpg" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiImage Include="Resources\AppIcon\applogo.png" />
 	</ItemGroup>
 
 	<ItemGroup>

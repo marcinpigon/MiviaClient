@@ -33,7 +33,6 @@ namespace MiviaMaui
 
         private async void OnNavigateToModelsPage(object sender, EventArgs e)
         {
-            // Use ServiceProvider to get the ModelsViewModel
             var modelsViewModel = App.ServiceProvider.GetRequiredService<ModelsViewModel>();
             var modelsPage = new ModelsPage(modelsViewModel);
 
