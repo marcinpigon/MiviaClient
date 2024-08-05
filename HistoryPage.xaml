@@ -4,12 +4,21 @@
              x:Class="MiviaMaui.HistoryPage"
              Title="History Page">
 
-    <StackLayout VerticalOptions="CenterAndExpand"
+    <Grid>
+        <!-- Background image -->
+        <Image 
+            Source="mivia_background.jpg"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Center"
+            Aspect="Center" />
+
+        <StackLayout VerticalOptions="CenterAndExpand"
                  HorizontalOptions="CenterAndExpand">
-        <Label Text="This is the History Page"
+            <Label Text="This is the History Page"
                FontSize="Large"
                FontAttributes="Bold"
                HorizontalOptions="Center"/>
-    </StackLayout>
+        </StackLayout>
+    </Grid>
 
 </ContentPage>

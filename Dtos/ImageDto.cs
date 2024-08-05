@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MiviaMaui.Dtos
@@ -9,8 +10,13 @@ namespace MiviaMaui.Dtos
     public class ImageDto
     {
         public string Id { get; set; }
+
+        [JsonPropertyName("createdAt")]
         public DateTime CreatedAt { get; set; }
-        public string OriginalFilename { get; set; }
+
+        [JsonPropertyName("orginalFilename")]
+        public string OriginalFilename { get; set; }  // Keep this as OriginalFilename
+
         public bool Validated { get; set; }
     }
 }

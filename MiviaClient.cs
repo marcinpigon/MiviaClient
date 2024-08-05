@@ -17,6 +17,8 @@ namespace MiviaMaui
         private const string ModelUri = "/api/jobs";
         private const string ReportUri = "/api/reports/pdf2";
 
+        private bool _initialized = false;
+
         public MiviaClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
@@ -24,16 +26,19 @@ namespace MiviaMaui
 
         private async Task InitializeClient()
         {
-            // Retrieve the access token asynchronously
-            var accessToken = await SecureStorage.GetAsync("AccessToken");
-
-            // Clear existing headers to ensure clean configuration
-            _httpClient.DefaultRequestHeaders.Clear();
-
-            // Add the authorization header if the access token is available
-            if (!string.IsNullOrEmpty(accessToken))
+            if (!_initialized)
             {
-                _httpClient.DefaultRequestHeaders.Add("authorization", accessToken);
+                // Retrieve the access token asynchronously
+                var accessToken = await SecureStorage.GetAsync("AccessToken");
+
+                // Clear existing headers to ensure clean configuration
+                _httpClient.DefaultRequestHeaders.Clear();
+
+                // Add the authorization header if the access token is available
+                if (!string.IsNullOrEmpty(accessToken))
+                {
+                    _httpClient.DefaultRequestHeaders.Add("authorization", accessToken);
+                }
             }
         }
 
@@ -53,6 +58,18 @@ namespace MiviaMaui
                 // Handle the error response accordingly
                 throw new HttpRequestException($"Request failed with status code {response.StatusCode}");
             }
+        }
+
+        public async Task<List<ImageDto>> GetImagesAsync()
+        {
+            await InitializeClient();
+            var response = await _httpClient.GetAsync("/api/image");
+
+            response.EnsureSuccessStatusCode();
+
+            var jsonString = await response.Content.ReadAsStringAsync();
+            Debug.WriteLine($"Images: {jsonString}");
+            return JsonSerializer.Deserialize<List<ImageDto>>(jsonString);
         }
     }
 }

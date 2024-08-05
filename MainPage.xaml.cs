@@ -38,5 +38,13 @@ namespace MiviaMaui
 
             await Navigation.PushAsync(modelsPage);
         }
+
+        private async void OnNavigateToImagesPageButtonClicked(object sender, EventArgs e)
+        {
+            var imagesViewModel = App.ServiceProvider.GetRequiredService<ImagesViewModel>();
+            var imagesPage = new ImagesPage(imagesViewModel);
+
+            await Navigation.PushAsync(imagesPage);
+        }
     }
 }

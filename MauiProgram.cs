@@ -29,7 +29,9 @@ namespace MiviaMaui
             builder.Services.AddSingleton<DirectoryWatcherService>();
             builder.Services.AddSingleton<DirectoryService>();
             builder.Services.AddSingleton<ModelsViewModel>();
+            builder.Services.AddSingleton<ImagesViewModel>();
             builder.Services.AddTransient<ModelsPage>();
+            builder.Services.AddTransient<ImagesPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

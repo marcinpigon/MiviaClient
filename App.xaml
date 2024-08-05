@@ -9,9 +9,10 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
-            !-- Define a vivid green color -->
+            
+            <!-- Define a vivid green color -->
             <Color x:Key="VividGreen">#49a944</Color>
+            <Color x:Key="DarkGrayTransparent">#99000000</Color>
             <!-- You can adjust the hex code as needed -->
 
             <!-- Define a style for the buttons -->
@@ -22,6 +23,10 @@
                 <!-- Optional: for rounded corners -->
                 <Setter Property="Padding" Value="12,5" />
                 <!-- Optional: for padding -->
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
             </Style>
 
         </ResourceDictionary>

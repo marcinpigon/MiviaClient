@@ -23,6 +23,9 @@
     <MauiXaml Update="HistoryPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="ImagesPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="ModelsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

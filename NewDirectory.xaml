@@ -4,59 +4,66 @@
              x:Class="MiviaMaui.NewDirectory"
              Title="New Directory">
 
-    <StackLayout VerticalOptions="CenterAndExpand"
+    <Grid>
+        <!-- Background image -->
+        <Image 
+            Source="mivia_background.jpg"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Center"
+            Aspect="Center" />
+        <StackLayout VerticalOptions="CenterAndExpand"
                  HorizontalOptions="CenterAndExpand"
                  Padding="20">
 
-        <!-- Name of the directory -->
-        <Label Text="Name of the Directory"
+            <!-- Name of the directory -->
+            <Label Text="Name of the Directory"
                FontSize="Medium"/>
-        <Entry x:Name="directoryNameEntry"
+            <Entry x:Name="directoryNameEntry"
                Placeholder="Enter name of directory"
                HorizontalOptions="FillAndExpand"
                Margin="0,0,0,10"/>
 
-        <!-- Directory filepath -->
-        <Label Text="Directory Filepath"
+            <!-- Directory filepath -->
+            <Label Text="Directory Filepath"
                FontSize="Medium"/>
-        <HorizontalStackLayout>
-            <Entry x:Name="folderPath"
+            <HorizontalStackLayout>
+                <Entry x:Name="folderPath"
                    Placeholder="Enter directory filepath"
                    HorizontalOptions="FillAndExpand"
                    Margin="0,0,0,10"/>
-            <Button 
+                <Button 
                     Text="Pick Folder"
                     FontAttributes="Bold"
                     SemanticProperties.Hint="Allows you to pick a folder on the filesystem"
                     Clicked="OnPickFolderClicked"
                     HorizontalOptions="Center" />
-        </HorizontalStackLayout>
+            </HorizontalStackLayout>
 
-        <!-- Dynamic UI for options -->
-        <Label Text="Models / Products"
+            <!-- Dynamic UI for options -->
+            <Label Text="Models / Products"
                FontSize="Medium"/>
-        <StackLayout Orientation="Vertical"
+            <StackLayout Orientation="Vertical"
                      HorizontalOptions="StartAndExpand"
                      Margin="0,0,0,10">
-            <StackLayout Orientation="Horizontal"
+                <StackLayout Orientation="Horizontal"
                          HorizontalOptions="StartAndExpand"
                          VerticalOptions="Center">
-                <Switch x:Name="cracksCheckBox"/>
-                <Label Text="Cracks"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal"
+                    <Switch x:Name="cracksCheckBox"/>
+                    <Label Text="Cracks"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
                          HorizontalOptions="StartAndExpand"
                          VerticalOptions="Center">
-                <Switch x:Name="grainSizeCheckBox"/>
-                <Label Text="Grain Size 1.0"/>
+                    <Switch x:Name="grainSizeCheckBox"/>
+                    <Label Text="Grain Size 1.0"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
 
-        <Button Text="Save Directory"
+            <Button Text="Save Directory"
                 Clicked="OnSaveDirectoryClicked"
                 HorizontalOptions="FillAndExpand"
                 Margin="0,20,0,0"/>
 
-    </StackLayout>
-
+        </StackLayout>
+    </Grid>
 </ContentPage>

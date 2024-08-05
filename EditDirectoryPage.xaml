@@ -5,31 +5,39 @@
              Title="Edit Directory">
 
     <ContentPage.Content>
-        <StackLayout Padding="20">
+        <Grid>
+            <!-- Background image -->
+            <Image 
+            Source="mivia_background.jpg"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Center"
+            Aspect="Center" />
+            <StackLayout Padding="20">
 
-            <Label Text="Directory Name" />
-            <Entry Text="{Binding Name}" />
+                <Label Text="Directory Name" />
+                <Entry Text="{Binding Name}" />
 
-            <Label Text="Directory Path" />
-            <Entry Text="{Binding Path}" />
+                <Label Text="Directory Path" />
+                <Entry Text="{Binding Path}" />
 
-            <StackLayout Orientation="Horizontal"
+                <StackLayout Orientation="Horizontal"
                          HorizontalOptions="End"
                          Margin="0,20,0,0">
-                <Button Text="Save"
+                    <Button Text="Save"
                         Clicked="OnSaveClicked"
                         HorizontalOptions="EndAndExpand" />
-                <Button Text="Cancel"
+                    <Button Text="Cancel"
                         Clicked="OnCancelClicked"
                         HorizontalOptions="End" />
-            </StackLayout>
+                </StackLayout>
 
-            <Button Text="Delete"
+                <Button Text="Delete"
                     Clicked="OnDeleteClicked"
                     HorizontalOptions="Center"
                     Margin="0,20,0,0"
                     TextColor="Red" />
 
-        </StackLayout>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -13,5 +13,6 @@ namespace MiviaMaui
     public interface IMiviaClient
     {
         Task<List<ModelDto>> GetModelsAsync();
+        Task<List<ImageDto>> GetImagesAsync();
     }
 }

@@ -4,34 +4,43 @@
              x:Class="MiviaMaui.ConfigurationPage"
              Title="Configuration Page">
 
-    <StackLayout VerticalOptions="CenterAndExpand"
+    <Grid>
+        <!-- Background image -->
+        <Image 
+            Source="mivia_background.jpg"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Center"
+            Aspect="Center" />
+
+        <StackLayout VerticalOptions="CenterAndExpand"
                  HorizontalOptions="CenterAndExpand"
                  Padding="20">
-        <Label Text="Access Token"
+            <Label Text="Access Token"
                FontSize="Medium"
                HorizontalOptions="Center"/>
-        <Entry x:Name="accessTokenEntry"
+            <Entry x:Name="accessTokenEntry"
                Placeholder="Enter your access token"
                HorizontalOptions="FillAndExpand"
                IsPassword="True"/>
-        <Button x:Name="toggleVisibilityButton"
+            <Button x:Name="toggleVisibilityButton"
             Text="Show"
             Clicked="OnToggleVisibilityClicked"
             HorizontalOptions="Start"
             VerticalOptions="Center"/>
-        <Button Text="Save"
+            <Button Text="Save"
             Clicked="OnSaveClicked"
             HorizontalOptions="Start"
             VerticalOptions="Center"/>
-        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-            <CheckBox x:Name="enableNotificationsCheckBox"
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                <CheckBox x:Name="enableNotificationsCheckBox"
                       Margin="10,0,0,0"
                       VerticalOptions="Center"
                       IsChecked="True"/>
-            <Label Text="Enable Desktop Notifications"
+                <Label Text="Enable Desktop Notifications"
                    FontSize="Medium"
                    VerticalOptions="Center"/>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
+    </Grid>
 
 </ContentPage>

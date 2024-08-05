@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MiviaMaui.ViewModels"
+             x:Class="MiviaMaui.Views.ImagesPage"
+             Title="Images Page">
+
+    <ContentPage.Content>
+        <Grid>
+            <!-- Background image -->
+            <Image 
+                Source="mivia_background.jpg"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center"
+                Aspect="Center" />
+
+            <!-- CollectionView with spacing -->
+            <CollectionView ItemsSource="{Binding Images}"
+                            SelectionMode="None"
+                            Margin="10">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="LightGray" 
+                               CornerRadius="10" 
+                               Margin="0,0,0,15"
+                            BackgroundColor="{StaticResource DarkGrayTransparent}" 
+                               HasShadow="True">
+                            <StackLayout Orientation="Vertical" Padding="10">
+                                <Label Text="{Binding OriginalFilename}"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+                                <Label Text="{Binding CreatedAt, StringFormat='{0:G}'}"
+                                       FontSize="Small"
+                                       TextColor="White"/>
+                                <Label Text="{Binding Validated, StringFormat='Validated: {0}'}"
+                                       FontSize="Small"
+                                       TextColor="White"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,1 +1,1 @@
-C:\Users\Marcin\Desktop\PI\ProjektIn-ynierski\MiviaMaui.csproj;x64
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\MiviaMaui.csproj;x64

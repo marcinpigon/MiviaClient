@@ -99,7 +99,8 @@ namespace MiviaMaui.Services
 
         private void LogToFile(string message)
         {
-            var logFilePath = @"C:\Users\Marcin\Desktop\watcher1\log\log.txt";
+            //var logFilePath = @"C:\Users\Marcin\Desktop\watcher1\log\log.txt";
+            var logFilePath = @"C:\Users\marci\OneDrive\Pulpit\Projekt inzynierski\log.txt";
             try
             {
                 File.AppendAllText(logFilePath, message + Environment.NewLine);

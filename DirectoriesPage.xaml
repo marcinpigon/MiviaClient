@@ -5,59 +5,67 @@
              Title="Directories Page">
 
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand"
+        <Grid>
+            <!-- Background image -->
+            <Image 
+            Source="mivia_background.jpg"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Center"
+            Aspect="Center" />
+            <StackLayout VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand"
                      Padding="20">
 
-            <!-- Button to monitor a new directory -->
-            <Button Text="Monitor New Directory"
+                <!-- Button to monitor a new directory -->
+                <Button Text="Monitor New Directory"
                     Clicked="OnMonitorNewDirectoryClicked"
                     HorizontalOptions="End"
                     VerticalOptions="Start"
                     Margin="0,0,0,20" />
 
-            <!-- CollectionView to display monitored directories -->
-            <CollectionView x:Name="directoriesCollectionView"
+                <!-- CollectionView to display monitored directories -->
+                <CollectionView x:Name="directoriesCollectionView"
                             ItemsSource="{Binding MonitoredDirectories}"
                             VerticalOptions="FillAndExpand">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid WidthRequest="100"
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid WidthRequest="100"
                               HeightRequest="120"
                               Margin="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Image Source="folder.png"
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Image Source="folder.png"
                                    Aspect="AspectFit"
                                    Grid.Row="0"
                                    HeightRequest="80"
                                    WidthRequest="80" />
-                            <Label Text="{Binding Name}"
+                                <Label Text="{Binding Name}"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center"
                                    Grid.Row="1" />
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer 
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer 
                                     NumberOfTapsRequired="2" 
                                     Tapped="OnDirectoryDoubleTapped" />
-                            </Grid.GestureRecognizers>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical"
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
                                      Span="3" />
-                </CollectionView.ItemsLayout>
-            </CollectionView>
+                    </CollectionView.ItemsLayout>
+                </CollectionView>
 
-            <!-- Label to display when there are no monitored directories -->
-            <Label x:Name="noDirectoriesLabel"
+                <!-- Label to display when there are no monitored directories -->
+                <Label x:Name="noDirectoriesLabel"
                    Text="No directories being monitored."
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    IsVisible="False" />
-        </StackLayout>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

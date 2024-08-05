@@ -30,14 +30,17 @@
             <Button Text="Go to Configuration Page"
                     Clicked="OnNavigateToConfigurationPageButtonClicked"
                     Margin="0,20,0,0"/>
-                <Button Text="Go to Directories Page"
+            <Button Text="Go to Directories Page"
                     Clicked="OnNavigateToDirectoriesPageButtonClicked"
                     Margin="0,10,0,0"/>
-                <Button Text="Go to History Page"
+            <Button Text="Go to History Page"
                     Clicked="OnNavigateToHistoryPageButtonClicked"
                     Margin="0,10,0,0"/>
-                <Button Text="Models"
+            <Button Text="Models"
                     Clicked="OnNavigateToModelsPage"
+                    Margin="0,10,0,0"/>
+            <Button Text="Go to Images Page"
+                    Clicked="OnNavigateToImagesPageButtonClicked"
                     Margin="0,10,0,0"/>
         </StackLayout>
     </Grid>
