@@ -28,7 +28,7 @@ namespace MiviaMaui
 
         private async void OnNavigateToHistoryPageButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HistoryPage());
+            await Navigation.PushAsync(new HistoryPage(_directoryService));
         }
 
         private async void OnNavigateToModelsPage(object sender, EventArgs e)

@@ -2,23 +2,23 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MiviaMaui.HistoryPage"
-             Title="History Page">
+             Title="History">
 
-    <Grid>
-        <!-- Background image -->
-        <Image 
-            Source="mivia_background.jpg"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="Center"
-            Aspect="Center" />
-
-        <StackLayout VerticalOptions="CenterAndExpand"
-                 HorizontalOptions="CenterAndExpand">
-            <Label Text="This is the History Page"
-               FontSize="Large"
-               FontAttributes="Bold"
-               HorizontalOptions="Center"/>
-        </StackLayout>
-    </Grid>
+    <StackLayout Padding="10">
+        <Label Text="History" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" />
+        <ListView x:Name="HistoryListView" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="5">
+                            <Label Text="{Binding Timestamp}" FontAttributes="Bold" FontSize="Medium" />
+                            <Label Text="{Binding EventType}" FontAttributes="Italic" />
+                            <Label Text="{Binding Description}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 
 </ContentPage>

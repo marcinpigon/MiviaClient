@@ -14,18 +14,12 @@ namespace MiviaMaui.Services
 
         public ObservableCollection<MonitoredDirectory> MonitoredDirectories { get; private set; }
 
+        private readonly List<HistoryRecord> _historyRecords = [];
+
         public DirectoryService()
         {
             _filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), FileName);
             MonitoredDirectories = LoadDirectories();
-        }
-
-        public void WriteAllDirectories()
-        {
-            foreach (MonitoredDirectory directory in MonitoredDirectories)
-            {
-                Console.WriteLine(directory.Name);
-            }
         }
 
         private ObservableCollection<MonitoredDirectory> LoadDirectories()
@@ -48,6 +42,11 @@ namespace MiviaMaui.Services
 
         public void AddMonitoredDirectory(MonitoredDirectory directory)
         {
+            // Record this event in history
+            var historyMessage = $"Monitoring new directory: {directory.Name} at {directory.Path}";
+            var record = new HistoryRecord(EventType.DirectoryCreated, historyMessage);
+            _historyRecords.Add(record);
+
             directory.Id = MonitoredDirectories.Count > 0 ? MonitoredDirectories.Max(d => d.Id) + 1 : 1;
             MonitoredDirectories.Add(directory);
             SaveDirectories();
@@ -85,6 +84,11 @@ namespace MiviaMaui.Services
             {
                 Console.WriteLine($"Error saving directories: {ex.Message}");
             }
+        }
+
+        public IEnumerable<HistoryRecord> GetHistory()
+        {
+            return _historyRecords;
         }
     }
 }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace MiviaMaui.Models
 {
-    internal class historyObject
+    public enum EventType
     {
-        // jaki obrazek, model, kiedy, wynik (udane, czy nie) lepiej wiecej niz mniej
+        DirectoryCreated,
+        DirectoryDeleted,
+        DirectoryUpdated
     }
 }

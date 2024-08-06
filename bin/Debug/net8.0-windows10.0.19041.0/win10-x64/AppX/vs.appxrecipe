@@ -30,7 +30,7 @@
     <AppXManifest Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-08-05T19:18:08.804</Modified>
+      <Modified>2024-08-06T19:51:17.662</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.dll">
       <PackagePath>MiviaMaui.dll</PackagePath>
-      <Modified>2024-08-05T19:18:07.915</Modified>
+      <Modified>2024-08-06T19:51:16.242</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>MiviaMaui.exe</PackagePath>
-      <Modified>2024-08-05T19:18:07.929</Modified>
+      <Modified>2024-08-06T19:51:16.325</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
