@@ -8,17 +8,19 @@ namespace MiviaMaui
     public partial class MainPage : ContentPage
     {
         private readonly DirectoryService _directoryService;
+        private readonly HistoryService _historyService;
 
-        public MainPage(DirectoryService directoryService)
+        public MainPage(DirectoryService directoryService, HistoryService historyService)
         {
             InitializeComponent();
             _directoryService = directoryService;
+            _historyService = historyService;
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private async void OnNavigateToConfigurationPageButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ConfigurationPage());
+            await Navigation.PushAsync(new ConfigurationPage(_historyService));
         }
 
         private async void OnNavigateToDirectoriesPageButtonClicked(object sender, EventArgs e)
@@ -28,7 +30,7 @@ namespace MiviaMaui
 
         private async void OnNavigateToHistoryPageButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HistoryPage(_directoryService));
+            await Navigation.PushAsync(new HistoryPage(_directoryService, _historyService));
         }
 
         private async void OnNavigateToModelsPage(object sender, EventArgs e)

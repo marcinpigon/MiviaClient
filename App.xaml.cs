@@ -6,6 +6,7 @@ namespace MiviaMaui
     public partial class App : Application
     {
         private readonly DirectoryWatcherService _directoryWatcherService;
+        private readonly HistoryService _historyService;
         public App(IServiceProvider serviceProvider)
         {
             InitializeComponent();
@@ -14,7 +15,10 @@ namespace MiviaMaui
             StartBackgroundTasks();
 
             // Use the serviceProvider to set up the MainPage
-            MainPage = new NavigationPage(new MainPage(serviceProvider.GetRequiredService<DirectoryService>()));
+            MainPage = new NavigationPage(
+                new MainPage(serviceProvider.GetRequiredService<DirectoryService>(), 
+                serviceProvider.GetRequiredService<HistoryService>()
+                ));
 
             // Store the serviceProvider in a static property
             ServiceProvider = serviceProvider;

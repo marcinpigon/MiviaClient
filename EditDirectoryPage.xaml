@@ -8,36 +8,48 @@
         <Grid>
             <!-- Background image -->
             <Image 
-            Source="mivia_background.jpg"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="Center"
-            Aspect="Center" />
-            <StackLayout Padding="20">
+                Source="mivia_background.jpg"
+                Aspect="AspectFill"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
 
-                <Label Text="Directory Name" />
-                <Entry Text="{Binding Name}" />
+            <!-- Overlay content -->
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout Padding="20">
+                    <Label Text="Directory Name" />
+                    <Entry Text="{Binding Name}" />
 
-                <Label Text="Directory Path" />
-                <Entry Text="{Binding Path}" />
+                    <Label Text="Directory Path" />
+                    <Entry Text="{Binding Path}" />
 
-                <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="End"
-                         Margin="0,20,0,0">
-                    <Button Text="Save"
-                        Clicked="OnSaveClicked"
-                        HorizontalOptions="EndAndExpand" />
-                    <Button Text="Cancel"
-                        Clicked="OnCancelClicked"
-                        HorizontalOptions="End" />
+                    <!-- Model selection section -->
+                    <Label Text="Select Models" FontSize="Medium" Margin="0,10,0,10"/>
+                    <StackLayout x:Name="modelOptionsStackLayout"
+                                 Orientation="Vertical"
+                                 HorizontalOptions="StartAndExpand"
+                                 Margin="0,0,0,10">
+                        <!-- Model options will be dynamically added here -->
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="End"
+                                 Margin="0,20,0,0">
+                        <Button Text="Save"
+                                Clicked="OnSaveClicked"
+                                HorizontalOptions="EndAndExpand" />
+                        <Button Text="Cancel"
+                                Clicked="OnCancelClicked"
+                                HorizontalOptions="End" />
+                    </StackLayout>
+
+                    <Button Text="Delete"
+                            Clicked="OnDeleteClicked"
+                            HorizontalOptions="Center"
+                            Margin="0,20,0,0"
+                            TextColor="Red" />
+
                 </StackLayout>
-
-                <Button Text="Delete"
-                    Clicked="OnDeleteClicked"
-                    HorizontalOptions="Center"
-                    Margin="0,20,0,0"
-                    TextColor="Red" />
-
-            </StackLayout>
+            </ScrollView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

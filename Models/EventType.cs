@@ -10,6 +10,10 @@ namespace MiviaMaui.Models
     {
         DirectoryCreated,
         DirectoryDeleted,
-        DirectoryUpdated
+        DirectoryUpdated,
+        ConfigurationUpdated,
+        HttpModels,
+        HttpImages,
+        HttpError
     }
 }

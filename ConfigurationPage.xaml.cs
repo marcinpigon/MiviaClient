@@ -1,13 +1,18 @@
+using MiviaMaui.Models;
+using MiviaMaui.Services;
+
 namespace MiviaMaui;
 
 public partial class ConfigurationPage : ContentPage
 {
     private bool isVisible = false;
-   
-    public ConfigurationPage()
+
+    private readonly HistoryService _historyService;
+
+    public ConfigurationPage(HistoryService historyService)
 	{
 		InitializeComponent();
-
+        _historyService = historyService;
         LoadAccessToken();
     }
 
@@ -28,7 +33,7 @@ public partial class ConfigurationPage : ContentPage
     }
 
 
-    private void OnSaveClicked(object sender, EventArgs e)
+    private async void OnSaveClicked(object sender, EventArgs e)
     {
         // Get the access token from the Entry
         string accessToken = accessTokenEntry.Text;
@@ -36,12 +41,18 @@ public partial class ConfigurationPage : ContentPage
         // Save the access token securely using SecureStorage
         if (!string.IsNullOrWhiteSpace(accessToken))
         {
-            SecureStorage.SetAsync("AccessToken", accessToken);
-            DisplayAlert("Success", "Access token saved successfully!", "OK");
+            await SecureStorage.SetAsync("AccessToken", accessToken);
+            await DisplayAlert("Success", "Access token saved successfully!", "OK");
+
+            var historyMessage = $"Updated access token";
+            var record = new HistoryRecord(EventType.ConfigurationUpdated, historyMessage);
+
+            await _historyService.SaveHistoryRecordAsync(record);
+
         }
         else
         {
-            DisplayAlert("Error", "Access token cannot be empty!", "OK");
+            await DisplayAlert("Error", "Access token cannot be empty!", "OK");
         }
     }
 

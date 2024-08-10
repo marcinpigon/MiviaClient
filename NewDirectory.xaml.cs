@@ -2,17 +2,81 @@ using CommunityToolkit.Maui.Storage;
 using MiviaMaui.Models;
 using MiviaMaui.Services;
 using Microsoft.Maui.Controls;
+using MiviaMaui.Dtos;
 
 namespace MiviaMaui
 {
     public partial class NewDirectory : ContentPage
     {
         private readonly DirectoryService _directoryService;
+        private readonly ModelService _modelService;
 
-        public NewDirectory(DirectoryService directoryService)
+        private List<string> _selectedModelIds = new List<string>();
+
+        public NewDirectory(DirectoryService directoryService, ModelService modelService)
         {
             InitializeComponent();
             _directoryService = directoryService;
+            _modelService = modelService;
+
+            LoadModelsAsync();
+        }
+
+        private async void LoadModelsAsync()
+        {
+            try
+            {
+                var models = await _modelService.GetModelsAsync();
+                UpdateModelUI(models);
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Unable to load models: {ex.Message}", "OK");
+            }
+        }
+
+        private void UpdateModelUI(List<ModelDto> models)
+        {     
+            foreach (var model in models)
+            {
+                var modelLayout = new StackLayout
+                {
+                    Orientation = StackOrientation.Horizontal,
+                    Padding = new Thickness(5)
+                };
+
+                var switchControl = new Switch
+                {
+                    IsToggled = false  // Set default value if needed
+                };
+                switchControl.Toggled += (sender, args) => OnModelToggled(model.Id, args.Value);
+
+                var label = new Label
+                {
+                    Text = model.DisplayName,
+                    VerticalOptions = LayoutOptions.Center
+                };
+
+                modelLayout.Children.Add(switchControl);
+                modelLayout.Children.Add(label);
+
+                modelOptionsStackLayout.Children.Add(modelLayout);
+            }
+        }
+
+        private void OnModelToggled(string modelId, bool isToggled)
+        {
+            if (isToggled)
+            {
+                if (!_selectedModelIds.Contains(modelId))
+                {
+                    _selectedModelIds.Add(modelId);
+                }
+            }
+            else
+            {
+                _selectedModelIds.Remove(modelId);
+            }
         }
 
         private async void OnPickFolderClicked(object sender, EventArgs e)
@@ -43,7 +107,8 @@ namespace MiviaMaui
             var newDirectory = new MonitoredDirectory
             {
                 Name = directoryName,
-                Path = directoryPath
+                Path = directoryPath,
+                ModelIds = _selectedModelIds
             };
 
             _directoryService.AddMonitoredDirectory(newDirectory);

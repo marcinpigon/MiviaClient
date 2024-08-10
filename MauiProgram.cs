@@ -28,6 +28,8 @@ namespace MiviaMaui
 
             builder.Services.AddSingleton<DirectoryWatcherService>();
             builder.Services.AddSingleton<DirectoryService>();
+            builder.Services.AddSingleton<HistoryService>();
+            builder.Services.AddSingleton<ModelService>();
             builder.Services.AddSingleton<ModelsViewModel>();
             builder.Services.AddSingleton<ImagesViewModel>();
             builder.Services.AddTransient<ModelsPage>();
@@ -36,11 +38,8 @@ namespace MiviaMaui
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-
-            // Build the app
             var mauiApp = builder.Build();
 
-            // Set the ServiceProvider in the App class
             var app = new App(mauiApp.Services);
             return mauiApp;
         }

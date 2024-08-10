@@ -4,21 +4,51 @@
              x:Class="MiviaMaui.HistoryPage"
              Title="History">
 
-    <StackLayout Padding="10">
-        <Label Text="History" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" />
-        <ListView x:Name="HistoryListView" HasUnevenRows="True">
+    <Grid Padding="10">
+        <!-- Grid definition with two rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Clear History Button -->
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="End"
+                     VerticalOptions="Start"
+                     Grid.Row="0"
+                     Spacing="10">
+            <Button Text="Clear History"
+                    Clicked="OnClearHistoryClicked"
+                    HorizontalOptions="End"
+                    BackgroundColor="Red"
+                    TextColor="White"/>
+        </StackLayout>
+
+        <!-- History ListView -->
+        <ListView x:Name="HistoryListView"
+                  Grid.Row="1"
+                  HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="5">
-                            <Label Text="{Binding Timestamp}" FontAttributes="Bold" FontSize="Medium" />
-                            <Label Text="{Binding EventType}" FontAttributes="Italic" />
-                            <Label Text="{Binding Description}" />
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <!-- StackLayout for the history entry details -->
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Timestamp}" FontAttributes="Bold" FontSize="Medium" />
+                                <Label Text="{Binding EventType}" FontAttributes="Italic" />
+                                <Label Text="{Binding Description}" />
+                            </StackLayout>
+                            <!-- Button for deleting the entry -->
+                            <Button Text="X"
+                                    TextColor="White"
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="End"
+                                    Clicked="OnDeleteClicked"
+                                    CommandParameter="{Binding .}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>
-
+    </Grid>
 </ContentPage>

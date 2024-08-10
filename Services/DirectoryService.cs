@@ -12,13 +12,16 @@ namespace MiviaMaui.Services
         private const string FileName = "monitored_directories.json";
         private readonly string _filePath;
 
+        private readonly HistoryService _historyService;
+
         public ObservableCollection<MonitoredDirectory> MonitoredDirectories { get; private set; }
 
         private readonly List<HistoryRecord> _historyRecords = [];
 
-        public DirectoryService()
+        public DirectoryService(HistoryService historyService)
         {
             _filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), FileName);
+            _historyService = historyService;
             MonitoredDirectories = LoadDirectories();
         }
 
@@ -40,12 +43,13 @@ namespace MiviaMaui.Services
             return new ObservableCollection<MonitoredDirectory>();
         }
 
-        public void AddMonitoredDirectory(MonitoredDirectory directory)
+        public async void AddMonitoredDirectory(MonitoredDirectory directory)
         {
-            // Record this event in history
             var historyMessage = $"Monitoring new directory: {directory.Name} at {directory.Path}";
             var record = new HistoryRecord(EventType.DirectoryCreated, historyMessage);
             _historyRecords.Add(record);
+
+            await _historyService.SaveHistoryRecordAsync(record);
 
             directory.Id = MonitoredDirectories.Count > 0 ? MonitoredDirectories.Max(d => d.Id) + 1 : 1;
             MonitoredDirectories.Add(directory);

@@ -39,7 +39,7 @@ namespace MiviaMaui
 
         private async void OnMonitorNewDirectoryClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NewDirectory(_directoryService));
+            await Navigation.PushAsync(new NewDirectory(_directoryService, App.ServiceProvider.GetRequiredService<ModelService>()));
         }
 
         private async void OnDirectoryDoubleTapped(object sender, EventArgs e)
@@ -48,7 +48,8 @@ namespace MiviaMaui
             var monitoredDirectory = grid?.BindingContext as MonitoredDirectory;
             if (monitoredDirectory != null)
             {
-                await Navigation.PushAsync(new EditDirectoryPage(_directoryService, monitoredDirectory));
+                await Navigation.PushAsync(new EditDirectoryPage(_directoryService, monitoredDirectory, 
+                    App.ServiceProvider.GetRequiredService<ModelService>()));
             }
         }
     }
