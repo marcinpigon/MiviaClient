@@ -7,14 +7,12 @@
 
     <ContentPage.Content>
         <Grid>
-            <!-- Background image -->
             <Image 
                 Source="mivia_background.jpg"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="Center"
                 Aspect="Center" />
 
-            <!-- CollectionView with spacing -->
             <CollectionView ItemsSource="{Binding Images}"
                             SelectionMode="None"
                             Margin="10">
@@ -27,7 +25,7 @@
                         <Frame BorderColor="LightGray" 
                                CornerRadius="10" 
                                Margin="0,0,0,15"
-                            BackgroundColor="{StaticResource DarkGrayTransparent}" 
+                               BackgroundColor="{StaticResource DarkGrayTransparent}" 
                                HasShadow="True">
                             <StackLayout Orientation="Vertical" Padding="10">
                                 <Label Text="{Binding OriginalFilename}"
@@ -40,6 +38,12 @@
                                 <Label Text="{Binding Validated, StringFormat='Validated: {0}'}"
                                        FontSize="Small"
                                        TextColor="White"/>
+
+                                <Button Text="Delete"
+                                        TextColor="White"
+                                        BackgroundColor="Red"
+                                        Clicked="OnDeleteButtonClicked"
+                                        CommandParameter="{Binding Id}"/>
                             </StackLayout>
                         </Frame>
                     </DataTemplate>

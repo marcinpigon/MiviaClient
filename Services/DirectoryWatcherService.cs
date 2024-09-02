@@ -5,20 +5,25 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using MiviaMaui.Models;
+using MiviaMaui.Interfaces;
+using MiviaMaui.Dtos;
+using System.Diagnostics;
 
 namespace MiviaMaui.Services
 {
     public class DirectoryWatcherService : IDisposable
     {
         private readonly DirectoryService _directoryService;
+        private readonly HistoryService _historyService;
         private readonly Dictionary<int, FileSystemWatcher> _watchers;
         private bool _isWatching;
 
         private readonly IMiviaClient _miviaClient;
 
-        public DirectoryWatcherService(DirectoryService directoryService, IMiviaClient miviaClient)
+        public DirectoryWatcherService(DirectoryService directoryService, HistoryService historyService, IMiviaClient miviaClient)
         {
             _directoryService = directoryService;
+            _historyService = historyService;
             _watchers = new Dictionary<int, FileSystemWatcher>();
             InitializeWatchers();
             _miviaClient = miviaClient;
@@ -65,7 +70,7 @@ namespace MiviaMaui.Services
                 EnableRaisingEvents = true
             };
 
-            watcher.Created += (s, e) => OnChanged(s, e, directory.Id);
+            watcher.Created += (s, e) => OnCreated(s, e, directory.Id);
             watcher.Deleted += (s, e) => OnChanged(s, e, directory.Id);
             watcher.Changed += (s, e) => OnChanged(s, e, directory.Id);
             watcher.Renamed += (s, e) => OnRenamed(s, e, directory.Id);
@@ -81,6 +86,89 @@ namespace MiviaMaui.Services
                 watcher.Dispose();
                 _watchers.Remove(directory.Id);
             }
+        }
+
+        private async void OnCreated(object sender, FileSystemEventArgs e, int watcherId)
+        {
+            var historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} created";
+            var record = new HistoryRecord(EventType.FileCreated, historyMessage);
+            await _historyService.SaveHistoryRecordAsync(record);
+
+            if (isFileReady(e.FullPath))
+            {
+                try
+                {
+                    // Sending image
+                    var imageId = await _miviaClient.PostImageAsync(e.FullPath, false);
+                    historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} uploaded!";
+                    record = new HistoryRecord(EventType.FileUploaded, historyMessage);
+                    await _historyService.SaveHistoryRecordAsync(record);
+
+                    // Scheduling Job
+                    var monitoredDirectory = _directoryService.MonitoredDirectories.FirstOrDefault(d => d.Id == watcherId);
+                    if (monitoredDirectory != null && monitoredDirectory.ModelIds.Any())
+                    {
+                        foreach (var modelId in monitoredDirectory.ModelIds)
+                        {
+                            var jobScheduled = await _miviaClient.ScheduleJobAsync(imageId, modelId);
+                            if (jobScheduled)
+                            {
+                                historyMessage = $"[{DateTime.Now}] Job scheduled successfully for Image: {imageId} with Model: {modelId}";
+                            }
+                            else
+                            {
+                                historyMessage = $"[{DateTime.Now}] Failed to schedule job for Image: {imageId} with Model: {modelId}";
+                            }
+                            record = new HistoryRecord(EventType.HttpJobs, historyMessage);
+                            await _historyService.SaveHistoryRecordAsync(record);
+                        }
+                    }
+                    else
+                    {
+                        historyMessage = $"Monitored directory not found!";
+                        record = new HistoryRecord(EventType.HttpJobs, historyMessage);
+                        await _historyService.SaveHistoryRecordAsync(record);
+                    }
+                }
+                catch (Exception ex) 
+                {
+                    historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} failed to upload: {ex.Message}";
+                    record = new HistoryRecord(EventType.FileError, historyMessage);
+                    await _historyService.SaveHistoryRecordAsync(record);
+                }
+            }
+            else
+            {
+                historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} is not ready for processing";
+                record = new HistoryRecord(EventType.FileError, historyMessage);
+                await _historyService.SaveHistoryRecordAsync(record);
+            }
+        }
+
+        private bool isFileReady(string fullPath)
+        {
+            const int maxRetries = 10;
+            const int delay = 500;  // milliseconds
+            for (int i = 0; i < maxRetries; i++)
+            {
+                try
+                {
+                    using (FileStream stream = File.Open(fullPath, FileMode.Open, FileAccess.Read, FileShare.None))
+                    {
+                        if (stream.Length > 0)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                catch (IOException)
+                {
+                    // The file is not ready yet, wait and try again
+                    System.Threading.Thread.Sleep(delay);
+                }
+            }
+
+            return false;
         }
 
         private void OnChanged(object sender, FileSystemEventArgs e, int watcherId)

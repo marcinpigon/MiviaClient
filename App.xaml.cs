@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MiviaMaui.Interfaces;
 using MiviaMaui.Services;
 
 namespace MiviaMaui
@@ -7,20 +8,21 @@ namespace MiviaMaui
     {
         private readonly DirectoryWatcherService _directoryWatcherService;
         private readonly HistoryService _historyService;
+        private readonly INotificationService _notificationService;
+
         public App(IServiceProvider serviceProvider)
         {
             InitializeComponent();
 
             _directoryWatcherService = serviceProvider.GetRequiredService<DirectoryWatcherService>();
+            _notificationService = serviceProvider.GetRequiredService<INotificationService>();
             StartBackgroundTasks();
 
-            // Use the serviceProvider to set up the MainPage
             MainPage = new NavigationPage(
-                new MainPage(serviceProvider.GetRequiredService<DirectoryService>(), 
+                new MainPage(serviceProvider.GetRequiredService<DirectoryService>(),
                 serviceProvider.GetRequiredService<HistoryService>()
                 ));
 
-            // Store the serviceProvider in a static property
             ServiceProvider = serviceProvider;
         }
 
@@ -36,13 +38,12 @@ namespace MiviaMaui
 
         private void StartBackgroundTasks()
         {
-            // Run the directory watcher in a background task
             Task.Run(() => _directoryWatcherService.StartWatching());
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            _notificationService.ShowNotification("Directory Watcher", "Monitoring directories");
         }
 
         protected override void OnSleep()

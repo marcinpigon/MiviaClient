@@ -11,9 +11,18 @@ namespace MiviaMaui.Models
         DirectoryCreated,
         DirectoryDeleted,
         DirectoryUpdated,
+
         ConfigurationUpdated,
+
+        FileCreated,
+        FileDeleted,
+        FileUpdated,
+        FileUploaded,
+        FileError,
+
         HttpModels,
         HttpImages,
-        HttpError
+        HttpJobs,
+        HttpError,
     }
 }

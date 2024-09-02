@@ -4,6 +4,7 @@ using CommunityToolkit.Maui;
 using MiviaMaui.Services;
 using MiviaMaui.ViewModels;
 using MiviaMaui.Views;
+using MiviaMaui.Interfaces;
 
 namespace MiviaMaui
 {
@@ -37,6 +38,10 @@ namespace MiviaMaui
 
 #if DEBUG
             builder.Logging.AddDebug();
+#endif
+
+#if WINDOWS
+            builder.Services.AddSingleton<INotificationService, WindowsNotificationService>();
 #endif
             var mauiApp = builder.Build();
 

@@ -15,7 +15,7 @@ namespace MiviaMaui.Dtos
         public DateTime CreatedAt { get; set; }
 
         [JsonPropertyName("orginalFilename")]
-        public string OriginalFilename { get; set; }  // Keep this as OriginalFilename
+        public string OriginalFilename { get; set; }
 
         public bool Validated { get; set; }
     }

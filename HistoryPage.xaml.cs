@@ -15,7 +15,6 @@ namespace MiviaMaui
             _directoryService = directoryService;
             _historyService = historyService;
 
-            // Retrieve the history records and set them as the ItemsSource for the ListView
             LoadHistoryRecords();
         }
 
