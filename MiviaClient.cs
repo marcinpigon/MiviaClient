@@ -23,7 +23,6 @@ namespace MiviaMaui
         private const string ModelsUri = "/api/settings/models";
         private const string JobsUri = "/api/jobs";
         private const string ReportUri = "/api/reports/pdf2";
-
         private bool _initialized = false;
 
         public MiviaClient(HttpClient httpClient, HistoryService historyService, INotificationService notificationService)
@@ -131,7 +130,7 @@ namespace MiviaMaui
 
                     List<ImageDto>? uploadedImage = JsonSerializer.Deserialize<List<ImageDto>>(jsonString) ?? null;
 
-                    _notificationService.ShowNotification("Image", $"Image: {filePath} sent successfully!");
+                    _notificationService.ShowNotification($"Image: {uploadedImage[0].Id}", $"Image: {filePath} sent successfully!");
 
                     var historyMessage = $"Image sent successfully: {filePath}";
                     var record = new HistoryRecord(EventType.HttpImages, historyMessage);
@@ -163,14 +162,14 @@ namespace MiviaMaui
             }
         }
 
-        public async Task<bool> ScheduleJobAsync(string imageId, string modelId)
+        public async Task<string?> ScheduleJobAsync(string imageId, string modelId)
         {
             try
             {
                 var requestContent = new
                 {
                     imageIds = new[] { imageId },
-                    modelId = modelId
+                    modelId
                 };
                 var jsonContent = JsonSerializer.Serialize(requestContent);
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
@@ -183,20 +182,19 @@ namespace MiviaMaui
 
                 response.EnsureSuccessStatusCode();
 
-                var responseJson = await response.Content.ReadAsStringAsync();
-                var jobResponse = JsonSerializer.Deserialize<UserJobDto>(responseJson);
+                var jsonResponse = await response.Content.ReadAsStringAsync();
 
+                var jsonJobIds = JsonSerializer.Deserialize<List<PostJobDto>>(jsonResponse);
 
                 _notificationService.ShowNotification(
-                    "Job Scheduled!",
-                    $"Job ID: {jobResponse?.Id}");
+                    "Job Scheduled!", $"Succesfully scheduled job for image: {jsonJobIds?[0].JobId}");
 
-                return response.IsSuccessStatusCode;
+                return jsonJobIds?[0].JobId;
             }
             catch (Exception ex)
             {
                 _notificationService.ShowNotification("Job scheduling failed",$"Failed to schedule job: {ex.Message}");
-                return false;
+                return null;
             }
         }
 

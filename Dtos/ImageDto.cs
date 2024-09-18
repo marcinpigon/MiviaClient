@@ -9,6 +9,7 @@ namespace MiviaMaui.Dtos
 {
     public class ImageDto
     {
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
         [JsonPropertyName("createdAt")]

@@ -16,6 +16,6 @@ namespace MiviaMaui.Interfaces
         Task<List<ImageDto>> GetImagesAsync();
         Task<string> PostImageAsync(string filePath, bool forced);
         Task DeleteImageAsync(string id);
-        Task<bool> ScheduleJobAsync(string imageId, string modelId);
+        Task<string> ScheduleJobAsync(string imageId, string modelId);
     }
 }

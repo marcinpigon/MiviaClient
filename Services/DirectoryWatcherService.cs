@@ -110,10 +110,10 @@ namespace MiviaMaui.Services
                     {
                         foreach (var modelId in monitoredDirectory.ModelIds)
                         {
-                            var jobScheduled = await _miviaClient.ScheduleJobAsync(imageId, modelId);
-                            if (jobScheduled)
+                            var jobId = await _miviaClient.ScheduleJobAsync(imageId, modelId);
+                            if (jobId != null)
                             {
-                                historyMessage = $"[{DateTime.Now}] Job scheduled successfully for Image: {imageId} with Model: {modelId}";
+                                historyMessage = $"[{DateTime.Now}] Job scheduled successfully! Job ID: {jobId}";
                             }
                             else
                             {
