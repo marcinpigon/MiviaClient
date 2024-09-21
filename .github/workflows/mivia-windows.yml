@@ -34,3 +34,9 @@ jobs:
       uses: actions/upload-artifact@v3.2.1-node20
       with:
         path: .\**\AppPackages\**\*.*
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: .\**\AppPackages\**\*.*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
