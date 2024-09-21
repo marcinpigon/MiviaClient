@@ -34,9 +34,14 @@ jobs:
       uses: actions/upload-artifact@v3.2.1-node20
       with:
         path: .\**\AppPackages\**\*.*
+    - name: Create Git Tag
+      run: |
+        git tag v1.0.${{ github.run_number }}
+        git push origin v1.0.${{ github.run_number }}
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
       with:
+        tag_name: v1.0.${{ github.run_number }}
         files: .\**\AppPackages\**\*.*
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
