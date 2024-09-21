@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
@@ -34,6 +36,11 @@ jobs:
       uses: actions/upload-artifact@v3.2.1-node20
       with:
         path: .\**\AppPackages\**\*.*
+    - name: Configure Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
     - name: Create Git Tag
       run: |
         git tag v1.0.${{ github.run_number }}
