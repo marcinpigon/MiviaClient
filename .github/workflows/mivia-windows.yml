@@ -49,6 +49,6 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         tag_name: v1.0.${{ github.run_number }}
-        files: '**/AppPackages/**/*.msixbundle'
+        files: '**/AppPackages/MiviaMaui_1.0.0.1_Test/*.msix'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
