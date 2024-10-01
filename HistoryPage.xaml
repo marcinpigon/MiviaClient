@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:lang="clr-namespace:MiviaMaui.Resources.Languages"
              x:Class="MiviaMaui.HistoryPage"
              Title="History">
 
@@ -17,7 +18,7 @@
                      VerticalOptions="Start"
                      Grid.Row="0"
                      Spacing="10">
-            <Button Text="Clear History"
+            <Button Text="{x:Static lang:AppResources.historyClearHistory}"
                     Clicked="OnClearHistoryClicked"
                     HorizontalOptions="End"
                     BackgroundColor="Red"

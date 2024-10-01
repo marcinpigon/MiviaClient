@@ -226,6 +226,9 @@
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.deps.json">
       <PackagePath>MiviaMaui.deps.json</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\pl\MiviaMaui.resources.dll">
+      <PackagePath>pl\MiviaMaui.resources.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
     </AppxPackagedFile>

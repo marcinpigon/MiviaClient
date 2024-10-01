@@ -1,6 +1,7 @@
 using MiviaMaui.Services;
 using Microsoft.Maui.Controls;
 using MiviaMaui.Models;
+using MiviaMaui.Resources.Languages;
 
 namespace MiviaMaui
 {
@@ -91,7 +92,10 @@ namespace MiviaMaui
 
         private async void OnDeleteClicked(object sender, EventArgs e)
         {
-            bool confirm = await DisplayAlert("Delete Directory", "Are you sure you want to delete this directory?", "Yes", "No");
+            bool confirm = await DisplayAlert(AppResources.editdirectoryDeleteDirectory, 
+                AppResources.editdirectoryConfirmDeleteMessage, 
+                AppResources.yes, 
+                AppResources.no);
             if (confirm)
             {
                 _directoryService.DeleteDirectory(_monitoredDirectory.Id);

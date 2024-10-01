@@ -1,4 +1,5 @@
 using MiviaMaui.Models;
+using MiviaMaui.Resources.Languages;
 using MiviaMaui.Services;
 
 namespace MiviaMaui;
@@ -23,12 +24,12 @@ public partial class ConfigurationPage : ContentPage
         if (isVisible)
         {
             accessTokenEntry.IsPassword = false; // Show plain text
-            toggleVisibilityButton.Text = "Hide";
+            toggleVisibilityButton.Text = AppResources.configurationHidePassword;
         }
         else
         {
             accessTokenEntry.IsPassword = true; // Show dots
-            toggleVisibilityButton.Text = "Show";
+            toggleVisibilityButton.Text = AppResources.configurationShowPassword;
         }
     }
 
@@ -42,7 +43,7 @@ public partial class ConfigurationPage : ContentPage
         if (!string.IsNullOrWhiteSpace(accessToken))
         {
             await SecureStorage.SetAsync("AccessToken", accessToken);
-            await DisplayAlert("Success", "Access token saved successfully!", "OK");
+            await DisplayAlert(AppResources.success, AppResources.configurationTokenSavedSuccess, "OK");
 
             var historyMessage = $"Updated access token";
             var record = new HistoryRecord(EventType.ConfigurationUpdated, historyMessage);
@@ -52,7 +53,7 @@ public partial class ConfigurationPage : ContentPage
         }
         else
         {
-            await DisplayAlert("Error", "Access token cannot be empty!", "OK");
+            await DisplayAlert(AppResources.error, AppResources.configurationTokenEmpty, "OK");
         }
     }
 

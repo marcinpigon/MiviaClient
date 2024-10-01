@@ -3,6 +3,7 @@ using MiviaMaui.Models;
 using MiviaMaui.Services;
 using Microsoft.Maui.Controls;
 using MiviaMaui.Dtos;
+using MiviaMaui.Resources.Languages;
 
 namespace MiviaMaui
 {
@@ -12,6 +13,7 @@ namespace MiviaMaui
         private readonly ModelService _modelService;
 
         private List<string> _selectedModelIds = new List<string>();
+        private List<string> _selectedModelNames = new List<string>();
 
         public NewDirectory(DirectoryService directoryService, ModelService modelService)
         {
@@ -31,7 +33,7 @@ namespace MiviaMaui
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", $"Unable to load models: {ex.Message}", "OK");
+                await DisplayAlert(AppResources.error, $"{AppResources.newdirectoryUnableToLoadModels} {ex.Message}", "OK");
             }
         }
 
@@ -47,9 +49,9 @@ namespace MiviaMaui
 
                 var switchControl = new Switch
                 {
-                    IsToggled = false  // Set default value if needed
+                    IsToggled = false 
                 };
-                switchControl.Toggled += (sender, args) => OnModelToggled(model.Id, args.Value);
+                switchControl.Toggled += (sender, args) => OnModelToggled(model.Id, model.DisplayName, args.Value);
 
                 var label = new Label
                 {
@@ -64,18 +66,20 @@ namespace MiviaMaui
             }
         }
 
-        private void OnModelToggled(string modelId, bool isToggled)
+        private void OnModelToggled(string modelId, string modelName, bool isToggled)
         {
             if (isToggled)
             {
                 if (!_selectedModelIds.Contains(modelId))
                 {
                     _selectedModelIds.Add(modelId);
+                    _selectedModelNames.Add(modelName);
                 }
             }
             else
             {
                 _selectedModelIds.Remove(modelId);
+                _selectedModelNames.Remove(modelName);
             }
         }
 
@@ -89,7 +93,7 @@ namespace MiviaMaui
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", $"Unable to pick folder: {ex.Message}", "OK");
+                await DisplayAlert(AppResources.error, $"{AppResources.newdirectoryUnableToPickFolder} {ex.Message}", "OK");
             }
         }
 
@@ -100,7 +104,7 @@ namespace MiviaMaui
 
             if (string.IsNullOrEmpty(directoryName) || string.IsNullOrEmpty(directoryPath))
             {
-                await DisplayAlert("Error", "Please provide both directory name and path.", "OK");
+                await DisplayAlert(AppResources.error, AppResources.newdirectoryMissingInfo, "OK");
                 return;
             }
 
@@ -108,12 +112,13 @@ namespace MiviaMaui
             {
                 Name = directoryName,
                 Path = directoryPath,
-                ModelIds = _selectedModelIds
+                ModelIds = _selectedModelIds,
+                ModelNames = _selectedModelNames
             };
 
             _directoryService.AddMonitoredDirectory(newDirectory);
 
-            await DisplayAlert("Success", "Directory saved successfully!", "OK");
+            await DisplayAlert(AppResources.success, AppResources.newdirectorySavedSuccess, "OK");
 
             // Navigate back to DirectoriesPage
             await Navigation.PopAsync();

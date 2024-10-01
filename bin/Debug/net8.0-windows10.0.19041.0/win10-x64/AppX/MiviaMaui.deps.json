@@ -21,6 +21,11 @@
         },
         "runtime": {
           "MiviaMaui.dll": {}
+        },
+        "resources": {
+          "pl/MiviaMaui.resources.dll": {
+            "locale": "pl"
+          }
         }
       },
       "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.31": {
