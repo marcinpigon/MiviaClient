@@ -12,6 +12,7 @@ public class MauiPopup
 	static {
 		__md_methods = 
 			"n_show:()V:GetShowHandler\n" +
+			"n_onTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"n_onCancel:(Landroid/content/DialogInterface;)V:GetOnCancel_Landroid_content_DialogInterface_Handler:Android.Content.IDialogInterfaceOnCancelListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"";
 		mono.android.Runtime.register ("CommunityToolkit.Maui.Core.Views.MauiPopup, CommunityToolkit.Maui.Core", MauiPopup.class, __md_methods);
@@ -51,6 +52,14 @@ public class MauiPopup
 	}
 
 	private native void n_show ();
+
+
+	public boolean onTouchEvent (android.view.MotionEvent p0)
+	{
+		return n_onTouchEvent (p0);
+	}
+
+	private native boolean n_onTouchEvent (android.view.MotionEvent p0);
 
 
 	public void onCancel (android.content.DialogInterface p0)

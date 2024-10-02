@@ -1,4 +1,5 @@
 using MiviaMaui.Models;
+using MiviaMaui.Resources.Languages;
 using MiviaMaui.Services;
 using System.Collections.Generic;
 
@@ -21,7 +22,8 @@ namespace MiviaMaui
         private async void LoadHistoryRecords()
         {
             var historyRecords = await _historyService.GetHistoryAsync();
-            HistoryListView.ItemsSource = historyRecords;
+            var sortedHistoryRecords = historyRecords.OrderByDescending(record => record.Timestamp).ToList();
+            HistoryListView.ItemsSource = sortedHistoryRecords;
         }
 
         private async void OnDeleteClicked(object sender, EventArgs e)
@@ -31,22 +33,17 @@ namespace MiviaMaui
 
             if (record != null)
             {
-                bool confirmDelete = await DisplayAlert("Delete", "Are you sure you want to delete this history entry?", "Yes", "No");
-
-                if (confirmDelete)
-                {
-                    // Delete the record from the database
-                    await _historyService.DeleteHistoryRecordAsync(record);
-
-                    // Reload the history records to update the ListView
-                    LoadHistoryRecords();
-                }
+                await _historyService.DeleteHistoryRecordAsync(record);
+                LoadHistoryRecords();
             }
         }
 
         private async void OnClearHistoryClicked(object sender, EventArgs e)
         {
-            bool confirm = await DisplayAlert("Clear History", "Are you sure you want to clear all history?", "Yes", "No");
+            bool confirm = await DisplayAlert(AppResources.historyClearHistory, 
+                AppResources.historyClearHistoryConfirmMessage, 
+                AppResources.yes, 
+                AppResources.no);
             if (confirm)
             {
                 await _historyService.RecreateHistoryTableAsync();

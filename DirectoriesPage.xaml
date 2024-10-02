@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MiviaMaui.DirectoriesPage"
+             xmlns:lang="clr-namespace:MiviaMaui.Resources.Languages"
              Title="Directories Page">
 
     <ContentPage.Content>
@@ -17,7 +18,7 @@
                      Padding="20">
 
                 <!-- Button to monitor a new directory -->
-                <Button Text="Monitor New Directory"
+                <Button Text="{x:Static lang:AppResources.directoryMonitorNewDirectory}"
                     Clicked="OnMonitorNewDirectoryClicked"
                     HorizontalOptions="End"
                     VerticalOptions="Start"
@@ -61,7 +62,7 @@
 
                 <!-- Label to display when there are no monitored directories -->
                 <Label x:Name="noDirectoriesLabel"
-                   Text="No directories being monitored."
+                   Text="{x:Static lang:AppResources.directoryNoDirectoriesMonitored}"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    IsVisible="False" />

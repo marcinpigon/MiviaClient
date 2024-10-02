@@ -276,12 +276,17 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-ios\iossimulator-x64\l
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-ios\iossimulator-x64\libxamarin-dotnet-nativeaot.a
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-ios\iossimulator-x64\libxamarin-dotnet.a
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-ios\iossimulator-x64\libxamarin-dotnet.dylib
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\build-signature\signature
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\mauiimage.inputs
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\mauifont.inputs
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\mauisplash.inputs
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\MauiInfo.plist
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\MauiSplash.storyboard
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_58C11A0A2CDF3C43117FC29EECA319E6FBFEFE150B9123BB20E86A467F499449.png
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_58C11A0A2CDF3C43117FC29EECA319E6FBFEFE150B9123BB20E86A467F499449@2x.png
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_58C11A0A2CDF3C43117FC29EECA319E6FBFEFE150B9123BB20E86A467F499449@3x.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\mauisplash.stamp
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\Resources\mivia_logo.png
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\Resources\mivia_background.jpg
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\Resources\folder.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\Assets.xcassets\appicon.appiconset\appiconItunesArtwork.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\Assets.xcassets\appicon.appiconset\appicon83.5x83.5@2x.png
@@ -298,6 +303,7 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\r
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\dotnet_bot@3x.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\dotnet_bot@2x.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\dotnet_bot.png
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\r\Resources\mivia_background.jpg
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\mauiimage.stamp
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\mauiimage.outputs
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\f\MauiInfo.plist
@@ -315,6 +321,8 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\c
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\_ProcessedBundleResourcesPath.items
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\_ProcessedContentPath.items
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\MiviaMaui.csproj.AssemblyReference.cache
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\MiviaMaui.Resources.Languages.AppResources.resources
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\MiviaMaui.csproj.GenerateResource.cache
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\MiviaMaui.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\MiviaMaui.AssemblyInfoInputs.cache
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\MiviaMaui.AssemblyInfo.cs
@@ -327,9 +335,3 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\r
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\MiviaMaui.pdb
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\MiviaMaui.genruntimeconfig.cache
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\ref\MiviaMaui.dll
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\build-signature\signature
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\MauiInfo.plist
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\MauiSplash.storyboard
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_58C11A0A2CDF3C43117FC29EECA319E6FBFEFE150B9123BB20E86A467F499449.png
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_58C11A0A2CDF3C43117FC29EECA319E6FBFEFE150B9123BB20E86A467F499449@2x.png
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_58C11A0A2CDF3C43117FC29EECA319E6FBFEFE150B9123BB20E86A467F499449@3x.png

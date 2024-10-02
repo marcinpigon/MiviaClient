@@ -88,8 +88,23 @@ namespace MiviaMaui.Services
             }
         }
 
+        private bool IsAllowedFileType(string filePath)
+        {
+            var extension = Path.GetExtension(filePath).ToLowerInvariant();
+
+            return extension == ".jpg" || extension == ".jpeg" ||
+                   extension == ".png" || extension == ".gif" ||
+                   extension == ".bmp" || extension == ".tif" ||
+                   extension == ".tiff";
+        }
+
         private async void OnCreated(object sender, FileSystemEventArgs e, int watcherId)
         {
+            if(!IsAllowedFileType(e.FullPath))
+            {
+                return;
+            }
+
             var historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} created";
             var record = new HistoryRecord(EventType.FileCreated, historyMessage);
             await _historyService.SaveHistoryRecordAsync(record);
@@ -98,19 +113,47 @@ namespace MiviaMaui.Services
             {
                 try
                 {
-                    // Sending image
-                    var imageId = await _miviaClient.PostImageAsync(e.FullPath, false);
+                    var images = await _miviaClient.GetImagesAsync();
+                    var fileName = Path.GetFileName(e.FullPath);
+
+                    var existingImage = images.FirstOrDefault(img => img.OriginalFilename == fileName);
+                    var imageId = "";
+
+                    if (existingImage != null)
+                    {
+                        imageId = existingImage.Id;
+                    }
+                    else
+                    {
+                        // Sending image
+                        imageId = await _miviaClient.PostImageAsync(e.FullPath, false);
+                    }
+
                     historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} uploaded!";
                     record = new HistoryRecord(EventType.FileUploaded, historyMessage);
                     await _historyService.SaveHistoryRecordAsync(record);
 
-                    // Scheduling Job
                     var monitoredDirectory = _directoryService.MonitoredDirectories.FirstOrDefault(d => d.Id == watcherId);
-                    if (monitoredDirectory != null && monitoredDirectory.ModelIds.Any())
+
+                    var jobsIds = new List<string>();
+                    var modelIds = monitoredDirectory?.ModelIds;
+                    var modelNames = monitoredDirectory?.ModelNames;
+                    var modelsDictionary = new Dictionary<string, string>();
+
+                    // Scheduling Job
+                    if (monitoredDirectory != null && modelIds != null && modelNames != null && modelIds.Any() && modelIds.Count == modelNames.Count)
                     {
-                        foreach (var modelId in monitoredDirectory.ModelIds)
+                        for (int i = 0; i < modelIds.Count; i++)
                         {
+                            var modelId = modelIds[i];
+                            var modelName = modelNames[i];
+
+                            modelsDictionary.Add(modelId, modelName);
+
+                            // Schedule job
                             var jobId = await _miviaClient.ScheduleJobAsync(imageId, modelId);
+                            jobsIds.Add(jobId);
+
                             if (jobId != null)
                             {
                                 historyMessage = $"[{DateTime.Now}] Job scheduled successfully! Job ID: {jobId}";
@@ -119,18 +162,50 @@ namespace MiviaMaui.Services
                             {
                                 historyMessage = $"[{DateTime.Now}] Failed to schedule job for Image: {imageId} with Model: {modelId}";
                             }
+
                             record = new HistoryRecord(EventType.HttpJobs, historyMessage);
                             await _historyService.SaveHistoryRecordAsync(record);
                         }
                     }
                     else
                     {
-                        historyMessage = $"Monitored directory not found!";
+                        historyMessage = "Model IDs and Names count mismatch or no models found.";
                         record = new HistoryRecord(EventType.HttpJobs, historyMessage);
                         await _historyService.SaveHistoryRecordAsync(record);
                     }
+
+                    // Getting reports
+                    foreach (var jobId in jobsIds)
+                    {
+                        var isJobFinished = await _miviaClient.IsJobFinishedAsync(jobId);
+
+                        if (isJobFinished)
+                        {
+                            var directoryPath = Path.GetDirectoryName(e.FullPath);
+
+                            var modelId = monitoredDirectory.ModelIds[jobsIds.IndexOf(jobId)];
+                            var modelName = modelsDictionary[modelId];
+                            modelName = modelName.Replace(" ", "_");
+                            var timeStamp = DateTime.Now.ToString("HH_mm");
+
+                            var pdfFileName = $"{Path.GetFileNameWithoutExtension(e.FullPath)}_{modelName}_{timeStamp}.pdf";
+                            var pdfFilePath = Path.Combine(directoryPath, pdfFileName);
+
+                            await _miviaClient.GetSaveReportsPDF(jobsIds, pdfFilePath);
+
+                            historyMessage = $"[{DateTime.Now}] Report generated for Job ID: {jobId}, saved at: {pdfFilePath}";
+                            record = new HistoryRecord(EventType.HttpJobs, historyMessage);
+                            await _historyService.SaveHistoryRecordAsync(record);
+                        }
+                        else
+                        {
+                            historyMessage = $"[{DateTime.Now}] Job ID: {jobId} has failed or is incomplete. No report generated.";
+                            record = new HistoryRecord(EventType.HttpJobs, historyMessage);
+                            await _historyService.SaveHistoryRecordAsync(record);
+                        }
+                    }
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} failed to upload: {ex.Message}";
                     record = new HistoryRecord(EventType.FileError, historyMessage);
@@ -163,7 +238,6 @@ namespace MiviaMaui.Services
                 }
                 catch (IOException)
                 {
-                    // The file is not ready yet, wait and try again
                     System.Threading.Thread.Sleep(delay);
                 }
             }
@@ -175,34 +249,17 @@ namespace MiviaMaui.Services
         {
             var logMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath}, ChangeType: {e.ChangeType}";
             Console.WriteLine(logMessage);
-            LogToFile(logMessage);
         }
 
         private void OnRenamed(object sender, RenamedEventArgs e, int watcherId)
         {
             var logMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.OldFullPath} renamed to {e.FullPath}";
             Console.WriteLine(logMessage);
-            LogToFile(logMessage);
-        }
-
-        private void LogToFile(string message)
-        {
-            //var logFilePath = @"C:\Users\Marcin\Desktop\watcher1\log\log.txt";
-            var logFilePath = @"C:\Users\marci\OneDrive\Pulpit\Projekt inzynierski\log.txt";
-            try
-            {
-                File.AppendAllText(logFilePath, message + Environment.NewLine);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error writing to log file: {ex.Message}");
-            }
         }
 
         public void StartWatching()
         {
             _isWatching = true;
-            // The initialization is done in the constructor, but we can ensure all watchers are active here.
             foreach (var watcher in _watchers.Values)
             {
                 watcher.EnableRaisingEvents = true;

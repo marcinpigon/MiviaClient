@@ -1,6 +1,7 @@
 ﻿using MiviaMaui.Dtos;
 using MiviaMaui.Interfaces;
 using MiviaMaui.Models;
+using MiviaMaui.Resources.Languages;
 using MiviaMaui.Services;
 using System.Diagnostics;
 using System.IO;
@@ -69,7 +70,7 @@ namespace MiviaMaui
                 var record = new HistoryRecord(EventType.HttpError, historyMessage);
                 await _historyService.SaveHistoryRecordAsync(record);
 
-                throw new HttpRequestException($"Request failed with status code {response.StatusCode}");
+                throw new HttpRequestException($"Request failed with Status code {response.StatusCode}");
             }
         }
 
@@ -195,6 +196,123 @@ namespace MiviaMaui
             {
                 _notificationService.ShowNotification("Job scheduling failed",$"Failed to schedule job: {ex.Message}");
                 return null;
+            }
+        }
+
+        public async Task<UserJobDto?> GetJobDetailsAsync(string jobId)
+        {
+            try
+            {
+                await InitializeClient();
+               
+                var response = await _httpClient.GetAsync($"{JobsUri}/{jobId}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    var jobDetails = JsonSerializer.Deserialize<UserJobDto>(jsonString);
+                    return jobDetails;
+                }
+                else
+                {
+                    var historyMessage = $"Failed to fetch job details for Job ID: {jobId}, Status: {response.StatusCode}";
+                    var record = new HistoryRecord(EventType.HttpError, historyMessage);
+                    await _historyService.SaveHistoryRecordAsync(record);
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                var historyMessage = $"Error fetching job details for Job ID: {jobId}: {ex.Message}";
+                var record = new HistoryRecord(EventType.HttpError, historyMessage);
+                await _historyService.SaveHistoryRecordAsync(record);
+                return null;
+            }
+        }
+
+
+        public async Task<bool> IsJobFinishedAsync(string jobId, int maxRetries = 10, int delayMs = 10000)
+        {
+            int retries = 0;
+            while (retries < maxRetries)
+            {
+                try
+                {
+                    var jobDetails = await GetJobDetailsAsync(jobId);
+
+                    if (jobDetails == null) break;
+
+                    if (jobDetails.Status == "FAILED")
+                    {
+                        var historyMessage = $"[{DateTime.Now}] Job ID: {jobId} has failed. No report will be generated.";
+                        var record = new HistoryRecord(EventType.HttpJobs, historyMessage);
+                        await _historyService.SaveHistoryRecordAsync(record);
+                        return false;
+                    }
+
+                    if (jobDetails.Status == "CACHED" || jobDetails.Status == "NEW")
+                    {
+                        var historyMessage = $"[{DateTime.Now}] Job ID: {jobId}, Status: {jobDetails.Status}";
+                        var record = new HistoryRecord(EventType.HttpJobs, historyMessage);
+                        await _historyService.SaveHistoryRecordAsync(record);
+                        return true;
+                    }
+
+                    retries++;
+                    await Task.Delay(delayMs);
+                }
+                catch (Exception ex)
+                {
+                    var historyMessage = $"[{DateTime.Now}] Error checking job Status for Job ID: {jobId}: {ex.Message}";
+                    var record = new HistoryRecord(EventType.HttpJobs, historyMessage);
+                    await _historyService.SaveHistoryRecordAsync(record);
+                    return false;
+                }
+            }
+
+            var finalMessage = $"[{DateTime.Now}] Job ID: {jobId} did not complete within the allowed retries.";
+            var finalRecord = new HistoryRecord(EventType.HttpJobs, finalMessage);
+            await _historyService.SaveHistoryRecordAsync(finalRecord);
+
+            return false;
+        }
+
+
+
+        public async Task GetSaveReportsPDF(List<string> jobsIds, string filePath)
+        {
+            try
+            {
+                await InitializeClient();
+                var offset = -DateTimeOffset.Now.Offset.TotalMinutes;
+                var content = new
+                {
+                    jobsIds,
+                    tzOffset = offset
+                };
+                var jsonContent = JsonSerializer.Serialize(content);
+                var stringContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+                var response = await _httpClient.PostAsync("/api/reports/pdf", stringContent);
+
+                response.EnsureSuccessStatusCode();
+
+                var pdfBytes = await response.Content.ReadAsStreamAsync();
+
+                using (var pdfStream = await response.Content.ReadAsStreamAsync())
+                {
+                    using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
+                    {   
+                        await pdfStream.CopyToAsync(fileStream);
+                    }
+                }
+
+                _notificationService.ShowNotification("Report Saved", $"PDF report successfully saved to {filePath}");
+
+            }
+            catch (Exception ex)
+            {
+                _notificationService.ShowNotification("Error", $"An error occurred while saving the PDF report: {ex.Message}");
             }
         }
 

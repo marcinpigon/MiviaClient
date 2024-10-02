@@ -10,7 +10,8 @@ namespace MiviaMaui.Models
         private int _id;
         private string _name;
         private string _path;
-        private List<string> _modelIds;  
+        private List<string> _modelIds;
+        private List<string> _modelNames;
 
         public int Id
         {
@@ -64,6 +65,19 @@ namespace MiviaMaui.Models
             }
         }
 
+        public List<string> ModelNames
+        {
+            get => _modelNames;
+            set
+            {
+                if (_modelNames != value)
+                {
+                    _modelNames = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -74,6 +88,7 @@ namespace MiviaMaui.Models
         public MonitoredDirectory()
         {
             _modelIds = new List<string>();
+            _modelNames = new List<string>();
         }
     }
 }

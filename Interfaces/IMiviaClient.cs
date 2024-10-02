@@ -17,5 +17,7 @@ namespace MiviaMaui.Interfaces
         Task<string> PostImageAsync(string filePath, bool forced);
         Task DeleteImageAsync(string id);
         Task<string> ScheduleJobAsync(string imageId, string modelId);
+        Task<bool> IsJobFinishedAsync(string jobId, int maxRetries = 10, int delayMs = 10000);
+        Task GetSaveReportsPDF(List<string> jobsIds, string filePath);
     }
 }

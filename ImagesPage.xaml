@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MiviaMaui.ViewModels"
+             xmlns:lang="clr-namespace:MiviaMaui.Resources.Languages"
              x:Class="MiviaMaui.Views.ImagesPage"
              Title="Images Page">
 
@@ -39,7 +40,7 @@
                                        FontSize="Small"
                                        TextColor="White"/>
 
-                                <Button Text="Delete"
+                                <Button Text="{x:Static lang:AppResources.delete}"
                                         TextColor="White"
                                         BackgroundColor="Red"
                                         Clicked="OnDeleteButtonClicked"
