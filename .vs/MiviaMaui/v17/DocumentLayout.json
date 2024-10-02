@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\miviamaui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:miviamaui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\configurationpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:configurationpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\resources\\languages\\appresources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:resources\\languages\\appresources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\resources\\languages\\appresources.de.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:resources\\languages\\appresources.de.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +14,18 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AppResources.resx",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Resources\\Languages\\AppResources.resx",
-              "RelativeDocumentMoniker": "Resources\\Languages\\AppResources.resx",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Resources\\Languages\\AppResources.resx",
-              "RelativeToolTip": "Resources\\Languages\\AppResources.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-10-01T20:42:37.72Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MiviaMaui.csproj",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaMaui.csproj",
-              "RelativeDocumentMoniker": "MiviaMaui.csproj",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaMaui.csproj*",
-              "RelativeToolTip": "MiviaMaui.csproj*",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAmwFgAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-01T20:34:23.474Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConfigurationPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\ConfigurationPage.xaml.cs",
-              "RelativeDocumentMoniker": "ConfigurationPage.xaml.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\ConfigurationPage.xaml.cs",
-              "RelativeToolTip": "ConfigurationPage.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T20:30:14.141Z",
+              "Title": "AppResources.de.resx",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Resources\\Languages\\AppResources.de.resx",
+              "RelativeDocumentMoniker": "Resources\\Languages\\AppResources.de.resx",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Resources\\Languages\\AppResources.de.resx",
+              "RelativeToolTip": "Resources\\Languages\\AppResources.de.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-10-02T17:05:17.536Z",
               "EditorCaption": ""
             }
           ]

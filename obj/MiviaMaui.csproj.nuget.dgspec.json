@@ -68,7 +68,7 @@
           "dependencies": {
             "CommunityToolkit.Maui": {
               "target": "Package",
-              "version": "[9.0.2, )"
+              "version": "[9.1.0, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -88,11 +88,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.71, )"
+              "version": "[8.0.91, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.71, )"
+              "version": "[8.0.91, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -131,7 +131,7 @@
           "dependencies": {
             "CommunityToolkit.Maui": {
               "target": "Package",
-              "version": "[9.0.2, )"
+              "version": "[9.1.0, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -151,11 +151,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.71, )"
+              "version": "[8.0.91, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.71, )"
+              "version": "[8.0.91, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -194,7 +194,7 @@
           "dependencies": {
             "CommunityToolkit.Maui": {
               "target": "Package",
-              "version": "[9.0.2, )"
+              "version": "[9.1.0, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -214,11 +214,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.71, )"
+              "version": "[8.0.91, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.71, )"
+              "version": "[8.0.91, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -258,7 +258,7 @@
           "dependencies": {
             "CommunityToolkit.Maui": {
               "target": "Package",
-              "version": "[9.0.2, )"
+              "version": "[9.1.0, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -278,11 +278,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.71, )"
+              "version": "[8.0.91, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.71, )"
+              "version": "[8.0.91, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",
