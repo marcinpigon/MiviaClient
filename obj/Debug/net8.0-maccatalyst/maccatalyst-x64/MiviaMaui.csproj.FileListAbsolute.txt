@@ -1,6 +1,9 @@
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.dll.config
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.runtimeconfig.json
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.pdb
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\de\MiviaMaui.resources.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\pl\MiviaMaui.resources.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\CommunityToolkit.Maui.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\CommunityToolkit.Maui.Core.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Microsoft.Extensions.Configuration.dll
@@ -29,6 +32,7 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalys
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Microsoft.Maui.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Microsoft.Maui.Essentials.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Microsoft.Maui.Graphics.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Plugin.LocalNotification.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\SQLite-net.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\SQLitePCLRaw.batteries_v2.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\SQLitePCLRaw.core.dll
@@ -276,9 +280,6 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalys
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\mauifont.inputs
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\mauisplash.inputs
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\mauisplash.stamp
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\folder.png
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\mivia_logo.png
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\mivia_background.jpg
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\dotnet_bot@3x.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\dotnet_bot@2x.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\dotnet_bot.png
@@ -294,6 +295,9 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalys
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Assets.xcassets\appicon.appiconset\appicon20x20@3x.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Assets.xcassets\appicon.appiconset\appicon20x20@2x.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Assets.xcassets\appicon.appiconset\Contents.json
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\mivia_background.jpg
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\folder.png
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\mivia_logo.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\mauiimage.stamp
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\mauiimage.outputs
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\f\MauiInfo.plist
@@ -310,6 +314,8 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalys
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\_ProcessedContentPath.items
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.csproj.AssemblyReference.cache
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.Resources.Languages.AppResources.resources
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.Resources.Languages.AppResources.de.resources
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.Resources.Languages.AppResources.pl.resources
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.csproj.GenerateResource.cache
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.AssemblyInfoInputs.cache
@@ -317,6 +323,10 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalys
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.csproj.CoreCompileInputs.cache
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.sourcelink.json
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\XamlC.stamp
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\de\MiviaMaui.resources.cs
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\de\MiviaMaui.resources.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\pl\MiviaMaui.resources.cs
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\pl\MiviaMaui.resources.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.csproj.Up2Date
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MiviaMaui.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\refint\MiviaMaui.dll

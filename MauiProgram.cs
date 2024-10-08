@@ -5,6 +5,7 @@ using MiviaMaui.Services;
 using MiviaMaui.ViewModels;
 using MiviaMaui.Views;
 using MiviaMaui.Interfaces;
+using Plugin.LocalNotification;
 
 namespace MiviaMaui
 {
@@ -16,6 +17,7 @@ namespace MiviaMaui
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
+                .UseLocalNotification()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -27,22 +29,32 @@ namespace MiviaMaui
                 client.BaseAddress = new Uri("https://app.mivia.ai");
             });
 
-            builder.Services.AddSingleton<DirectoryWatcherService>();
             builder.Services.AddSingleton<DirectoryService>();
             builder.Services.AddSingleton<HistoryService>();
             builder.Services.AddSingleton<ModelService>();
+
             builder.Services.AddSingleton<ModelsViewModel>();
             builder.Services.AddSingleton<ImagesViewModel>();
+
             builder.Services.AddTransient<ModelsPage>();
             builder.Services.AddTransient<ImagesPage>();
+
+#if ANDROID
+            builder.Services.AddSingleton<MiviaMaui.Interfaces.INotificationService, LocalNotificationService>();
+            builder.Services.AddSingleton<Interfaces.IFolderPicker, AndroidFolderPickerService>();
+            builder.Services.AddSingleton<Interfaces.IDirectoryWatcherService, AndroidDirectoryWatcherService>();
+#elif WINDOWS
+            builder.Services.AddSingleton<MiviaMaui.Interfaces.INotificationService, WindowsNotificationService>();
+            builder.Services.AddSingleton<Interfaces.IFolderPicker, WindowsFolderPickerService>();
+            builder.Services.AddSingleton<Interfaces.IDirectoryWatcherService, DirectoryWatcherService>();
+#endif
 
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
 
-#if WINDOWS
-            builder.Services.AddSingleton<INotificationService, WindowsNotificationService>();
-#endif
+
+
             var mauiApp = builder.Build();
 
             var app = new App(mauiApp.Services);

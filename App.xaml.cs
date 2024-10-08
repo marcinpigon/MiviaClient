@@ -6,7 +6,7 @@ namespace MiviaMaui
 {
     public partial class App : Application
     {
-        private readonly DirectoryWatcherService _directoryWatcherService;
+        private readonly IDirectoryWatcherService _directoryWatcherService;
         private readonly HistoryService _historyService;
         private readonly INotificationService _notificationService;
 
@@ -14,8 +14,10 @@ namespace MiviaMaui
         {
             InitializeComponent();
 
-            _directoryWatcherService = serviceProvider.GetRequiredService<DirectoryWatcherService>();
+            _directoryWatcherService = serviceProvider.GetRequiredService<IDirectoryWatcherService>();
+            _historyService = serviceProvider.GetRequiredService<HistoryService>();
             _notificationService = serviceProvider.GetRequiredService<INotificationService>();
+
             StartBackgroundTasks();
 
             MainPage = new NavigationPage(
@@ -48,17 +50,14 @@ namespace MiviaMaui
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
             _directoryWatcherService.StopWatching();
         }
 
         protected override void OnResume()
         {
-            // Handle when your app resumes
             StartBackgroundTasks();
         }
 
-        // Static property to hold the ServiceProvider
         public static IServiceProvider ServiceProvider { get; private set; }
     }
 }

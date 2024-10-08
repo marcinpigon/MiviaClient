@@ -2,6 +2,7 @@ using MiviaMaui.Services;
 using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
 using MiviaMaui.Models;
+using MiviaMaui.Interfaces;
 
 namespace MiviaMaui
 {
@@ -39,7 +40,9 @@ namespace MiviaMaui
 
         private async void OnMonitorNewDirectoryClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NewDirectory(_directoryService, App.ServiceProvider.GetRequiredService<ModelService>()));
+            await Navigation.PushAsync(new NewDirectory(_directoryService, 
+                App.ServiceProvider.GetRequiredService<ModelService>(), 
+                App.ServiceProvider.GetRequiredService<IFolderPicker>()));
         }
 
         private async void OnDirectoryDoubleTapped(object sender, EventArgs e)

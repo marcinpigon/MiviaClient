@@ -2,7 +2,7 @@ package crc6488302ad6e9e4df1a;
 
 
 public abstract class MauiApplication
-	extends android.app.Application
+	extends android.support.multidex.MultiDexApplication
 	implements
 		mono.android.IGCUserPeer
 {

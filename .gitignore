@@ -1,0 +1,46 @@
+# .NET Core & .NET 5+
+bin/
+obj/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.userprefs
+*.ide.config
+.vscode/
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# .NET MAUI specific
+.platforms/
+AppPackages/
+Build/
+bin/
+obj/
+build/
+
+# JetBrains Rider
+.idea/
+
+# Mac/Linux generated files
+*.DS_Store
+*.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+*~
+.nfs*
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml

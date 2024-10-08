@@ -1,9 +1,9 @@
-using CommunityToolkit.Maui.Storage;
 using MiviaMaui.Models;
 using MiviaMaui.Services;
 using Microsoft.Maui.Controls;
 using MiviaMaui.Dtos;
 using MiviaMaui.Resources.Languages;
+using MiviaMaui.Interfaces;
 
 namespace MiviaMaui
 {
@@ -11,15 +11,17 @@ namespace MiviaMaui
     {
         private readonly DirectoryService _directoryService;
         private readonly ModelService _modelService;
+        private readonly IFolderPicker _folderPicker;
 
         private List<string> _selectedModelIds = new List<string>();
         private List<string> _selectedModelNames = new List<string>();
 
-        public NewDirectory(DirectoryService directoryService, ModelService modelService)
+        public NewDirectory(DirectoryService directoryService, ModelService modelService, IFolderPicker folderPicker)
         {
             InitializeComponent();
             _directoryService = directoryService;
             _modelService = modelService;
+            _folderPicker = folderPicker;
 
             LoadModelsAsync();
         }
@@ -87,9 +89,9 @@ namespace MiviaMaui
         {
             try
             {
-                var folder = await FolderPicker.PickAsync(default);
+                var path = await _folderPicker.PickFolderAsync();
 
-                folderPath.Text = folder?.Folder.Path;
+                folderPath.Text = path;
             }
             catch (Exception ex)
             {

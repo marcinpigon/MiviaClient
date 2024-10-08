@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace MiviaMaui.Services
 {
-    public class DirectoryWatcherService : IDisposable
+    public class DirectoryWatcherService : IDirectoryWatcherService, IDisposable
     {
         private readonly DirectoryService _directoryService;
         private readonly HistoryService _historyService;
