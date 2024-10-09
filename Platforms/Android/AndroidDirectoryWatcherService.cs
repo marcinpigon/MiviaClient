@@ -11,6 +11,7 @@ using AndroidX.DocumentFile.Provider;
 using Android.Database;
 using Path = System.IO.Path;
 using Uri = Android.Net.Uri;
+using static Android.Provider.MediaStore;
 
 namespace MiviaMaui.Services
 {
@@ -201,10 +202,80 @@ namespace MiviaMaui.Services
                 await _historyService.SaveHistoryRecordAsync(record);
 
                 var monitoredDirectory = _directoryService.MonitoredDirectories.FirstOrDefault(d => d.Id == watcherId);
-                if (monitoredDirectory?.ModelIds != null && monitoredDirectory.ModelNames != null)
+
+                var jobsIds = new List<string>();
+                var modelIds = monitoredDirectory?.ModelIds;
+                var modelNames = monitoredDirectory?.ModelNames;
+                var modelsDictionary = new Dictionary<string, string>();
+
+                if (monitoredDirectory != null && modelIds != null && modelNames != null && modelIds.Any() && modelIds.Count == modelNames.Count)
                 {
-                    await ProcessModelsAsync(monitoredDirectory, imageId, filePath, watcherId);
+                    for (int i = 0; i < modelIds.Count; i++)
+                    {
+                        var modelId = modelIds[i];
+                        var modelName = modelNames[i];
+
+                        modelsDictionary.Add(modelId, modelName);
+
+                        // Schedule job
+                        var jobId = await _miviaClient.ScheduleJobAsync(imageId, modelId);
+                        jobsIds.Add(jobId);
+
+                        if (jobId != null)
+                        {
+                            historyMessage = $"[{DateTime.Now}] Job scheduled successfully! Job ID: {jobId}";
+                        }
+                        else
+                        {
+                            historyMessage = $"[{DateTime.Now}] Failed to schedule job for Image: {imageId} with Model: {modelId}";
+                        }
+
+                        record = new HistoryRecord(EventType.HttpJobs, historyMessage);
+                        await _historyService.SaveHistoryRecordAsync(record);
+                    }
                 }
+                else
+                {
+                    historyMessage = "Model IDs and Names count mismatch or no models found.";
+                    record = new HistoryRecord(EventType.HttpJobs, historyMessage);
+                    await _historyService.SaveHistoryRecordAsync(record);
+                }
+
+                // Getting reports
+                foreach (var jobId in jobsIds)
+                {
+                    var isJobFinished = await _miviaClient.IsJobFinishedAsync(jobId);
+
+                    if (isJobFinished)
+                    {
+                        var directoryPath = Path.GetDirectoryName(filePath);
+
+                        var modelId = monitoredDirectory.ModelIds[jobsIds.IndexOf(jobId)];
+                        var modelName = modelsDictionary[modelId];
+                        modelName = modelName.Replace(" ", "_");
+                        var timeStamp = DateTime.Now.ToString("HH_mm");
+
+                        var pdfFileName = $"{Path.GetFileNameWithoutExtension(filePath)}_{modelName}_{timeStamp}.pdf";
+                        //var pdfFilePath = Path.Combine(directoryPath, pdfFileName);
+
+                        // Save to the Downloads folder
+                        var downloadsPath = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath;
+                        var pdfFilePath = Path.Combine(downloadsPath, pdfFileName);
+
+                        await _miviaClient.GetSaveReportsPDF(jobsIds, pdfFilePath);
+
+                        historyMessage = $"[{DateTime.Now}] Report generated for Job ID: {jobId}, saved at: {pdfFilePath}";
+                        record = new HistoryRecord(EventType.HttpJobs, historyMessage);
+                        await _historyService.SaveHistoryRecordAsync(record);
+                    }
+                    else
+                    {
+                        historyMessage = $"[{DateTime.Now}] Job ID: {jobId} has failed or is incomplete. No report generated.";
+                        record = new HistoryRecord(EventType.HttpJobs, historyMessage);
+                        await _historyService.SaveHistoryRecordAsync(record);
+                    }
+                }
+
             }
             catch (Exception ex)
             {
@@ -251,11 +322,16 @@ namespace MiviaMaui.Services
         {
             if (await _miviaClient.IsJobFinishedAsync(jobId))
             {
+
                 var directoryPath = Path.GetDirectoryName(filePath);
                 var modelName = modelsDictionary[jobId].Replace(" ", "_");
                 var timeStamp = DateTime.Now.ToString("HH_mm");
                 var pdfFileName = $"{Path.GetFileNameWithoutExtension(filePath)}_{modelName}_{timeStamp}.pdf";
                 var pdfFilePath = Path.Combine(directoryPath, pdfFileName);
+
+                var aaaa = $"[{DateTime.Now}] JOB FINISHED, TRYING TO DOWNLOAD PDF FILE: {pdfFilePath}";
+                var bbbbb = new HistoryRecord(EventType.HttpJobs, aaaa);
+                await _historyService.SaveHistoryRecordAsync(bbbbb);
 
                 await _miviaClient.GetSaveReportsPDF(new List<string> { jobId }, pdfFilePath);
 
