@@ -20,7 +20,9 @@ public class AndroidFolderPickerService : IFolderPicker
         try
         {
             var intent = new Intent(Intent.ActionOpenDocumentTree);
-            intent.AddFlags(ActivityFlags.GrantPersistableUriPermission | ActivityFlags.GrantReadUriPermission);
+            intent.AddFlags(ActivityFlags.GrantPersistableUriPermission |
+                              ActivityFlags.GrantReadUriPermission |
+                              ActivityFlags.GrantWriteUriPermission);
 
             var activity = Platform.CurrentActivity;
             if (activity == null)
@@ -45,15 +47,12 @@ public class AndroidFolderPickerService : IFolderPicker
             if (resultCode == Result.Ok && data?.Data != null)
             {
                 var uri = data.Data;
-
                 // Take persistable permission
                 context.ContentResolver?.TakePersistableUriPermission(
                     uri,
                     ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission);
 
-                // Convert URI to usable path format
-                var path = uri.ToString();
-                _folderPathTCS.TrySetResult(path);
+                _folderPathTCS.TrySetResult(uri.ToString());
             }
             else
             {

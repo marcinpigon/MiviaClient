@@ -1114,4 +1114,4 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\stamp\_Convert
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\stamp\_GenerateJavaStubs.stamp
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\src\crc647470aca81b0738be\AndroidFileWatcherService.java
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\src\crc6448f82a713a47b1c1\FolderContentObserver.java

@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Android.OS;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using MiviaMaui.Models;
 using MiviaMaui.Interfaces;
-using Android.OS;
-using Java.IO;
-using File = System.IO.File;
-using OperationCanceledException = System.OperationCanceledException;
+using Android.Provider;
+using AndroidX.DocumentFile.Provider;
+using Android.Database;
+using Path = System.IO.Path;
+using Uri = Android.Net.Uri;
 
 namespace MiviaMaui.Services
 {
@@ -18,7 +19,8 @@ namespace MiviaMaui.Services
         private readonly DirectoryService _directoryService;
         private readonly HistoryService _historyService;
         private readonly IMiviaClient _miviaClient;
-        private readonly Dictionary<int, CancellationTokenSource> _watcherTokens;
+        private readonly Dictionary<int, ContentObserver> _observers;
+        private readonly Dictionary<string, HashSet<string>> _processedFiles;
         private bool _isWatching;
 
         public AndroidDirectoryWatcherService(DirectoryService directoryService,
@@ -28,7 +30,9 @@ namespace MiviaMaui.Services
             _directoryService = directoryService;
             _historyService = historyService;
             _miviaClient = miviaClient;
-            _watcherTokens = new Dictionary<int, CancellationTokenSource>();
+            _observers = new Dictionary<int, ContentObserver>();
+            _processedFiles = new Dictionary<string, HashSet<string>>();
+
             InitializeWatchers();
         }
 
@@ -63,59 +67,109 @@ namespace MiviaMaui.Services
 
         private void AddWatcherForDirectory(MonitoredDirectory directory)
         {
-            if (string.IsNullOrEmpty(directory.Path) || !Directory.Exists(directory.Path))
+            if (string.IsNullOrEmpty(directory.Path))
                 return;
 
-            var cts = new CancellationTokenSource();
-            _watcherTokens[directory.Id] = cts;
+            var activity = Platforms.Android.ActivityStateManager.CurrentActivity;
+            if (activity == null)
+            {
 
-            Task.Run(async () => await WatchDirectoryAsync(directory, cts.Token), cts.Token);
+                return;
+            }
+
+            var uri = Uri.Parse(directory.Path);
+            var documentFile = DocumentFile.FromTreeUri(Platform.CurrentActivity, uri);
+
+            if (documentFile == null || !documentFile.Exists())
+                return;
+
+            if (!_processedFiles.ContainsKey(directory.Path))
+            {
+                _processedFiles[directory.Path] = new HashSet<string>();
+            }
+
+            var handler = new Handler(Looper.MainLooper);
+            var observer = new FolderContentObserver(handler,
+                async () => await CheckForNewFiles(directory));
+
+            _observers[directory.Id] = observer;
+
+            Platform.CurrentActivity?.ContentResolver?.RegisterContentObserver(
+                MediaStore.Files.GetContentUri("external"),
+                true,
+                observer);
+
+            MainThread.BeginInvokeOnMainThread(async () => await CheckForNewFiles(directory));
         }
 
-        private async Task WatchDirectoryAsync(MonitoredDirectory directory, CancellationToken token)
+        private async Task CheckForNewFiles(MonitoredDirectory directory)
         {
-            var processedFiles = new HashSet<string>();
-            var directoryInfo = new DirectoryInfo(directory.Path);
-
-            while (!token.IsCancellationRequested)
+            try
             {
-                try
-                {
-                    var currentFiles = Directory.GetFiles(directory.Path)
-                        .Where(f => IsAllowedFileType(f))
-                        .ToList();
+                var uri = Uri.Parse(directory.Path);
+                var documentFile = DocumentFile.FromTreeUri(Platform.CurrentActivity, uri);
 
-                    foreach (var filePath in currentFiles)
+                if (documentFile == null || !documentFile.Exists())
+                    return;
+
+                foreach (var file in documentFile.ListFiles())
+                {
+                    if (!IsAllowedFileType(file.Name))
+                        continue;
+
+                    var fileId = $"{file.Uri}_{file.LastModified()}";
+
+                    if (_processedFiles[directory.Path].Contains(fileId))
+                        continue;
+
+                    _processedFiles[directory.Path].Add(fileId);
+
+                    var actualPath = await CopyFileToCache(file);
+                    if (actualPath != null)
                     {
-                        if (!processedFiles.Contains(filePath))
-                        {
-                            await ProcessNewFileAsync(filePath, directory.Id);
-                            processedFiles.Add(filePath);
-                        }
+                        await ProcessNewFileAsync(actualPath, directory.Id);
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                var historyMessage = $"[{DateTime.Now}] Error checking directory {directory.Path}: {ex.Message}";
+                var record = new HistoryRecord(EventType.FileError, historyMessage);
+                await _historyService.SaveHistoryRecordAsync(record);
+            }
+        }
 
-                    await Task.Delay(1000, token); // Poll every second
-                }
-                catch (OperationCanceledException)
-                {
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    var historyMessage = $"[{DateTime.Now}] Error watching directory {directory.Path}: {ex.Message}";
-                    var record = new HistoryRecord(EventType.FileError, historyMessage);
-                    await _historyService.SaveHistoryRecordAsync(record);
-                }
+        private async Task<string> CopyFileToCache(DocumentFile file)
+        {
+            try
+            {
+                var cacheDir = Platform.CurrentActivity?.CacheDir;
+                if (cacheDir == null) return null;
+
+                var tempFile = new Java.IO.File(cacheDir, file.Name);
+                using var inputStream = Platform.CurrentActivity?.ContentResolver?.OpenInputStream(file.Uri);
+                using var outputStream = new Java.IO.FileOutputStream(tempFile);
+
+                if (inputStream == null) return null;
+
+                using var dotNetInputStream = new StreamReader(inputStream).BaseStream;
+                using var dotNetOutputStream = System.IO.File.OpenWrite(tempFile.AbsolutePath);
+                await dotNetInputStream.CopyToAsync(dotNetOutputStream);
+
+                return tempFile.AbsolutePath;
+            }
+            catch
+            {
+                return null;
             }
         }
 
         private void RemoveWatcherForDirectory(MonitoredDirectory directory)
         {
-            if (_watcherTokens.TryGetValue(directory.Id, out var cts))
+            if (_observers.TryGetValue(directory.Id, out var observer))
             {
-                cts.Cancel();
-                cts.Dispose();
-                _watcherTokens.Remove(directory.Id);
+                Platform.CurrentActivity?.ContentResolver?.UnregisterContentObserver(observer);
+                _observers.Remove(directory.Id);
             }
         }
 
@@ -181,6 +235,7 @@ namespace MiviaMaui.Services
 
             foreach (var jobId in jobsIds)
             {
+                var fp = directory.Path;
                 await ProcessJobResultAsync(jobId, filePath, modelsDictionary, watcherId);
             }
         }
@@ -213,25 +268,45 @@ namespace MiviaMaui.Services
         public void StartWatching()
         {
             _isWatching = true;
+            foreach (var directory in _directoryService.MonitoredDirectories)
+            {
+                MainThread.BeginInvokeOnMainThread(async () => await CheckForNewFiles(directory));
+            }
         }
 
         public void StopWatching()
         {
             _isWatching = false;
-            foreach (var cts in _watcherTokens.Values)
+            foreach (var observer in _observers.Values)
             {
-                cts.Cancel();
+                Platform.CurrentActivity?.ContentResolver?.UnregisterContentObserver(observer);
             }
+            _observers.Clear();
         }
 
         public void Dispose()
         {
             StopWatching();
-            foreach (var cts in _watcherTokens.Values)
-            {
-                cts.Dispose();
-            }
-            _watcherTokens.Clear();
+        }
+    }
+
+    public class FolderContentObserver : ContentObserver
+    {
+        private readonly Func<Task> _onChangeCallback;
+
+        public FolderContentObserver(Handler handler, Func<Task> onChangeCallback) : base(handler)
+        {
+            _onChangeCallback = onChangeCallback;
+        }
+
+        public override async void OnChange(bool selfChange)
+        {
+            await _onChangeCallback();
+        }
+
+        public override async void OnChange(bool selfChange, Uri uri)
+        {
+            await _onChangeCallback();
         }
     }
 }

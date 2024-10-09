@@ -118,6 +118,10 @@
               "target": "Package",
               "version": "[1.13.1.2, )"
             },
+            "Xamarin.AndroidX.DocumentFile": {
+              "target": "Package",
+              "version": "[1.0.1.19, )"
+            },
             "Xamarin.AndroidX.Lifecycle.ViewModel": {
               "target": "Package",
               "version": "[2.7.0.4, )"

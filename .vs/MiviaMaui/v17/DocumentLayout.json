@@ -7,12 +7,28 @@
       "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:platforms\\android\\androiddirectorywatcherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\services\\directorywatcherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:services\\directorywatcherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\platforms\\android\\mainactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:platforms\\android\\mainactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\services\\directorywatcherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:services\\directorywatcherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\platforms\\android\\activitystatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:platforms\\android\\activitystatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\platforms\\android\\androidfolderpickerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:platforms\\android\\androidfolderpickerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,18 +59,6 @@
       "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:platforms\\windows\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\platforms\\android\\mainactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:platforms\\android\\mainactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\platforms\\android\\androidfolderpickerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:platforms\\android\\androidfolderpickerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\newdirectory.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:newdirectory.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -65,10 +69,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\services\\localnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:services\\localnotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -82,21 +82,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IDirectoryWatcherService.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Interfaces\\IDirectoryWatcherService.cs",
-              "RelativeDocumentMoniker": "Interfaces\\IDirectoryWatcherService.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Interfaces\\IDirectoryWatcherService.cs",
-              "RelativeToolTip": "Interfaces\\IDirectoryWatcherService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T18:56:56.785Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -105,27 +92,27 @@
               "RelativeDocumentMoniker": "Platforms\\Android\\AndroidDirectoryWatcherService.cs",
               "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\AndroidDirectoryWatcherService.cs",
               "RelativeToolTip": "Platforms\\Android\\AndroidDirectoryWatcherService.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAewNAAAABFAAAA",
+              "ViewState": "AQIAAMoAAAAAAAAAAAAkwO0AAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-08T18:54:10.844Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\App.xaml.cs",
               "RelativeDocumentMoniker": "App.xaml.cs",
               "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\App.xaml.cs",
               "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAwwDMAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-08T17:03:36.003Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "MainPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MainPage.xaml.cs",
               "RelativeDocumentMoniker": "MainPage.xaml.cs",
@@ -133,12 +120,11 @@
               "RelativeToolTip": "MainPage.xaml.cs",
               "ViewState": "AQIAABcAAAAAAAAAAADgvy0AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T17:02:49.472Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T17:02:49.472Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Windows\\App.xaml.cs",
               "RelativeDocumentMoniker": "Platforms\\Windows\\App.xaml.cs",
@@ -146,38 +132,101 @@
               "RelativeToolTip": "Platforms\\Windows\\App.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T18:39:46.945Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T18:39:46.945Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "DirectoryWatcherService.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\DirectoryWatcherService.cs",
               "RelativeDocumentMoniker": "Services\\DirectoryWatcherService.cs",
               "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\DirectoryWatcherService.cs",
               "RelativeToolTip": "Services\\DirectoryWatcherService.cs",
-              "ViewState": "AQIAALMAAAAAAAAAAAAuwMEAAABXAAAA",
+              "ViewState": "AQIAAKsAAAAAAAAAAAAqwNsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-08T17:02:06.296Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "MauiProgram.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MauiProgram.cs",
               "RelativeDocumentMoniker": "MauiProgram.cs",
               "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MauiProgram.cs",
               "RelativeToolTip": "MauiProgram.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAAAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAIwEAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-08T17:03:06.807Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
+              "Title": "MainActivity.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\MainActivity.cs",
+              "RelativeDocumentMoniker": "Platforms\\Android\\MainActivity.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\MainActivity.cs",
+              "RelativeToolTip": "Platforms\\Android\\MainActivity.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T17:59:29.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MiviaClient.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaClient.cs",
+              "RelativeDocumentMoniker": "MiviaClient.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaClient.cs",
+              "RelativeToolTip": "MiviaClient.cs",
+              "ViewState": "AQIAACwBAAAAAAAAAAD4vz4BAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T17:10:54.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ActivityStateManager.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\ActivityStateManager.cs",
+              "RelativeDocumentMoniker": "Platforms\\Android\\ActivityStateManager.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\ActivityStateManager.cs",
+              "RelativeToolTip": "Platforms\\Android\\ActivityStateManager.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:16:03.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AndroidFolderPickerService.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\AndroidFolderPickerService.cs",
+              "RelativeDocumentMoniker": "Platforms\\Android\\AndroidFolderPickerService.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\AndroidFolderPickerService.cs",
+              "RelativeToolTip": "Platforms\\Android\\AndroidFolderPickerService.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAowDsAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T17:52:56.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IDirectoryWatcherService.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Interfaces\\IDirectoryWatcherService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IDirectoryWatcherService.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Interfaces\\IDirectoryWatcherService.cs",
+              "RelativeToolTip": "Interfaces\\IDirectoryWatcherService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T18:56:56.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "WindowsFolderPickerService.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Windows\\WindowsFolderPickerService.cs",
               "RelativeDocumentMoniker": "Platforms\\Windows\\WindowsFolderPickerService.cs",
@@ -185,12 +234,11 @@
               "RelativeToolTip": "Platforms\\Windows\\WindowsFolderPickerService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T17:44:34.867Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T17:44:34.867Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "DirectoryService.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\DirectoryService.cs",
               "RelativeDocumentMoniker": "Services\\DirectoryService.cs",
@@ -198,12 +246,11 @@
               "RelativeToolTip": "Services\\DirectoryService.cs",
               "ViewState": "AQIAAEYAAAAAAAAAAAAowGIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T17:29:01.272Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T17:29:01.272Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "DirectoriesPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\DirectoriesPage.xaml.cs",
               "RelativeDocumentMoniker": "DirectoriesPage.xaml.cs",
@@ -211,12 +258,11 @@
               "RelativeToolTip": "DirectoriesPage.xaml.cs",
               "ViewState": "AQIAABwAAAAAAAAAAAAtwCsAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T17:57:06.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T17:57:06.085Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "WindowsNotificationService.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Windows\\WindowsNotificationService.cs",
               "RelativeDocumentMoniker": "Platforms\\Windows\\WindowsNotificationService.cs",
@@ -224,51 +270,11 @@
               "RelativeToolTip": "Platforms\\Windows\\WindowsNotificationService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T17:52:28.425Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T17:52:28.425Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AndroidManifest.xml",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\AndroidManifest.xml",
-              "RelativeDocumentMoniker": "Platforms\\Android\\AndroidManifest.xml",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\AndroidManifest.xml",
-              "RelativeToolTip": "Platforms\\Android\\AndroidManifest.xml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2024-10-08T18:16:54.559Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MainActivity.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\MainActivity.cs",
-              "RelativeDocumentMoniker": "Platforms\\Android\\MainActivity.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\MainActivity.cs",
-              "RelativeToolTip": "Platforms\\Android\\MainActivity.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T17:59:29.194Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AndroidFolderPickerService.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\AndroidFolderPickerService.cs",
-              "RelativeDocumentMoniker": "Platforms\\Android\\AndroidFolderPickerService.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\AndroidFolderPickerService.cs",
-              "RelativeToolTip": "Platforms\\Android\\AndroidFolderPickerService.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAowA8AAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T17:52:56.552Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "NewDirectory.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\NewDirectory.xaml.cs",
               "RelativeDocumentMoniker": "NewDirectory.xaml.cs",
@@ -276,21 +282,7 @@
               "RelativeToolTip": "NewDirectory.xaml.cs",
               "ViewState": "AQIAAFMAAAAAAAAAAAAIwFsAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T17:29:17.742Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "MiviaClient.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaClient.cs",
-              "RelativeDocumentMoniker": "MiviaClient.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaClient.cs",
-              "RelativeToolTip": "MiviaClient.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAhwBIAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T17:10:54.349Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T17:29:17.742Z"
             },
             {
               "$type": "Document",
@@ -302,12 +294,11 @@
               "RelativeToolTip": "App.xaml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-08T17:03:35.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T17:03:35.031Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "LocalNotificationService.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\LocalNotificationService.cs",
               "RelativeDocumentMoniker": "Services\\LocalNotificationService.cs",
@@ -315,8 +306,7 @@
               "RelativeToolTip": "Services\\LocalNotificationService.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T16:59:28.421Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T16:59:28.421Z"
             }
           ]
         }

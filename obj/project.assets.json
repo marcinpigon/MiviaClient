@@ -28618,6 +28618,7 @@
       "Xamarin.AndroidX.Collection >= 1.4.0.5",
       "Xamarin.AndroidX.Collection.Ktx >= 1.4.0.5",
       "Xamarin.AndroidX.Core >= 1.13.1.2",
+      "Xamarin.AndroidX.DocumentFile >= 1.0.1.19",
       "Xamarin.AndroidX.Lifecycle.ViewModel >= 2.7.0.4",
       "sqlite-net-pcl >= 1.9.172"
     ],
@@ -28750,6 +28751,10 @@
           "Xamarin.AndroidX.Core": {
             "target": "Package",
             "version": "[1.13.1.2, )"
+          },
+          "Xamarin.AndroidX.DocumentFile": {
+            "target": "Package",
+            "version": "[1.0.1.19, )"
           },
           "Xamarin.AndroidX.Lifecycle.ViewModel": {
             "target": "Package",

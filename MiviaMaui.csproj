@@ -102,6 +102,7 @@
 		<PackageReference Include="Xamarin.AndroidX.Core" Version="1.13.1.2" />
 		<PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.6.1.6" />
 		<PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel" Version="2.7.0.4" />
+		<PackageReference Include="Xamarin.AndroidX.DocumentFile" Version="1.0.1.19" />
 	</ItemGroup>
 
 	<ItemGroup>

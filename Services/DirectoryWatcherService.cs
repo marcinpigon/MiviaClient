@@ -100,7 +100,7 @@ namespace MiviaMaui.Services
 
         private async void OnCreated(object sender, FileSystemEventArgs e, int watcherId)
         {
-            if(!IsAllowedFileType(e.FullPath))
+            if (!IsAllowedFileType(e.FullPath))
             {
                 return;
             }
@@ -127,11 +127,10 @@ namespace MiviaMaui.Services
                     {
                         // Sending image
                         imageId = await _miviaClient.PostImageAsync(e.FullPath, false);
+                        historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} uploaded!";
+                        record = new HistoryRecord(EventType.FileUploaded, historyMessage);
+                        await _historyService.SaveHistoryRecordAsync(record);
                     }
-
-                    historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} uploaded!";
-                    record = new HistoryRecord(EventType.FileUploaded, historyMessage);
-                    await _historyService.SaveHistoryRecordAsync(record);
 
                     var monitoredDirectory = _directoryService.MonitoredDirectories.FirstOrDefault(d => d.Id == watcherId);
 
