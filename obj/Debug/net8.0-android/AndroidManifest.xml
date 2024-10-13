@@ -14,8 +14,9 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
   <application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true" android:debuggable="true" android:name="crc64c498ba91afc74d2a.MainApplication" android:label="MiViA Client" android:extractNativeLibs="true">
-    <service android:name=".DirectoryMonitoringService" android:exported="false" />
+    <service android:name=".DirectoryWatcherBackgroundService" android:exported="false" />
     <uses-library android:name="org.apache.http.legacy" android:required="false" />
     <activity android:configChanges="density|orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:theme="@style/Maui.SplashTheme" android:name="crc64c498ba91afc74d2a.MainActivity" android:exported="true">
       <intent-filter>
