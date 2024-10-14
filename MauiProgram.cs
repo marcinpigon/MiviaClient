@@ -6,6 +6,12 @@ using MiviaMaui.ViewModels;
 using MiviaMaui.Views;
 using MiviaMaui.Interfaces;
 using Plugin.LocalNotification;
+using MiviaMaui.Command_Handlers;
+using MiviaMaui.Query_Handlers;
+using MiviaMaui.Commands;
+using MiviaMaui.Handlers.Command_Handlers;
+using MiviaMaui.Queries;
+using MiviaMaui.Bus;
 
 namespace MiviaMaui
 {
@@ -39,6 +45,14 @@ namespace MiviaMaui
             builder.Services.AddTransient<ModelsPage>();
             builder.Services.AddTransient<ImagesPage>();
 
+            // CQRS
+            builder.Services.AddTransient<ICommandHandler<UploadImageCommand, string>, UploadImageCommandHandler>();
+            builder.Services.AddTransient<ICommandHandler<ScheduleJobCommand, string>, ScheduleJobCommandHandler>();
+            builder.Services.AddTransient<ICommandHandler<GenerateReportCommand, bool>, GenerateReportCommandHandler>();
+            builder.Services.AddTransient<IQueryHandler<IsJobFinishedQuery, bool>, IsJobFinishedQueryHandler>();
+            builder.Services.AddTransient<ICommandBus, CommandBus>();
+            builder.Services.AddTransient<IQueryBus, QueryBus>();
+
 #if ANDROID
             builder.Services.AddSingleton<MiviaMaui.Interfaces.INotificationService, LocalNotificationService>();
             builder.Services.AddSingleton<Interfaces.IFolderPicker, AndroidFolderPickerService>();
@@ -52,8 +66,6 @@ namespace MiviaMaui
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-
-
 
             var mauiApp = builder.Build();
 

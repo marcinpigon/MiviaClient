@@ -167,6 +167,7 @@ namespace MiviaMaui
         {
             try
             {
+                await InitializeClient();
                 var requestContent = new
                 {
                     imageIds = new[] { imageId },
@@ -233,6 +234,8 @@ namespace MiviaMaui
 
         public async Task<bool> IsJobFinishedAsync(string jobId, int maxRetries = 10, int delayMs = 10000)
         {
+            await InitializeClient();
+
             int retries = 0;
             while (retries < maxRetries)
             {

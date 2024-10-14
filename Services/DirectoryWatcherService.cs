@@ -8,25 +8,30 @@ using MiviaMaui.Models;
 using MiviaMaui.Interfaces;
 using MiviaMaui.Dtos;
 using System.Diagnostics;
+using MiviaMaui.Bus;
+using MiviaMaui.Queries;
+using MiviaMaui.Commands;
+using MiviaMaui.Handlers;
 
 namespace MiviaMaui.Services
 {
     public class DirectoryWatcherService : IDirectoryWatcherService, IDisposable
     {
         private readonly DirectoryService _directoryService;
-        private readonly HistoryService _historyService;
         private readonly Dictionary<int, FileSystemWatcher> _watchers;
-        private bool _isWatching;
+        private readonly ICommandBus _commandBus;
+        private readonly IQueryBus _queryBus;
 
-        private readonly IMiviaClient _miviaClient;
-
-        public DirectoryWatcherService(DirectoryService directoryService, HistoryService historyService, IMiviaClient miviaClient)
+        public DirectoryWatcherService(
+        DirectoryService directoryService,
+        ICommandBus commandBus,
+        IQueryBus queryBus)
         {
             _directoryService = directoryService;
-            _historyService = historyService;
+            _commandBus = commandBus;
+            _queryBus = queryBus;
             _watchers = new Dictionary<int, FileSystemWatcher>();
             InitializeWatchers();
-            _miviaClient = miviaClient;
         }
 
         private void InitializeWatchers()
@@ -105,32 +110,15 @@ namespace MiviaMaui.Services
                 return;
             }
 
-            var historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} created";
-            var record = new HistoryRecord(EventType.FileCreated, historyMessage);
-            await _historyService.SaveHistoryRecordAsync(record);
-
             if (isFileReady(e.FullPath))
             {
                 try
                 {
-                    var images = await _miviaClient.GetImagesAsync();
-                    var fileName = Path.GetFileName(e.FullPath);
-
-                    var existingImage = images.FirstOrDefault(img => img.OriginalFilename == fileName);
-                    var imageId = "";
-
-                    if (existingImage != null)
-                    {
-                        imageId = existingImage.Id;
-                    }
-                    else
-                    {
-                        // Sending image
-                        imageId = await _miviaClient.PostImageAsync(e.FullPath, false);
-                        historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} uploaded!";
-                        record = new HistoryRecord(EventType.FileUploaded, historyMessage);
-                        await _historyService.SaveHistoryRecordAsync(record);
-                    }
+                    var imageId = await _commandBus.SendAsync<UploadImageCommand, string>(new UploadImageCommand 
+                    { 
+                        FilePath = e.FullPath, 
+                        WatcherId = watcherId 
+                    });
 
                     var monitoredDirectory = _directoryService.MonitoredDirectories.FirstOrDefault(d => d.Id == watcherId);
 
@@ -144,39 +132,30 @@ namespace MiviaMaui.Services
                     {
                         for (int i = 0; i < modelIds.Count; i++)
                         {
+                            // Model ID / Name mapping for readability
                             var modelId = modelIds[i];
                             var modelName = modelNames[i];
-
                             modelsDictionary.Add(modelId, modelName);
 
                             // Schedule job
-                            var jobId = await _miviaClient.ScheduleJobAsync(imageId, modelId);
-                            jobsIds.Add(jobId);
+                            var jobId = await _commandBus.SendAsync<ScheduleJobCommand, string>(new ScheduleJobCommand
+                            { 
+                                ImageId = imageId,
+                                ModelId = modelId
+                            });
 
-                            if (jobId != null)
-                            {
-                                historyMessage = $"[{DateTime.Now}] Job scheduled successfully! Job ID: {jobId}";
-                            }
-                            else
-                            {
-                                historyMessage = $"[{DateTime.Now}] Failed to schedule job for Image: {imageId} with Model: {modelId}";
-                            }
-
-                            record = new HistoryRecord(EventType.HttpJobs, historyMessage);
-                            await _historyService.SaveHistoryRecordAsync(record);
+                            if (!string.IsNullOrEmpty(jobId))
+                                jobsIds.Add(jobId);
                         }
-                    }
-                    else
-                    {
-                        historyMessage = "Model IDs and Names count mismatch or no models found.";
-                        record = new HistoryRecord(EventType.HttpJobs, historyMessage);
-                        await _historyService.SaveHistoryRecordAsync(record);
                     }
 
                     // Getting reports
                     foreach (var jobId in jobsIds)
                     {
-                        var isJobFinished = await _miviaClient.IsJobFinishedAsync(jobId);
+                        var isJobFinished = await _queryBus.SendAsync<IsJobFinishedQuery, bool>(new IsJobFinishedQuery 
+                        { 
+                            JobId = jobId 
+                        });
 
                         if (isJobFinished)
                         {
@@ -190,32 +169,23 @@ namespace MiviaMaui.Services
                             var pdfFileName = $"{Path.GetFileNameWithoutExtension(e.FullPath)}_{modelName}_{timeStamp}.pdf";
                             var pdfFilePath = Path.Combine(directoryPath, pdfFileName);
 
-                            await _miviaClient.GetSaveReportsPDF(jobsIds, pdfFilePath);
+                            await _commandBus.SendAsync<GenerateReportCommand, bool>(new GenerateReportCommand
+                            {
+                                JobId = jobId,
+                                OutputPath = pdfFilePath
+                            });
 
-                            historyMessage = $"[{DateTime.Now}] Report generated for Job ID: {jobId}, saved at: {pdfFilePath}";
-                            record = new HistoryRecord(EventType.HttpJobs, historyMessage);
-                            await _historyService.SaveHistoryRecordAsync(record);
-                        }
-                        else
-                        {
-                            historyMessage = $"[{DateTime.Now}] Job ID: {jobId} has failed or is incomplete. No report generated.";
-                            record = new HistoryRecord(EventType.HttpJobs, historyMessage);
-                            await _historyService.SaveHistoryRecordAsync(record);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} failed to upload: {ex.Message}";
-                    record = new HistoryRecord(EventType.FileError, historyMessage);
-                    await _historyService.SaveHistoryRecordAsync(record);
+
                 }
             }
             else
             {
-                historyMessage = $"[{DateTime.Now}] Watcher ID: {watcherId}, File: {e.FullPath} is not ready for processing";
-                record = new HistoryRecord(EventType.FileError, historyMessage);
-                await _historyService.SaveHistoryRecordAsync(record);
+
             }
         }
 
@@ -258,7 +228,6 @@ namespace MiviaMaui.Services
 
         public void StartWatching()
         {
-            _isWatching = true;
             foreach (var watcher in _watchers.Values)
             {
                 watcher.EnableRaisingEvents = true;
@@ -267,7 +236,6 @@ namespace MiviaMaui.Services
 
         public void StopWatching()
         {
-            _isWatching = false;
             foreach (var watcher in _watchers.Values)
             {
                 watcher.EnableRaisingEvents = false;
