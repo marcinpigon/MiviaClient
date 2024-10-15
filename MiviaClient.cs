@@ -17,6 +17,7 @@ namespace MiviaMaui
         private readonly HttpClient _httpClient;    // HttpClient passed through Dependency Injection container
         private readonly HistoryService _historyService;
         private readonly INotificationService _notificationService;
+        private readonly ISnackbarService _snackbarService;
         private readonly string? _accessToken;
 
         private readonly string _baseUrl = "https://app.mivia.ai";
@@ -26,11 +27,13 @@ namespace MiviaMaui
         private const string ReportUri = "/api/reports/pdf2";
         private bool _initialized = false;
 
-        public MiviaClient(HttpClient httpClient, HistoryService historyService, INotificationService notificationService)
+        public MiviaClient(HttpClient httpClient, HistoryService historyService, 
+            INotificationService notificationService, ISnackbarService snackbarService)
         {
             _httpClient = httpClient;
             _historyService = historyService;
             _notificationService = notificationService;
+            _snackbarService = snackbarService;
         }
 
         private async Task InitializeClient()
@@ -51,26 +54,34 @@ namespace MiviaMaui
         public async Task<List<ModelDto>> GetModelsAsync()
         {
             await InitializeClient();
-            var response = await _httpClient.GetAsync("/api/settings/models");
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var historyMessage = "Models fetched";
-                var record = new HistoryRecord(EventType.HttpModels, historyMessage);
-                await _historyService.SaveHistoryRecordAsync(record);
+                var response = await _httpClient.GetAsync("/api/settings/models");
 
-                var jsonString = await response.Content.ReadAsStringAsync();
-                Debug.WriteLine($"Models JSON: {jsonString}");
-                return JsonSerializer.Deserialize<List<ModelDto>>(jsonString);
+                if (response.IsSuccessStatusCode)
+                {
+                    var historyMessage = "Models fetched";
+                    var record = new HistoryRecord(EventType.HttpModels, historyMessage);
+                    await _historyService.SaveHistoryRecordAsync(record);
 
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    await _snackbarService.ShowSuccessSnackbarAsync("Models fetched successfully");
+                    return JsonSerializer.Deserialize<List<ModelDto>>(jsonString);
+                }
+                else
+                {
+                    var historyMessage = $"Failed fetching models: {response.StatusCode}";
+                    var record = new HistoryRecord(EventType.HttpError, historyMessage);
+                    await _historyService.SaveHistoryRecordAsync(record);
+
+                    await _snackbarService.ShowErrorSnackbarAsync($"Failed to fetch models: {response.StatusCode}");
+                    throw new HttpRequestException($"Request failed with Status code {response.StatusCode}");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                var historyMessage = $"Failed fetching models: {response.StatusCode}";
-                var record = new HistoryRecord(EventType.HttpError, historyMessage);
-                await _historyService.SaveHistoryRecordAsync(record);
-
-                throw new HttpRequestException($"Request failed with Status code {response.StatusCode}");
+                await _snackbarService.ShowErrorSnackbarAsync($"Failed to fetch models. Please check your internet connection");
+                return new List<ModelDto>();
             }
         }
 

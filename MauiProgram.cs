@@ -22,7 +22,10 @@ namespace MiviaMaui
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiCommunityToolkit()
+                .UseMauiCommunityToolkit(options =>
+                {
+                    options.SetShouldEnableSnackbarOnWindows(true);
+                })
                 .UseLocalNotification()
                 .ConfigureFonts(fonts =>
                 {
@@ -44,6 +47,8 @@ namespace MiviaMaui
 
             builder.Services.AddTransient<ModelsPage>();
             builder.Services.AddTransient<ImagesPage>();
+
+            builder.Services.AddSingleton<ISnackbarService, SnackbarService>();
 
             // CQRS
             builder.Services.AddTransient<ICommandHandler<UploadImageCommand, string>, UploadImageCommandHandler>();

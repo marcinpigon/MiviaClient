@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\interfaces\\isnackbarservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:interfaces\\isnackbarservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\services\\snackbarservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:services\\snackbarservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\handlers\\command handlers\\schedulejobcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -118,37 +126,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "MauiProgram.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MauiProgram.cs",
+              "RelativeToolTip": "MauiProgram.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAxwBsAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T19:30:02.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SnackbarService.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\SnackbarService.cs",
+              "RelativeDocumentMoniker": "Services\\SnackbarService.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\SnackbarService.cs",
+              "RelativeToolTip": "Services\\SnackbarService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T19:28:42.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ISnackbarService.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Interfaces\\ISnackbarService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ISnackbarService.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Interfaces\\ISnackbarService.cs",
+              "RelativeToolTip": "Interfaces\\ISnackbarService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T19:19:42.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "MiviaClient.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaClient.cs",
               "RelativeDocumentMoniker": "MiviaClient.cs",
               "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaClient.cs",
               "RelativeToolTip": "MiviaClient.cs",
-              "ViewState": "AQIAADABAAAAAAAAAAAiwB8BAAANAAAA",
+              "ViewState": "AQIAADUAAAAAAAAAAAA9wAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T18:54:00.799Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "GenerateReportHandler.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\GenerateReportHandler.cs",
               "RelativeDocumentMoniker": "Handlers\\Command Handlers\\GenerateReportHandler.cs",
               "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\GenerateReportHandler.cs",
               "RelativeToolTip": "Handlers\\Command Handlers\\GenerateReportHandler.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAUwCoAAAAdAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAywCoAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T18:28:33.134Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "DirectoryWatcherService.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\DirectoryWatcherService.cs",
               "RelativeDocumentMoniker": "Services\\DirectoryWatcherService.cs",
@@ -161,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "CommandBus.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Bus\\CommandBus.cs",
               "RelativeDocumentMoniker": "Bus\\CommandBus.cs",
@@ -174,33 +221,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ScheduleJobCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\ScheduleJobCommandHandler.cs",
               "RelativeDocumentMoniker": "Handlers\\Command Handlers\\ScheduleJobCommandHandler.cs",
               "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\ScheduleJobCommandHandler.cs",
               "RelativeToolTip": "Handlers\\Command Handlers\\ScheduleJobCommandHandler.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAAUAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAIBJwAoAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T18:27:12.981Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MauiProgram.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MauiProgram.cs",
-              "RelativeDocumentMoniker": "MauiProgram.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MauiProgram.cs",
-              "RelativeToolTip": "MauiProgram.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T15:38:30.998Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\App.xaml.cs",
               "RelativeDocumentMoniker": "App.xaml.cs",
@@ -213,33 +247,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "QueryBus.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Bus\\QueryBus.cs",
               "RelativeDocumentMoniker": "Bus\\QueryBus.cs",
               "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Bus\\QueryBus.cs",
               "RelativeToolTip": "Bus\\QueryBus.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAQwBYAAABGAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAxwBYAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-13T17:20:15.907Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "IsJobFinishedQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Query Handlers\\IsJobFinishedQueryHandler.cs",
               "RelativeDocumentMoniker": "Handlers\\Query Handlers\\IsJobFinishedQueryHandler.cs",
               "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Query Handlers\\IsJobFinishedQueryHandler.cs",
               "RelativeToolTip": "Handlers\\Query Handlers\\IsJobFinishedQueryHandler.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAgAAAAaAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAIBJwAgAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-13T17:16:37.555Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "GenerateReportCommand.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Commands\\GenerateReportCommand.cs",
               "RelativeDocumentMoniker": "Commands\\GenerateReportCommand.cs",
@@ -252,7 +286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "GetImagesQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Query Handlers\\GetImagesQueryHandler.cs",
               "RelativeDocumentMoniker": "Handlers\\Query Handlers\\GetImagesQueryHandler.cs",
@@ -265,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "IQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Query Handlers\\IQueryHandler.cs",
               "RelativeDocumentMoniker": "Handlers\\Query Handlers\\IQueryHandler.cs",
@@ -278,7 +312,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "GetUploadedImageQuery.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Query Handlers\\GetUploadedImageQuery.cs",
               "RelativeDocumentMoniker": "Handlers\\Query Handlers\\GetUploadedImageQuery.cs",
@@ -291,7 +325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "ICommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\ICommandHandler.cs",
               "RelativeDocumentMoniker": "Handlers\\Command Handlers\\ICommandHandler.cs",
@@ -304,7 +338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "UploadImageCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\UploadImageCommandHandler.cs",
               "RelativeDocumentMoniker": "Handlers\\Command Handlers\\UploadImageCommandHandler.cs",
@@ -317,7 +351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "ICommandBus.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Bus\\ICommandBus.cs",
               "RelativeDocumentMoniker": "Bus\\ICommandBus.cs",
@@ -330,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "ScheduleJobCommand.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Commands\\ScheduleJobCommand.cs",
               "RelativeDocumentMoniker": "Commands\\ScheduleJobCommand.cs",
@@ -343,7 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "IDirectoryWatcherService.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Interfaces\\IDirectoryWatcherService.cs",
               "RelativeDocumentMoniker": "Interfaces\\IDirectoryWatcherService.cs",
@@ -351,11 +385,12 @@
               "RelativeToolTip": "Interfaces\\IDirectoryWatcherService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:39:34.589Z"
+              "WhenOpened": "2024-10-13T17:39:34.589Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "UploadImageCommand.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Commands\\UploadImageCommand.cs",
               "RelativeDocumentMoniker": "Commands\\UploadImageCommand.cs",
@@ -368,7 +403,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "GetImagesQuery.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Queries\\GetImagesQuery.cs",
               "RelativeDocumentMoniker": "Queries\\GetImagesQuery.cs",
@@ -376,11 +411,12 @@
               "RelativeToolTip": "Queries\\GetImagesQuery.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAkAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:48:08.684Z"
+              "WhenOpened": "2024-10-13T17:48:08.684Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "IQueryBus.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Bus\\IQueryBus.cs",
               "RelativeDocumentMoniker": "Bus\\IQueryBus.cs",
@@ -388,11 +424,12 @@
               "RelativeToolTip": "Bus\\IQueryBus.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:19:07.717Z"
+              "WhenOpened": "2024-10-13T17:19:07.717Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "IsJobFinishedQuery.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Queries\\IsJobFinishedQuery.cs",
               "RelativeDocumentMoniker": "Queries\\IsJobFinishedQuery.cs",
@@ -400,11 +437,12 @@
               "RelativeToolTip": "Queries\\IsJobFinishedQuery.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:05:25.406Z"
+              "WhenOpened": "2024-10-13T17:05:25.406Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "IQuery.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Queries\\IQuery.cs",
               "RelativeDocumentMoniker": "Queries\\IQuery.cs",
@@ -412,11 +450,12 @@
               "RelativeToolTip": "Queries\\IQuery.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:03:52.858Z"
+              "WhenOpened": "2024-10-13T17:03:52.858Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "AndroidManifest.xml",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\AndroidManifest.xml",
               "RelativeDocumentMoniker": "Platforms\\Android\\AndroidManifest.xml",
@@ -427,7 +466,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "AndroidDirectoryWatcherService.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\AndroidDirectoryWatcherService.cs",
               "RelativeDocumentMoniker": "Platforms\\Android\\AndroidDirectoryWatcherService.cs",
@@ -435,11 +474,12 @@
               "RelativeToolTip": "Platforms\\Android\\AndroidDirectoryWatcherService.cs",
               "ViewState": "AQIAADkAAAAAAAAAAAAswEoAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T18:54:10.844Z"
+              "WhenOpened": "2024-10-08T18:54:10.844Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "MainActivity.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\MainActivity.cs",
               "RelativeDocumentMoniker": "Platforms\\Android\\MainActivity.cs",
@@ -447,11 +487,12 @@
               "RelativeToolTip": "Platforms\\Android\\MainActivity.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAcwCgAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T17:59:29.194Z"
+              "WhenOpened": "2024-10-08T17:59:29.194Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "AndroidFolderPickerService.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Platforms\\Android\\AndroidFolderPickerService.cs",
               "RelativeDocumentMoniker": "Platforms\\Android\\AndroidFolderPickerService.cs",
@@ -459,7 +500,8 @@
               "RelativeToolTip": "Platforms\\Android\\AndroidFolderPickerService.cs",
               "ViewState": "AQIAAC8AAAAAAAAAAAAAwEQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-08T17:52:56.552Z"
+              "WhenOpened": "2024-10-08T17:52:56.552Z",
+              "EditorCaption": ""
             }
           ]
         }
