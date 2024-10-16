@@ -142,7 +142,7 @@ namespace MiviaMaui
 
                     List<ImageDto>? uploadedImage = JsonSerializer.Deserialize<List<ImageDto>>(jsonString) ?? null;
 
-                    _notificationService.ShowNotification($"Image: {uploadedImage[0].Id}", $"Image: {filePath} sent successfully!");
+                    await _snackbarService.ShowSuccessSnackbarAsync($"Image: {Path.GetFileName(filePath)} sent successfully!");
 
                     var historyMessage = $"Image sent successfully: {filePath}";
                     var record = new HistoryRecord(EventType.HttpImages, historyMessage);
@@ -154,6 +154,7 @@ namespace MiviaMaui
             catch (Exception e)
             {
                 _notificationService.ShowNotification("Image", $"Error sending image: {e.Message}");
+                await _snackbarService.ShowErrorSnackbarAsync($"Error sending image: {e.Message}");
                 return "";
             }
         }
@@ -165,12 +166,12 @@ namespace MiviaMaui
                 await InitializeClient();
                 var response = await _httpClient.DeleteAsync(ImageUri + $"/{id}");
                 response.EnsureSuccessStatusCode();
-                _notificationService.ShowNotification("Image", $"Deleted image: {id}");
+                await _snackbarService.ShowSuccessSnackbarAsync($"Deleted image: {id}");
 
             }
             catch ( Exception e ) 
             {
-                _notificationService.ShowNotification("Image", $"Error deleting image: {e.Message}");
+                await _snackbarService.ShowErrorSnackbarAsync($"Error deleting image: {e.Message}");
             }
         }
 
@@ -187,10 +188,6 @@ namespace MiviaMaui
                 var jsonContent = JsonSerializer.Serialize(requestContent);
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-                _notificationService.ShowNotification(
-                    "Scheduling job",
-                    $"Image ID: {imageId}");
-
                 var response = await _httpClient.PostAsync(JobsUri, content);
 
                 response.EnsureSuccessStatusCode();
@@ -199,14 +196,14 @@ namespace MiviaMaui
 
                 var jsonJobIds = JsonSerializer.Deserialize<List<PostJobDto>>(jsonResponse);
 
-                _notificationService.ShowNotification(
-                    "Job Scheduled!", $"Succesfully scheduled job for image: {jsonJobIds?[0].JobId}");
+                await _snackbarService.ShowSuccessSnackbarAsync($"Succesfully scheduled job for image: {jsonJobIds?[0].JobId}");
 
                 return jsonJobIds?[0].JobId;
             }
             catch (Exception ex)
             {
                 _notificationService.ShowNotification("Job scheduling failed",$"Failed to schedule job: {ex.Message}");
+                await _snackbarService.ShowErrorSnackbarAsync($"Failed to schedule job: {ex.Message}");
                 return null;
             }
         }
@@ -261,6 +258,9 @@ namespace MiviaMaui
                         var historyMessage = $"[{DateTime.Now}] Job ID: {jobId} has failed. No report will be generated.";
                         var record = new HistoryRecord(EventType.HttpJobs, historyMessage);
                         await _historyService.SaveHistoryRecordAsync(record);
+
+                        await _snackbarService.ShowErrorSnackbarAsync(historyMessage);
+
                         return false;
                     }
 
@@ -269,6 +269,8 @@ namespace MiviaMaui
                         var historyMessage = $"[{DateTime.Now}] Job ID: {jobId}, Status: {jobDetails.Status}";
                         var record = new HistoryRecord(EventType.HttpJobs, historyMessage);
                         await _historyService.SaveHistoryRecordAsync(record);
+
+                        await _snackbarService.ShowSuccessSnackbarAsync(historyMessage);
                         return true;
                     }
 
@@ -287,6 +289,8 @@ namespace MiviaMaui
             var finalMessage = $"[{DateTime.Now}] Job ID: {jobId} did not complete within the allowed retries.";
             var finalRecord = new HistoryRecord(EventType.HttpJobs, finalMessage);
             await _historyService.SaveHistoryRecordAsync(finalRecord);
+
+            await _snackbarService.ShowErrorSnackbarAsync(finalMessage);
 
             return false;
         }
@@ -322,6 +326,7 @@ namespace MiviaMaui
                 }
 
                 _notificationService.ShowNotification("Report Saved", $"PDF report successfully saved to {filePath}");
+                await _snackbarService.ShowSuccessSnackbarAsync($"PDF report successfully saved to {filePath}");
 
             }
             catch (Exception ex)
