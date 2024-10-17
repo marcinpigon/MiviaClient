@@ -31,7 +31,7 @@
             <uap:ShowOn Tile="wide310x150Logo" />
           </uap:ShowNameOnTiles>
         </uap:DefaultTile>
-        <uap:SplashScreen Image="splashSplashScreen.png" />
+        <uap:SplashScreen Image="miviasplashSplashScreen.png" />
       </uap:VisualElements>
       <Extensions>
         <!-- Specify which CLSID to activate when notification is clicked -->

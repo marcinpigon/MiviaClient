@@ -43,6 +43,21 @@
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-100.png">
+      <PackagePath>miviasplashSplashScreen.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-125.png">
+      <PackagePath>miviasplashSplashScreen.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-150.png">
+      <PackagePath>miviasplashSplashScreen.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-200.png">
+      <PackagePath>miviasplashSplashScreen.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-400.png">
+      <PackagePath>miviasplashSplashScreen.scale-400.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
     </AppxPackagedFile>
@@ -195,6 +210,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\check.scale-100.png">
+      <PackagePath>check.scale-100.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>

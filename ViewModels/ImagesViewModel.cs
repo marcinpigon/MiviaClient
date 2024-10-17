@@ -45,6 +45,11 @@ namespace MiviaMaui.ViewModels
             }
         }
 
+        public void ToggleImageSelection(ImageDto image)
+        {
+            image.IsSelected = !image.IsSelected;
+        }
+
         public async Task DeleteImageAsync(string id)
         {
             if (string.IsNullOrEmpty(id)) return;

@@ -1,6 +1,9 @@
+using MiviaMaui.Converters;
+using MiviaMaui.Dtos;
 using MiviaMaui.Resources.Languages;
 using MiviaMaui.ViewModels;
 using System.Diagnostics;
+using System.Globalization;
 using System.Windows.Input;
 
 namespace MiviaMaui.Views
@@ -19,6 +22,14 @@ namespace MiviaMaui.Views
         {
             base.OnAppearing();
             await _viewModel.LoadImagesAsync();
+        }
+
+        private void OnImageTapped(object sender, EventArgs e)
+        {
+            if (sender is Frame frame && frame.BindingContext is ImageDto image)
+            {
+                _viewModel.ToggleImageSelection(image);
+            }
         }
 
         private async void OnDeleteButtonClicked(object sender, EventArgs e)

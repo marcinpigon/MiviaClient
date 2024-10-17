@@ -19,7 +19,7 @@
     <WindowsSdkPath>
     </WindowsSdkPath>
     <LayoutDir>C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
-    <RegisteredManifestChecksum>927A42EF8CA07FA1D9A8517AC46C1A95B77A2CCFD2560B020C6A338C3EBB4956</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>7B34DDCB504D4E78CE5641E8DF4139EA080F6A7B877C570206561EF73ECE1D9D</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>com.companyname.miviamaui_1.0.0.1_x64__9zz4h110yvjzm</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>com.companyname.miviamaui_9zz4h110yvjzm!App</RegisteredUserModeAppID>
     <RegisteredPackageID>com.companyname.miviamaui</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-10-16T18:03:57.009</Modified>
+      <Modified>2024-10-17T19:30:42.988</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-10-16T05:18:11.616</Modified>
+      <Modified>2024-10-17T18:47:26.393</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.runtimeconfig.json">
       <PackagePath>MiviaMaui.runtimeconfig.json</PackagePath>
@@ -44,7 +44,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.dll">
       <PackagePath>MiviaMaui.dll</PackagePath>
-      <Modified>2024-10-16T18:03:55.105</Modified>
+      <Modified>2024-10-17T19:30:41.805</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.dll.config">
       <PackagePath>MiviaMaui.dll.config</PackagePath>
@@ -52,259 +52,283 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>MiviaMaui.exe</PackagePath>
-      <Modified>2024-10-16T18:03:55.176</Modified>
+      <Modified>2024-10-17T19:30:41.830</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
       <Modified>2024-06-03T21:39:04.127</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-100.png">
+      <PackagePath>miviasplashSplashScreen.scale-100.png</PackagePath>
+      <Modified>2024-10-16T19:02:53.760</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-125.png">
+      <PackagePath>miviasplashSplashScreen.scale-125.png</PackagePath>
+      <Modified>2024-10-16T19:02:53.776</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-150.png">
+      <PackagePath>miviasplashSplashScreen.scale-150.png</PackagePath>
+      <Modified>2024-10-16T19:02:53.797</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-200.png">
+      <PackagePath>miviasplashSplashScreen.scale-200.png</PackagePath>
+      <Modified>2024-10-16T19:02:53.831</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-400.png">
+      <PackagePath>miviasplashSplashScreen.scale-400.png</PackagePath>
+      <Modified>2024-10-16T19:02:53.966</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
-      <Modified>2024-10-15T19:44:26.657</Modified>
+      <Modified>2024-10-16T18:20:32.266</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
       <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
-      <Modified>2024-10-15T19:44:26.676</Modified>
+      <Modified>2024-10-16T18:20:32.286</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
       <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
-      <Modified>2024-10-15T19:44:26.700</Modified>
+      <Modified>2024-10-16T18:20:32.313</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
       <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
-      <Modified>2024-10-15T19:44:26.735</Modified>
+      <Modified>2024-10-16T18:20:32.355</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
-      <Modified>2024-10-15T19:44:26.890</Modified>
+      <Modified>2024-10-16T18:20:32.519</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
-      <Modified>2024-10-05T15:04:08.334</Modified>
+      <Modified>2024-10-17T18:47:12.634</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.324</Modified>
+      <Modified>2024-10-17T18:47:12.624</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.324</Modified>
+      <Modified>2024-10-17T18:47:12.624</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.323</Modified>
+      <Modified>2024-10-17T18:47:12.624</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.323</Modified>
+      <Modified>2024-10-17T18:47:12.623</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.323</Modified>
+      <Modified>2024-10-17T18:47:12.623</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.330</Modified>
+      <Modified>2024-10-17T18:47:12.631</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.330</Modified>
+      <Modified>2024-10-17T18:47:12.631</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.329</Modified>
+      <Modified>2024-10-17T18:47:12.630</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.329</Modified>
+      <Modified>2024-10-17T18:47:12.630</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.329</Modified>
+      <Modified>2024-10-17T18:47:12.630</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.331</Modified>
+      <Modified>2024-10-17T18:47:12.632</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.331</Modified>
+      <Modified>2024-10-17T18:47:12.632</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.330</Modified>
+      <Modified>2024-10-17T18:47:12.631</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.331</Modified>
+      <Modified>2024-10-17T18:47:12.632</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.331</Modified>
+      <Modified>2024-10-17T18:47:12.632</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.334</Modified>
+      <Modified>2024-10-17T18:47:12.634</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.334</Modified>
+      <Modified>2024-10-17T18:47:12.634</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.333</Modified>
+      <Modified>2024-10-17T18:47:12.634</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.333</Modified>
+      <Modified>2024-10-17T18:47:12.634</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.333</Modified>
+      <Modified>2024-10-17T18:47:12.633</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.332</Modified>
+      <Modified>2024-10-17T18:47:12.633</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.332</Modified>
+      <Modified>2024-10-17T18:47:12.633</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.332</Modified>
+      <Modified>2024-10-17T18:47:12.632</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.332</Modified>
+      <Modified>2024-10-17T18:47:12.633</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.332</Modified>
+      <Modified>2024-10-17T18:47:12.632</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.326</Modified>
+      <Modified>2024-10-17T18:47:12.627</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.326</Modified>
+      <Modified>2024-10-17T18:47:12.627</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.325</Modified>
+      <Modified>2024-10-17T18:47:12.626</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.325</Modified>
+      <Modified>2024-10-17T18:47:12.626</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.325</Modified>
+      <Modified>2024-10-17T18:47:12.626</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.327</Modified>
+      <Modified>2024-10-17T18:47:12.628</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.327</Modified>
+      <Modified>2024-10-17T18:47:12.628</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.327</Modified>
+      <Modified>2024-10-17T18:47:12.628</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.326</Modified>
+      <Modified>2024-10-17T18:47:12.628</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.326</Modified>
+      <Modified>2024-10-17T18:47:12.627</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.329</Modified>
+      <Modified>2024-10-17T18:47:12.629</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.328</Modified>
+      <Modified>2024-10-17T18:47:12.629</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.328</Modified>
+      <Modified>2024-10-17T18:47:12.629</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.328</Modified>
+      <Modified>2024-10-17T18:47:12.629</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.327</Modified>
+      <Modified>2024-10-17T18:47:12.629</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.325</Modified>
+      <Modified>2024-10-17T18:47:12.626</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.325</Modified>
+      <Modified>2024-10-17T18:47:12.625</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.324</Modified>
+      <Modified>2024-10-17T18:47:12.625</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.324</Modified>
+      <Modified>2024-10-17T18:47:12.624</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.324</Modified>
+      <Modified>2024-10-17T18:47:12.624</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\check.scale-100.png">
+      <PackagePath>check.scale-100.png</PackagePath>
+      <Modified>2024-10-17T18:47:12.635</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.335</Modified>
+      <Modified>2024-10-17T18:47:12.636</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
       <PackagePath>dotnet_bot.scale-125.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.335</Modified>
+      <Modified>2024-10-17T18:47:12.636</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
       <PackagePath>dotnet_bot.scale-150.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.335</Modified>
+      <Modified>2024-10-17T18:47:12.635</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
       <PackagePath>dotnet_bot.scale-200.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.334</Modified>
+      <Modified>2024-10-17T18:47:12.635</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.334</Modified>
+      <Modified>2024-10-17T18:47:12.635</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\folder.scale-100.png">
       <PackagePath>folder.scale-100.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.323</Modified>
+      <Modified>2024-10-17T18:47:12.635</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\mivia_background.scale-100.jpg">
       <PackagePath>mivia_background.scale-100.jpg</PackagePath>
-      <Modified>2024-10-05T15:04:08.322</Modified>
+      <Modified>2024-10-17T18:47:12.635</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\mivia_logo.scale-100.png">
       <PackagePath>mivia_logo.scale-100.png</PackagePath>
-      <Modified>2024-10-05T15:04:08.322</Modified>
+      <Modified>2024-10-17T18:47:12.634</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.deps.json">
       <PackagePath>MiviaMaui.deps.json</PackagePath>
-      <Modified>2024-10-16T05:18:11.270</Modified>
+      <Modified>2024-10-17T18:47:26.058</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\de\MiviaMaui.resources.dll">
       <PackagePath>de\MiviaMaui.resources.dll</PackagePath>
-      <Modified>2024-10-16T18:03:56.414</Modified>
+      <Modified>2024-10-17T19:30:42.654</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\pl\MiviaMaui.resources.dll">
       <PackagePath>pl\MiviaMaui.resources.dll</PackagePath>
-      <Modified>2024-10-16T18:03:56.498</Modified>
+      <Modified>2024-10-17T19:30:42.782</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>

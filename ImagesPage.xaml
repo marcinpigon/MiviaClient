@@ -2,54 +2,81 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MiviaMaui.ViewModels"
+             xmlns:converters="clr-namespace:MiviaMaui.Converters"
              xmlns:lang="clr-namespace:MiviaMaui.Resources.Languages"
              x:Class="MiviaMaui.Views.ImagesPage"
              Title="Images Page">
 
-    <ContentPage.Content>
-        <Grid>
-            <Image 
-                Source="mivia_background.jpg"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="Center"
-                Aspect="Center" />
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BoolToColorConverter x:Key="BoolToColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-            <CollectionView ItemsSource="{Binding Images}"
-                            SelectionMode="None"
-                            Margin="10">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
-                </CollectionView.ItemsLayout>
+    <Grid>
+        <Image Source="mivia_background.jpg"
+               Aspect="AspectFill" />
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame BorderColor="LightGray" 
-                               CornerRadius="10" 
-                               Margin="0,0,0,15"
-                               BackgroundColor="{StaticResource DarkGrayTransparent}" 
-                               HasShadow="True">
-                            <StackLayout Orientation="Vertical" Padding="10">
-                                <Label Text="{Binding OriginalFilename}"
-                                       FontSize="Medium"
-                                       FontAttributes="Bold"
-                                       TextColor="White"/>
-                                <Label Text="{Binding CreatedAt, StringFormat='{0:G}'}"
-                                       FontSize="Small"
-                                       TextColor="White"/>
-                                <Label Text="{Binding Validated, StringFormat='Validated: {0}'}"
-                                       FontSize="Small"
-                                       TextColor="White"/>
+        <CollectionView ItemsSource="{Binding Images}"
+                        SelectionMode="None"
+                        Margin="10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="{Binding IsSelected, Converter={StaticResource BoolToColorConverter}}"
+                           CornerRadius="10"
+                           Margin="0,0,0,15"
+                           BackgroundColor="#80000000"
+                           HasShadow="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnImageTapped" />
+                        </Frame.GestureRecognizers>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
 
-                                <Button Text="{x:Static lang:AppResources.delete}"
-                                        TextColor="White"
-                                        BackgroundColor="Red"
-                                        Clicked="OnDeleteButtonClicked"
-                                        CommandParameter="{Binding Id}"/>
-                            </StackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
-    </ContentPage.Content>
+                            <Label Text="{Binding OriginalFilename}"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   Grid.Column="0" />
+
+                            <Image Source="check.png"
+                                   WidthRequest="20"
+                                   HeightRequest="20"
+                                   IsVisible="{Binding IsSelected}"
+                                   Grid.Column="1" />
+
+                            <Label Text="{Binding CreatedAt, StringFormat='{0:G}'}"
+                                   FontSize="Small"
+                                   TextColor="White"
+                                   Grid.Row="1"
+                                   Grid.ColumnSpan="2" />
+
+                            <Label Text="{Binding Validated, StringFormat='Validated: {0}'}"
+                                   FontSize="Small"
+                                   TextColor="White"
+                                   Grid.Row="2"
+                                   Grid.ColumnSpan="2" />
+
+                            <Button Text="{x:Static lang:AppResources.delete}"
+                                    TextColor="White"
+                                    BackgroundColor="Red"
+                                    Clicked="OnDeleteButtonClicked"
+                                    CommandParameter="{Binding Id}"
+                                    Grid.Row="3"
+                                    Grid.ColumnSpan="2" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

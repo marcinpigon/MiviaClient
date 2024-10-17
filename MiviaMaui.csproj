@@ -69,7 +69,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#008080" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\miviasplash.svg" Color="#065156"/>
+		<MauiSplashScreen Include="Resources\Splash\miviasplash.svg" Color="#065156" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -85,6 +85,7 @@
 	  <MauiImage Remove="Resources\Images\splash.svg" />
 	</ItemGroup>
 	<ItemGroup>
+	  <None Remove="Resources\Images\check.png" />
 	  <None Remove="Resources\Images\splash.svg" />
 	</ItemGroup>
 
