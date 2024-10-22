@@ -13,70 +13,86 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid>
+    <Grid RowDefinitions="*, Auto">
         <Image Source="mivia_background.jpg"
-               Aspect="AspectFill" />
+               Aspect="AspectFill"
+               Grid.RowSpan="2" />
 
-        <CollectionView ItemsSource="{Binding Images}"
-                        SelectionMode="None"
-                        Margin="10">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame BorderColor="{Binding IsSelected, Converter={StaticResource BoolToColorConverter}}"
-                           CornerRadius="10"
-                           Margin="0,0,0,15"
-                           BackgroundColor="#80000000"
-                           HasShadow="True">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnImageTapped" />
-                        </Frame.GestureRecognizers>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0">
+            <CollectionView ItemsSource="{Binding Images}"
+                            SelectionMode="None"
+                            Margin="10"
+                            Grid.Row="0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="{Binding IsSelected, Converter={StaticResource BoolToColorConverter}}"
+                               CornerRadius="10"
+                               Margin="0,0,0,15"
+                               BackgroundColor="#80000000"
+                               HasShadow="True">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnImageTapped" />
+                            </Frame.GestureRecognizers>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
 
-                            <Label Text="{Binding OriginalFilename}"
-                                   FontSize="Medium"
-                                   FontAttributes="Bold"
-                                   TextColor="White"
-                                   Grid.Column="0" />
+                                <Label Text="{Binding OriginalFilename}"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"
+                                       TextColor="White"
+                                       Grid.Column="0" />
 
-                            <Image Source="check.png"
-                                   WidthRequest="20"
-                                   HeightRequest="20"
-                                   IsVisible="{Binding IsSelected}"
-                                   Grid.Column="1" />
+                                <Image Source="check.png"
+                                       WidthRequest="20"
+                                       HeightRequest="20"
+                                       IsVisible="{Binding IsSelected}"
+                                       Grid.Column="1" />
 
-                            <Label Text="{Binding CreatedAt, StringFormat='{0:G}'}"
-                                   FontSize="Small"
-                                   TextColor="White"
-                                   Grid.Row="1"
-                                   Grid.ColumnSpan="2" />
+                                <Label Text="{Binding CreatedAt, StringFormat='{0:G}'}"
+                                       FontSize="Small"
+                                       TextColor="White"
+                                       Grid.Row="1"
+                                       Grid.ColumnSpan="2" />
 
-                            <Label Text="{Binding Validated, StringFormat='Validated: {0}'}"
-                                   FontSize="Small"
-                                   TextColor="White"
-                                   Grid.Row="2"
-                                   Grid.ColumnSpan="2" />
+                                <Label Text="{Binding Validated, StringFormat='Validated: {0}'}"
+                                       FontSize="Small"
+                                       TextColor="White"
+                                       Grid.Row="2"
+                                       Grid.ColumnSpan="2" />
 
-                            <Button Text="{x:Static lang:AppResources.delete}"
-                                    TextColor="White"
-                                    BackgroundColor="Red"
-                                    Clicked="OnDeleteButtonClicked"
-                                    CommandParameter="{Binding Id}"
-                                    Grid.Row="3"
-                                    Grid.ColumnSpan="2" />
-                        </Grid>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                <Button Text="{x:Static lang:AppResources.delete}"
+                                        TextColor="White"
+                                        BackgroundColor="Red"
+                                        Clicked="OnDeleteButtonClicked"
+                                        CommandParameter="{Binding Id}"
+                                        Grid.Row="3"
+                                        Grid.ColumnSpan="2" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Color="White" />
+        </Grid>
+        <Button Text="View Selected Images"
+                IsVisible="{Binding HasSelectedImages}"
+                Clicked="OnViewSelectedImagesClicked"
+                BackgroundColor="DodgerBlue"
+                TextColor="White"
+                Margin="20"
+                Grid.Row="1" />
     </Grid>
 </ContentPage>

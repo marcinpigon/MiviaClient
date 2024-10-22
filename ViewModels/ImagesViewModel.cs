@@ -12,6 +12,8 @@ namespace MiviaMaui.ViewModels
         public ObservableCollection<ImageDto> Images { get; } = new ObservableCollection<ImageDto>();
         private readonly object _lock = new object();
 
+        public bool HasSelectedImages => Images.Any(x => x.IsSelected);
+
         public ImagesViewModel(IMiviaClient miviaClient)
         {
             _miviaClient = miviaClient;
@@ -48,6 +50,12 @@ namespace MiviaMaui.ViewModels
         public void ToggleImageSelection(ImageDto image)
         {
             image.IsSelected = !image.IsSelected;
+            NotifyHasSelectedImagesChanged();
+        }
+
+        private void NotifyHasSelectedImagesChanged()
+        {
+            OnPropertyChanged(nameof(HasSelectedImages));
         }
 
         public async Task DeleteImageAsync(string id)

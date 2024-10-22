@@ -87,3 +87,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/marci/OneDrive/Pulpit/MiviaMaui/SelectedImagesPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MiviaMaui.SelectedImagesPage.xaml
+build_metadata.AdditionalFiles.TargetPath = SelectedImagesPage.xaml
+build_metadata.AdditionalFiles.RelativePath = SelectedImagesPage.xaml

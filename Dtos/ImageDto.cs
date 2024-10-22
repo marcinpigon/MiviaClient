@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -21,12 +22,20 @@ namespace MiviaMaui.Dtos
         public string OriginalFilename { get; set; }
 
         public bool Validated { get; set; }
+        public ObservableCollection<ModelDto> SelectedModels { get; set; }
 
         private bool _isSelected;
         public bool IsSelected
         {
             get => _isSelected;
             set => SetProperty(ref _isSelected, value);
+        }
+
+        private bool _isCurrentlySelected;
+        public bool IsCurrentlySelected
+        {
+            get => _isCurrentlySelected;
+            set => SetProperty(ref _isCurrentlySelected, value);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

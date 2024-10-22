@@ -1,6 +1,7 @@
 using MiviaMaui.Converters;
 using MiviaMaui.Dtos;
 using MiviaMaui.Resources.Languages;
+using MiviaMaui.Services;
 using MiviaMaui.ViewModels;
 using System.Diagnostics;
 using System.Globalization;
@@ -30,6 +31,13 @@ namespace MiviaMaui.Views
             {
                 _viewModel.ToggleImageSelection(image);
             }
+        }
+
+        private async void OnViewSelectedImagesClicked(object sender, EventArgs e)
+        {
+            var selectedImages = _viewModel.Images.Where(x => x.IsSelected).ToList();
+            await Navigation.PushAsync(new SelectedImagesPage( App.ServiceProvider.GetRequiredService<ModelService>(),
+                selectedImages));
         }
 
         private async void OnDeleteButtonClicked(object sender, EventArgs e)

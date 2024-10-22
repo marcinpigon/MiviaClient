@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-10-17T19:30:42.988</Modified>
+      <Modified>2024-10-22T19:27:07.135</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-10-17T18:47:26.393</Modified>
+      <Modified>2024-10-19T12:07:04.255</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.runtimeconfig.json">
       <PackagePath>MiviaMaui.runtimeconfig.json</PackagePath>
@@ -44,7 +44,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.dll">
       <PackagePath>MiviaMaui.dll</PackagePath>
-      <Modified>2024-10-17T19:30:41.805</Modified>
+      <Modified>2024-10-22T19:27:06.262</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.dll.config">
       <PackagePath>MiviaMaui.dll.config</PackagePath>
@@ -52,7 +52,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>MiviaMaui.exe</PackagePath>
-      <Modified>2024-10-17T19:30:41.830</Modified>
+      <Modified>2024-10-22T19:27:06.270</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -320,15 +320,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.deps.json">
       <PackagePath>MiviaMaui.deps.json</PackagePath>
-      <Modified>2024-10-17T18:47:26.058</Modified>
+      <Modified>2024-10-19T12:07:03.855</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\de\MiviaMaui.resources.dll">
       <PackagePath>de\MiviaMaui.resources.dll</PackagePath>
-      <Modified>2024-10-17T19:30:42.654</Modified>
+      <Modified>2024-10-22T19:27:06.901</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\pl\MiviaMaui.resources.dll">
       <PackagePath>pl\MiviaMaui.resources.dll</PackagePath>
-      <Modified>2024-10-17T19:30:42.782</Modified>
+      <Modified>2024-10-22T19:27:06.971</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
