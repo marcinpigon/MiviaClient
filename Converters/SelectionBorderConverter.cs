@@ -11,7 +11,7 @@ namespace MiviaMaui.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (bool)value ? Colors.Green : Colors.Transparent;
+            return (bool)value ? Colors.Teal : Colors.Gray;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:MiviaMaui.Converters"
              x:Class="MiviaMaui.Views.SelectedImagesPage"
-             BackgroundColor="White">
+             Title="Process selected images"
+             BackgroundColor="LightGray">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -11,10 +12,9 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid ColumnDefinitions="*, *"
+    <Grid ColumnDefinitions="*, 20, Auto"
           Margin="10">
 
-        <!-- Background tap handler for the entire grid -->
         <Grid.GestureRecognizers>
             <TapGestureRecognizer Command="{Binding ClearSelectionCommand}" />
         </Grid.GestureRecognizers>
@@ -22,7 +22,6 @@
         <Grid Grid.Column="0"
               RowDefinitions="Auto, *">
 
-            <!-- Replace Button with Label -->
             <Label Grid.Row="0"
                    Text="Select/Deselect All"
                    TextColor="#008080"
@@ -35,61 +34,106 @@
 
             <CollectionView Grid.Row="1"
                             ItemsSource="{Binding SelectedImages}"
-                            SelectionMode="None">
+                            SelectionMode="None"
+                            Margin="0,15,0,0">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Margin="0,0,10,15"
-                               BackgroundColor="#F0F0F0"
-                               HasShadow="True"
-                               BorderColor="{Binding IsCurrentlySelected, Converter={StaticResource SelectionBorderConverter}}">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ToggleImageSelectionCommand}"
-                                                      CommandParameter="{Binding .}" />
-                            </Frame.GestureRecognizers>
-                            <Grid Padding="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Label Text="{Binding OriginalFilename}"
-                                       FontSize="Medium"
-                                       TextColor="Black" />
-                                <Label Text="{Binding CreatedAt, StringFormat='{0:G}'}"
-                                       FontSize="Small"
-                                       TextColor="Gray"
-                                       Grid.Row="1" />
-                                <CollectionView ItemsSource="{Binding SelectedModels}"
-                                                Grid.Row="2">
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate>
-                                            <Label Text="{Binding DisplayName}"
-                                                   TextColor="#008080"
-                                                   FontSize="Small" />
-                                        </DataTemplate>
-                                    </CollectionView.ItemTemplate>
-                                </CollectionView>
-                            </Grid>
-                        </Frame>
+                        <Border StrokeThickness="2"
+                                Stroke="{Binding IsCurrentlySelected, Converter={StaticResource SelectionBorderConverter}}"
+                                Padding="0"
+                                Margin="5"
+                                BackgroundColor="White">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+
+                            <Border.Triggers>
+                                <DataTrigger TargetType="Border"
+                                             Binding="{Binding IsCurrentlySelected}"
+                                             Value="True">
+                                    <Setter Property="StrokeThickness"
+                                            Value="4" />
+                                </DataTrigger>
+                            </Border.Triggers>
+
+                            <Frame Padding="0"
+                                   BackgroundColor="White"
+                                   HasShadow="True"
+                                   CornerRadius="10">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ToggleImageSelectionCommand}"
+                                                          CommandParameter="{Binding .}" />
+                                </Frame.GestureRecognizers>
+                                <Grid RowDefinitions="Auto, Auto, *">
+                                    <BoxView Grid.Row="0"
+                                             HeightRequest="40"
+                                             BackgroundColor="#D3D3D3" />
+                                    <Label Grid.Row="0"
+                                           Text="{Binding OriginalFilename}"
+                                           FontSize="Medium"
+                                           TextColor="Black"
+                                           Padding="10,0,10,0"
+                                           VerticalTextAlignment="Center" />
+                                    <BoxView Grid.Row="1"
+                                             HeightRequest="1"
+                                             BackgroundColor="#A9A9A9" />
+                                    <StackLayout Grid.Row="2"
+                                                 Padding="10,8"
+                                                 Spacing="2"
+                                                 BackgroundColor="White">
+                                        <Label Text="{Binding CreatedAt, StringFormat='{0:G}'}"
+                                               FontSize="Small"
+                                               TextColor="Gray" />
+                                        <FlexLayout BindableLayout.ItemsSource="{Binding SelectedModels}"
+                                                    Wrap="Wrap"
+                                                    Direction="Row"
+                                                    JustifyContent="Start"
+                                                    AlignItems="Center">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Label Text="{Binding DisplayName}"
+                                                           TextColor="#008080"
+                                                           FontSize="Micro"
+                                                           Margin="0,0,8,0" />
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </FlexLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Border>
+
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Grid>
 
-        <Grid Grid.Column="1"
-              RowDefinitions="*, Auto">
-            <!-- Cancel tap propagation for the models collection -->
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer />
-            </Grid.GestureRecognizers>
 
-            <CollectionView ItemsSource="{Binding Models}"
+        <Grid Grid.Column="2"
+              RowDefinitions="Auto, *"
+              WidthRequest="250">
+
+            <Button Grid.Row="0"
+                    Text="Process Selected Images"
+                    IsEnabled="{Binding CanProcess}"
+                    Clicked="OnProcessImagesClicked"
+                    BackgroundColor="#008080"
+                    TextColor="White"
+                    Margin="0,15,0,15">
+                <Button.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Button.GestureRecognizers>
+            </Button>
+
+            <CollectionView Grid.Row="1"
+                            ItemsSource="{Binding Models}"
                             SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Margin="0,0,0,10"
                                BackgroundColor="#F0F0F0"
-                               HasShadow="True">
+                               HasShadow="True"
+                               Padding="8,4">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
@@ -106,18 +150,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
-            <Button Grid.Row="1"
-                    Text="Process Selected Images"
-                    IsEnabled="{Binding CanProcess}"
-                    Clicked="OnProcessImagesClicked"
-                    BackgroundColor="#008080"
-                    TextColor="White"
-                    Margin="0,10,0,0">
-                <Button.GestureRecognizers>
-                    <TapGestureRecognizer />
-                </Button.GestureRecognizers>
-            </Button>
         </Grid>
     </Grid>
 </ContentPage>

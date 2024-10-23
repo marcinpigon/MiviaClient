@@ -19,7 +19,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiviaMaui")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+6490f62ddb0f78fefdd42b0ef69937693d9a261c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+1b0dc196260074c8d900ec076086a7ef49a8a41e")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiviaMaui")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiviaMaui")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
