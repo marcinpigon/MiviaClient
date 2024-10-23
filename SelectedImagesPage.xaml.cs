@@ -1,3 +1,4 @@
+using MiviaMaui.Bus;
 using MiviaMaui.Dtos;
 using MiviaMaui.Services;
 using MiviaMaui.ViewModels;
@@ -12,7 +13,9 @@ namespace MiviaMaui.Views
         public SelectedImagesPage(ModelService modelService, List<ImageDto> selectedImages)
         {
             InitializeComponent();
-            _viewModel = new SelectedImagesViewModel(modelService, selectedImages);
+            _viewModel = new SelectedImagesViewModel(modelService, selectedImages, 
+                App.ServiceProvider.GetRequiredService<ICommandBus>(), 
+                App.ServiceProvider.GetRequiredService<IQueryBus>());
             BindingContext = _viewModel;
         }
 
@@ -42,7 +45,7 @@ namespace MiviaMaui.Views
         private async void OnProcessImagesClicked(object sender, EventArgs e)
         {
             await _viewModel.ProcessImagesAsync();
-            await DisplayAlert("Success", "Images sent for processing", "OK");
+            await DisplayAlert("Success", "jobs sent for processing", "OK");
             await Navigation.PopAsync();
         }
     }

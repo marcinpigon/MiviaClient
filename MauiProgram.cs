@@ -54,6 +54,8 @@ namespace MiviaMaui
             builder.Services.AddTransient<ICommandHandler<UploadImageCommand, string>, UploadImageCommandHandler>();
             builder.Services.AddTransient<ICommandHandler<ScheduleJobCommand, string>, ScheduleJobCommandHandler>();
             builder.Services.AddTransient<ICommandHandler<GenerateReportCommand, bool>, GenerateReportCommandHandler>();
+            builder.Services.AddTransient<ICommandHandler<GenerateReportMultipleJobsCommand, bool>, GenerateReportMultipleJobsHandler>();
+
             builder.Services.AddTransient<IQueryHandler<IsJobFinishedQuery, bool>, IsJobFinishedQueryHandler>();
             builder.Services.AddTransient<ICommandBus, CommandBus>();
             builder.Services.AddTransient<IQueryBus, QueryBus>();

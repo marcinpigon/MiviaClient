@@ -1,8 +1,12 @@
-﻿using MiviaMaui.Dtos;
+﻿using MiviaMaui.Bus;
+using MiviaMaui.Commands;
+using MiviaMaui.Dtos;
+using MiviaMaui.Queries;
 using MiviaMaui.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +27,6 @@ namespace MiviaMaui.ViewModels
                 OnPropertyChanged(nameof(Models));
             }
         }
-
         private ImageDto _currentImage;
         public ImageDto CurrentImage
         {
@@ -53,8 +56,13 @@ namespace MiviaMaui.ViewModels
         public Command ToggleAllSelectionCommand { get; }
         public Command ClearSelectionCommand { get; }
 
+        private readonly ICommandBus _commandBus;
+        private readonly IQueryBus _queryBus;
+
         public SelectedImagesViewModel(ModelService modelService,
-                                     List<ImageDto> selectedImages)
+                                     List<ImageDto> selectedImages,
+                                     ICommandBus commandBus,
+                                     IQueryBus queryBus)
         {
             _modelService = modelService;
 
@@ -68,6 +76,8 @@ namespace MiviaMaui.ViewModels
             ToggleImageSelectionCommand = new Command<ImageDto>(OnToggleImageSelection);
             ToggleAllSelectionCommand = new Command(OnToggleAllSelection);
             ClearSelectionCommand = new Command(OnClearSelection);
+            _queryBus = queryBus;
+            _commandBus = commandBus;
         }
 
         private void RefreshModelSelections()
@@ -83,6 +93,7 @@ namespace MiviaMaui.ViewModels
                 {
                     Name = model.Name,
                     DisplayName = model.DisplayName,
+                    Id = model.Id,
                     IsSelected = isSelected
                 });
             }
@@ -102,6 +113,7 @@ namespace MiviaMaui.ViewModels
                     {
                         Name = model.Name,
                         DisplayName = model.DisplayName,
+                        Id= model.Id,
                         IsSelected = true
                     });
                 }
@@ -217,12 +229,46 @@ namespace MiviaMaui.ViewModels
 
             try
             {
+                var jobIds = new List<string>();
                 foreach (var image in SelectedImages)
                 {
                     foreach (var model in image.SelectedModels)
                     {
+                        var jobId = await _commandBus.SendAsync<ScheduleJobCommand, string>(new ScheduleJobCommand
+                        {
+                            ImageId = image.Id,
+                            ModelId = model.Id
+                        });
+                        if (!string.IsNullOrEmpty(jobId))
+                            jobIds.Add(jobId);
                     }
                 }
+
+                var finishedJobIds = new List<string>();
+                foreach(var jobId in jobIds)
+                {
+                    var isJobFinished = await _queryBus.SendAsync<IsJobFinishedQuery, bool>(new IsJobFinishedQuery
+                    {
+                        JobId = jobId
+                    });
+
+                    if(isJobFinished) finishedJobIds.Add(jobId);
+                }
+
+                string downloadsPath = @"C:\Users\marci\Downloads";
+                string fileName = "Report1.pdf";
+                string outputPath = Path.Combine(downloadsPath, fileName);
+                if (DeviceInfo.Platform == DevicePlatform.Android)
+                {
+                    downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Downloads");
+                }
+                outputPath = Path.Combine(downloadsPath, fileName);
+
+                await _commandBus.SendAsync<GenerateReportMultipleJobsCommand, bool>(new GenerateReportMultipleJobsCommand
+                {
+                    JobIds = finishedJobIds,
+                    OutputPath = outputPath
+                });
             }
             catch (Exception ex)
             {

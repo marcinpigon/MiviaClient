@@ -3,28 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\selectedimagespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:selectedimagespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\viewmodels\\selectedimagesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:viewmodels\\selectedimagesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\converters\\selectionborderconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:converters\\selectionborderconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\handlers\\command handlers\\generatereportmultiplejobshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:handlers\\command handlers\\generatereportmultiplejobshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\converters\\booltocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:converters\\booltocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\commands\\generatereportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:commands\\generatereportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\selectedimagespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:selectedimagespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\handlers\\command handlers\\generatereporthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:handlers\\command handlers\\generatereporthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\commands\\generatereportmultiplejobscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:commands\\generatereportmultiplejobscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\services\\directorywatcherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:services\\directorywatcherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\dtos\\modeldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:dtos\\modeldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,44 +46,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MainPage.xaml.cs",
-              "RelativeDocumentMoniker": "MainPage.xaml.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MainPage.xaml.cs",
-              "RelativeToolTip": "MainPage.xaml.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "MauiProgram.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MauiProgram.cs",
+              "RelativeToolTip": "MauiProgram.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAgwDgAAACFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T19:38:12.547Z"
+              "WhenOpened": "2024-10-23T19:40:33.234Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BoolToColorConverter.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Converters\\BoolToColorConverter.cs",
-              "RelativeDocumentMoniker": "Converters\\BoolToColorConverter.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Converters\\BoolToColorConverter.cs",
-              "RelativeToolTip": "Converters\\BoolToColorConverter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "DocumentIndex": 7,
+              "Title": "DirectoryWatcherService.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\DirectoryWatcherService.cs",
+              "RelativeDocumentMoniker": "Services\\DirectoryWatcherService.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\DirectoryWatcherService.cs",
+              "RelativeToolTip": "Services\\DirectoryWatcherService.cs",
+              "ViewState": "AQIAAJ4AAAAAAAAAAAAuwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T18:48:45.846Z",
+              "WhenOpened": "2024-10-23T19:33:05.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MiviaClient.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaClient.cs",
+              "RelativeDocumentMoniker": "MiviaClient.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaClient.cs",
+              "RelativeToolTip": "MiviaClient.cs",
+              "ViewState": "AQIAACoBAAAAAAAAAAAYwDkBAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T19:25:57.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ModelDto.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Dtos\\ModelDto.cs",
+              "RelativeDocumentMoniker": "Dtos\\ModelDto.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Dtos\\ModelDto.cs",
+              "RelativeToolTip": "Dtos\\ModelDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T19:12:03.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GenerateReportHandler.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\GenerateReportHandler.cs",
+              "RelativeDocumentMoniker": "Handlers\\Command Handlers\\GenerateReportHandler.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\GenerateReportHandler.cs",
+              "RelativeToolTip": "Handlers\\Command Handlers\\GenerateReportHandler.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAowC4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T18:57:51.787Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SelectionBorderConverter.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Converters\\SelectionBorderConverter.cs",
-              "RelativeDocumentMoniker": "Converters\\SelectionBorderConverter.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Converters\\SelectionBorderConverter.cs",
-              "RelativeToolTip": "Converters\\SelectionBorderConverter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAsAAAA",
+              "Title": "GenerateReportMultipleJobsHandler.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\GenerateReportMultipleJobsHandler.cs",
+              "RelativeDocumentMoniker": "Handlers\\Command Handlers\\GenerateReportMultipleJobsHandler.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\GenerateReportMultipleJobsHandler.cs",
+              "RelativeToolTip": "Handlers\\Command Handlers\\GenerateReportMultipleJobsHandler.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwA0AAABmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T18:48:41.675Z",
+              "WhenOpened": "2024-10-23T18:57:49.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GenerateReportCommand.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Commands\\GenerateReportCommand.cs",
+              "RelativeDocumentMoniker": "Commands\\GenerateReportCommand.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Commands\\GenerateReportCommand.cs",
+              "RelativeToolTip": "Commands\\GenerateReportCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T18:55:16.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GenerateReportMultipleJobsCommand.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Commands\\GenerateReportMultipleJobsCommand.cs",
+              "RelativeDocumentMoniker": "Commands\\GenerateReportMultipleJobsCommand.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Commands\\GenerateReportMultipleJobsCommand.cs",
+              "RelativeToolTip": "Commands\\GenerateReportMultipleJobsCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T18:56:50.08Z",
               "EditorCaption": ""
             },
             {
@@ -82,35 +160,9 @@
               "RelativeDocumentMoniker": "ViewModels\\SelectedImagesViewModel.cs",
               "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\ViewModels\\SelectedImagesViewModel.cs",
               "RelativeToolTip": "ViewModels\\SelectedImagesViewModel.cs",
-              "ViewState": "AQIAANkAAAAAAAAAAAAQwOUAAAANAAAA",
+              "ViewState": "AQIAAPoAAAAAAAAAAAAewAoBAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T16:45:24.836Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SelectedImagesPage.xaml",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\SelectedImagesPage.xaml",
-              "RelativeDocumentMoniker": "SelectedImagesPage.xaml",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\SelectedImagesPage.xaml",
-              "RelativeToolTip": "SelectedImagesPage.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-19T12:27:50.853Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SelectedImagesPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\SelectedImagesPage.xaml.cs",
-              "RelativeDocumentMoniker": "SelectedImagesPage.xaml.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\SelectedImagesPage.xaml.cs",
-              "RelativeToolTip": "SelectedImagesPage.xaml.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAkwA0AAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T12:15:56.851Z",
               "EditorCaption": ""
             }
           ]

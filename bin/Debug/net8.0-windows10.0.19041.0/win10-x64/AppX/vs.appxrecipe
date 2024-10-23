@@ -30,7 +30,7 @@
     <AppXManifest Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-10-23T17:34:40.203</Modified>
+      <Modified>2024-10-23T19:41:30.176</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -44,7 +44,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.dll">
       <PackagePath>MiviaMaui.dll</PackagePath>
-      <Modified>2024-10-23T17:34:39.076</Modified>
+      <Modified>2024-10-23T19:41:29.086</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MiviaMaui.dll.config">
       <PackagePath>MiviaMaui.dll.config</PackagePath>
@@ -52,7 +52,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>MiviaMaui.exe</PackagePath>
-      <Modified>2024-10-23T17:34:39.091</Modified>
+      <Modified>2024-10-23T19:41:29.097</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -324,11 +324,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\de\MiviaMaui.resources.dll">
       <PackagePath>de\MiviaMaui.resources.dll</PackagePath>
-      <Modified>2024-10-23T17:34:39.953</Modified>
+      <Modified>2024-10-23T19:41:29.863</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\pl\MiviaMaui.resources.dll">
       <PackagePath>pl\MiviaMaui.resources.dll</PackagePath>
-      <Modified>2024-10-23T17:34:40.028</Modified>
+      <Modified>2024-10-23T19:41:29.970</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
