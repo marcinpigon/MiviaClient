@@ -5,6 +5,7 @@ using MiviaMaui.Services;
 using MiviaMaui.ViewModels;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Reflection;
 
 namespace MiviaMaui.Views
 {
@@ -19,14 +20,14 @@ namespace MiviaMaui.Views
             _viewModel = new SelectedImagesViewModel(modelService, selectedImages,
                 App.ServiceProvider.GetRequiredService<ICommandBus>(),
                 App.ServiceProvider.GetRequiredService<IQueryBus>(),
-                App.ServiceProvider.GetRequiredService<IImagePathService>());
+                App.ServiceProvider.GetRequiredService<IImagePathService>(),
+                App.ServiceProvider.GetRequiredService<INotificationService>());
             BindingContext = _viewModel;
 
 #if ANDROID
             selectedImagesGrid.Span = 1;
 #endif
         }
-
 
         protected override async void OnAppearing()
         {
@@ -56,13 +57,11 @@ namespace MiviaMaui.Views
             {
                 string folderPath = tapGesture.CommandParameter as string;
 
-                // Get the directory of the tapped image
                 var directoryPath = Path.GetDirectoryName(folderPath);
 
-                // Check if the directory exists
                 if (Directory.Exists(directoryPath))
                 {
-                    var uri = new Uri($"file:///{directoryPath.Replace("\\", "/")}"); // Replace backslashes with forward slashes for URI format
+                    var uri = new Uri($"file:///{directoryPath.Replace("\\", "/")}");
                     await Launcher.OpenAsync(uri);
                 }
                 else
@@ -72,6 +71,19 @@ namespace MiviaMaui.Views
             }
         }
 
+        private void OnFrameTapped(object sender, TappedEventArgs e)
+        {
+            if (sender is Frame frame && frame.BindingContext is ModelDto model)
+            {
+                model.IsSelected = !model.IsSelected;
+                _viewModel.HandleModelSelection(model);
+
+                if (frame.FindByName<CheckBox>("checkbox") is CheckBox checkbox)
+                {
+                    checkbox.IsChecked = model.IsSelected;
+                }
+            }
+        }
 
         private async void OnProcessImagesClicked(object sender, EventArgs e)
         {

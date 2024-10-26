@@ -1131,3 +1131,4 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\assets
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\assets\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\assets\SixLabors.ImageSharp.dll
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\assets\TiffLibrary.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\resizetizer\r\drawable\image_unavailable.png

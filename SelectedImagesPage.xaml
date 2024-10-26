@@ -51,7 +51,7 @@
                                 Margin="5"
                                 BackgroundColor="White"
                                 WidthRequest="{OnPlatform WinUI=300, Android=190}"
-                                MinimumHeightRequest="{OnPlatform WinUI=400, Android=200}"
+                                MinimumHeightRequest="{OnPlatform WinUI=400, Android=300}"
                                 HorizontalOptions="Center">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10" />
@@ -87,13 +87,21 @@
                                     <BoxView Grid.Row="1"
                                              HeightRequest="1"
                                              BackgroundColor="#A9A9A9" />
-                                    <Image Grid.Row="2"
-                                           Source="{Binding ImagePath}"
-                                           Aspect="AspectFit"
+                                    <Frame Grid.Row="2"
                                            HeightRequest="{OnPlatform WinUI=200, Android=150}"
-                                           WidthRequest="{OnPlatform WinUI=280, Android=100}"
+                                           WidthRequest="{OnPlatform WinUI=270, Android=100}"
                                            HorizontalOptions="Center"
-                                           Margin="5" />
+                                           Margin="10,10,10,0"
+                                           HasShadow="False"
+                                           CornerRadius="7.5"
+                                           Padding="0"
+                                           BackgroundColor="Transparent">
+                                        <Image Source="{Binding ImagePath}"
+                                               Aspect="Fill"
+                                               HorizontalOptions="Fill"
+                                               VerticalOptions="Fill" />
+                                    </Frame>
+
                                     <StackLayout Grid.Row="3"
                                                  Padding="10,8"
                                                  Spacing="2"
@@ -170,6 +178,9 @@
                                BackgroundColor="#F0F0F0"
                                HasShadow="True"
                                Padding="8,4">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFrameTapped" />
+                            </Frame.GestureRecognizers>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
@@ -178,7 +189,8 @@
                                 <Label Text="{Binding DisplayName}"
                                        TextColor="Black"
                                        VerticalOptions="Center" />
-                                <CheckBox Grid.Column="1"
+                                <CheckBox x:Name="checkbox"
+                                          Grid.Column="1"
                                           IsChecked="{Binding IsSelected, Mode=TwoWay}"
                                           CheckedChanged="OnModelSelectionChanged" />
                             </Grid>

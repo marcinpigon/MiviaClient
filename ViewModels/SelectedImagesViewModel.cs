@@ -22,6 +22,7 @@ namespace MiviaMaui.ViewModels
         public ObservableCollection<ImageDto> SelectedImages { get; } = new();
         private ObservableCollection<ModelDto> _models = new();
         private readonly IImagePathService _imagePathService;
+        private readonly INotificationService _notificationService;
         public ObservableCollection<ModelDto> Models
         {
             get => _models;
@@ -67,7 +68,8 @@ namespace MiviaMaui.ViewModels
                                      List<ImageDto> selectedImages,
                                      ICommandBus commandBus,
                                      IQueryBus queryBus,
-                                     IImagePathService imagePathService)
+                                     IImagePathService imagePathService,
+                                     INotificationService notificationService)
         {
             _modelService = modelService;
             _imagePathService = imagePathService;
@@ -87,6 +89,7 @@ namespace MiviaMaui.ViewModels
             ClearSelectionCommand = new Command(OnClearSelection);
             _queryBus = queryBus;
             _commandBus = commandBus;
+            _notificationService = notificationService;
         }
 
         private async void LoadImage(ImageDto image)
@@ -284,15 +287,27 @@ namespace MiviaMaui.ViewModels
                 }
                 outputPath = Path.Combine(downloadsPath, fileName);
 
-                await _commandBus.SendAsync<GenerateReportMultipleJobsCommand, bool>(new GenerateReportMultipleJobsCommand
+                if (finishedJobIds.Count > 0)
                 {
-                    JobIds = finishedJobIds,
-                    OutputPath = outputPath
-                });
+                    var success = await _commandBus.SendAsync<GenerateReportMultipleJobsCommand, bool>(new GenerateReportMultipleJobsCommand
+                    {
+                        JobIds = finishedJobIds,
+                        OutputPath = outputPath
+                    });
+
+                    if (success)
+                    {
+                        _notificationService.ShowNotification("Report saved", $"Collective report saved in {outputPath}");
+                    }
+                }
+                else
+                {
+                    _notificationService.ShowNotification("Report failed", "No images were succesfully analysed within the timeframe.");
+                }
             }
             catch (Exception ex)
             {
-                // Handle error appropriately
+                _notificationService.ShowNotification("Report failed", "Failed to generate collection report for images");
             }
             finally
             {
