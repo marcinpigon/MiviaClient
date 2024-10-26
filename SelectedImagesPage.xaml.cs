@@ -1,8 +1,10 @@
 using MiviaMaui.Bus;
 using MiviaMaui.Dtos;
+using MiviaMaui.Interfaces;
 using MiviaMaui.Services;
 using MiviaMaui.ViewModels;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace MiviaMaui.Views
 {
@@ -13,11 +15,18 @@ namespace MiviaMaui.Views
         public SelectedImagesPage(ModelService modelService, List<ImageDto> selectedImages)
         {
             InitializeComponent();
-            _viewModel = new SelectedImagesViewModel(modelService, selectedImages, 
-                App.ServiceProvider.GetRequiredService<ICommandBus>(), 
-                App.ServiceProvider.GetRequiredService<IQueryBus>());
+
+            _viewModel = new SelectedImagesViewModel(modelService, selectedImages,
+                App.ServiceProvider.GetRequiredService<ICommandBus>(),
+                App.ServiceProvider.GetRequiredService<IQueryBus>(),
+                App.ServiceProvider.GetRequiredService<IImagePathService>());
             BindingContext = _viewModel;
+
+#if ANDROID
+            selectedImagesGrid.Span = 1;
+#endif
         }
+
 
         protected override async void OnAppearing()
         {
@@ -36,11 +45,33 @@ namespace MiviaMaui.Views
             if (sender is CheckBox checkBox &&
                 checkBox.BindingContext is ModelDto model)
             {
-                // Update the model's IsSelected property first
                 model.IsSelected = e.Value;
                 _viewModel.HandleModelSelection(model);
             }
         }
+
+        private async void OnFolderTapped(object sender, EventArgs e)
+        {
+            if (sender is Image image && image.GestureRecognizers.First() is TapGestureRecognizer tapGesture)
+            {
+                string folderPath = tapGesture.CommandParameter as string;
+
+                // Get the directory of the tapped image
+                var directoryPath = Path.GetDirectoryName(folderPath);
+
+                // Check if the directory exists
+                if (Directory.Exists(directoryPath))
+                {
+                    var uri = new Uri($"file:///{directoryPath.Replace("\\", "/")}"); // Replace backslashes with forward slashes for URI format
+                    await Launcher.OpenAsync(uri);
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Folder does not exist.", "OK");
+                }
+            }
+        }
+
 
         private async void OnProcessImagesClicked(object sender, EventArgs e)
         {
@@ -48,5 +79,6 @@ namespace MiviaMaui.Views
             await DisplayAlert("Success", "jobs sent for processing", "OK");
             await Navigation.PopAsync();
         }
+
     }
 }

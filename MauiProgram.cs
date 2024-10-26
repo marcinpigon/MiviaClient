@@ -50,6 +50,8 @@ namespace MiviaMaui
 
             builder.Services.AddSingleton<ISnackbarService, SnackbarService>();
 
+            builder.Services.AddImagePathService();
+
             // CQRS
             builder.Services.AddTransient<ICommandHandler<UploadImageCommand, string>, UploadImageCommandHandler>();
             builder.Services.AddTransient<ICommandHandler<ScheduleJobCommand, string>, ScheduleJobCommandHandler>();

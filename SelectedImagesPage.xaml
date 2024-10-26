@@ -36,13 +36,23 @@
                             ItemsSource="{Binding SelectedImages}"
                             SelectionMode="None"
                             Margin="0,15,0,0">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout x:Name="selectedImagesGrid"
+                                     Orientation="Vertical"
+                                     Span="3"
+                                     VerticalItemSpacing="10"
+                                     HorizontalItemSpacing="10" />
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border StrokeThickness="2"
                                 Stroke="{Binding IsCurrentlySelected, Converter={StaticResource SelectionBorderConverter}}"
                                 Padding="0"
                                 Margin="5"
-                                BackgroundColor="White">
+                                BackgroundColor="White"
+                                WidthRequest="{OnPlatform WinUI=300, Android=190}"
+                                MinimumHeightRequest="{OnPlatform WinUI=400, Android=200}"
+                                HorizontalOptions="Center">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
@@ -64,35 +74,61 @@
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ToggleImageSelectionCommand}"
                                                           CommandParameter="{Binding .}" />
                                 </Frame.GestureRecognizers>
-                                <Grid RowDefinitions="Auto, Auto, *">
-                                    <BoxView Grid.Row="0"
-                                             HeightRequest="40"
-                                             BackgroundColor="#D3D3D3" />
-                                    <Label Grid.Row="0"
-                                           Text="{Binding OriginalFilename}"
-                                           FontSize="Medium"
-                                           TextColor="Black"
-                                           Padding="10,0,10,0"
-                                           VerticalTextAlignment="Center" />
+                                <Grid RowDefinitions="Auto, Auto, Auto, *">
+                                    <Grid Grid.Row="0"
+                                          BackgroundColor="#D3D3D3">
+                                        <Label Text="{Binding OriginalFilename}"
+                                               FontSize="Medium"
+                                               TextColor="Black"
+                                               Padding="10"
+                                               LineBreakMode="WordWrap"
+                                               VerticalOptions="Center" />
+                                    </Grid>
                                     <BoxView Grid.Row="1"
                                              HeightRequest="1"
                                              BackgroundColor="#A9A9A9" />
-                                    <StackLayout Grid.Row="2"
+                                    <Image Grid.Row="2"
+                                           Source="{Binding ImagePath}"
+                                           Aspect="AspectFit"
+                                           HeightRequest="{OnPlatform WinUI=200, Android=150}"
+                                           WidthRequest="{OnPlatform WinUI=280, Android=100}"
+                                           HorizontalOptions="Center"
+                                           Margin="5" />
+                                    <StackLayout Grid.Row="3"
                                                  Padding="10,8"
                                                  Spacing="2"
                                                  BackgroundColor="White">
-                                        <Label Text="{Binding CreatedAt, StringFormat='{0:G}'}"
-                                               FontSize="Small"
-                                               TextColor="Gray" />
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding CreatedAt, StringFormat='{0:G}'}"
+                                                   FontSize="10"
+                                                   TextColor="Gray"
+                                                   Grid.Column="0" />
+
+                                            <Image Source="folder.png"
+                                                   HorizontalOptions="End"
+                                                   VerticalOptions="Center"
+                                                   Grid.Column="1"
+                                                   HeightRequest="30">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnFolderTapped"
+                                                                          CommandParameter="{Binding ImagePath}" />
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </Grid>
                                         <FlexLayout BindableLayout.ItemsSource="{Binding SelectedModels}"
                                                     Wrap="Wrap"
                                                     Direction="Row"
                                                     JustifyContent="Start"
-                                                    AlignItems="Center">
+                                                    AlignItems="Center"
+                                                    VerticalOptions="End">
                                             <BindableLayout.ItemTemplate>
                                                 <DataTemplate>
                                                     <Label Text="{Binding DisplayName}"
-                                                           TextColor="#008080"
+                                                           TextColor="Black"
                                                            FontSize="Micro"
                                                            Margin="0,0,8,0" />
                                                 </DataTemplate>
@@ -111,7 +147,7 @@
 
         <Grid Grid.Column="2"
               RowDefinitions="Auto, *"
-              WidthRequest="250">
+              WidthRequest="180">
 
             <Button Grid.Row="0"
                     Text="Process Selected Images"

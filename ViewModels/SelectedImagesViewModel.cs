@@ -1,6 +1,7 @@
 ﻿using MiviaMaui.Bus;
 using MiviaMaui.Commands;
 using MiviaMaui.Dtos;
+using MiviaMaui.Interfaces;
 using MiviaMaui.Queries;
 using MiviaMaui.Services;
 using System;
@@ -16,8 +17,11 @@ namespace MiviaMaui.ViewModels
     public class SelectedImagesViewModel : BaseViewModel
     {
         private readonly ModelService _modelService;
+        public Queue<ImageDto> RemainingImages { get; set; }
+        private bool _isLoadingMore;
         public ObservableCollection<ImageDto> SelectedImages { get; } = new();
         private ObservableCollection<ModelDto> _models = new();
+        private readonly IImagePathService _imagePathService;
         public ObservableCollection<ModelDto> Models
         {
             get => _models;
@@ -62,14 +66,19 @@ namespace MiviaMaui.ViewModels
         public SelectedImagesViewModel(ModelService modelService,
                                      List<ImageDto> selectedImages,
                                      ICommandBus commandBus,
-                                     IQueryBus queryBus)
+                                     IQueryBus queryBus,
+                                     IImagePathService imagePathService)
         {
             _modelService = modelService;
+            _imagePathService = imagePathService;
 
             foreach (var image in selectedImages)
             {
                 image.SelectedModels = new ObservableCollection<ModelDto>();
                 image.IsCurrentlySelected = false;
+
+                LoadImage(image);
+
                 SelectedImages.Add(image);
             }
 
@@ -80,9 +89,20 @@ namespace MiviaMaui.ViewModels
             _commandBus = commandBus;
         }
 
+        private async void LoadImage(ImageDto image)
+        {
+            try
+            {
+                image.ImagePath = await _imagePathService.GetImagePath(image.Id);
+            }
+            catch (Exception)
+            {
+                image.ImagePath = "image_unavailable.png";
+            }
+        }
+
         private void RefreshModelSelections()
         {
-            // Create new instances of models to force UI update
             var updatedModels = new ObservableCollection<ModelDto>();
 
             foreach (var model in _models)
@@ -98,7 +118,7 @@ namespace MiviaMaui.ViewModels
                 });
             }
 
-            Models = updatedModels;  // This will trigger the property changed notification
+            Models = updatedModels; 
         }
 
         public void HandleModelSelection(ModelDto model)
@@ -280,4 +300,5 @@ namespace MiviaMaui.ViewModels
             }
         }
     }
+
 }

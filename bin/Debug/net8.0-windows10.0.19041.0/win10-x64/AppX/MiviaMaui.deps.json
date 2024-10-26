@@ -10,6 +10,7 @@
       "MiviaMaui/1.0": {
         "dependencies": {
           "CommunityToolkit.Maui": "9.1.0",
+          "Microsoft.Extensions.Caching.Memory": "8.0.1",
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "8.0.1",
           "Microsoft.Extensions.Http": "8.0.1",
@@ -17,6 +18,8 @@
           "Microsoft.Maui.Controls": "8.0.91",
           "Microsoft.Maui.Controls.Compatibility": "8.0.91",
           "Plugin.LocalNotification": "11.1.4",
+          "SixLabors.ImageSharp": "3.1.5",
+          "TiffLibrary": "0.6.65",
           "sqlite-net-pcl": "1.9.172",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.31"
         },
@@ -66,6 +69,40 @@
           "lib/net8.0-windows10.0.19041/CommunityToolkit.Maui.Core.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "JpegLibrary/0.4.32": {
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "assemblyVersion": "0.4.0.0",
+            "fileVersion": "0.4.32.56532"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
           }
         }
       },
@@ -669,6 +706,14 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.5": {
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.1.5.0"
+          }
+        }
+      },
       "sqlite-net-pcl/1.9.172": {
         "dependencies": {
           "SQLitePCLRaw.bundle_green": "2.1.2"
@@ -750,7 +795,18 @@
           }
         }
       },
-      "System.ValueTuple/4.5.0": {}
+      "System.ValueTuple/4.5.0": {},
+      "TiffLibrary/0.6.65": {
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "assemblyVersion": "0.6.0.0",
+            "fileVersion": "0.6.65.62514"
+          }
+        }
+      }
     }
   },
   "libraries": {
@@ -777,6 +833,27 @@
       "sha512": "sha512-aPVPB06syj/nrSkmiFwtFQkOGE2KkUYYjp8VbdyxhafcdSZgehEhQUtJ/R3ogBvL8f3a7bjj0ercHKuUEHrkcQ==",
       "path": "communitytoolkit.maui.core/9.1.0",
       "hashPath": "communitytoolkit.maui.core.9.1.0.nupkg.sha512"
+    },
+    "JpegLibrary/0.4.32": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Lv11HXsyGZxuRUG/0sw+3itw930/c08VkEVXDPin819yheN3Y3YpWQYccs1dW+sBlsGs9S4Y4q6DzyBCctsEeQ==",
+      "path": "jpeglibrary/0.4.32",
+      "hashPath": "jpeglibrary.0.4.32.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3KuSxeHoNYdxVYfg2IRZCThcrlJ1XJqIXkAWikCsbm5C/bCjv7G0WoKDyuR98Q+T607QT2Zl5GsbGRkENcV2yQ==",
+      "path": "microsoft.extensions.caching.abstractions/8.0.0",
+      "hashPath": "microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Memory/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HFDnhYLccngrzyGgHkjEDU5FMLn4MpOsr5ElgsBMC4yx6lJh4jeWO7fHS8+TXPq+dgxCmUa/Trl8svObmwW4QA==",
+      "path": "microsoft.extensions.caching.memory/8.0.1",
+      "hashPath": "microsoft.extensions.caching.memory.8.0.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/8.0.0": {
       "type": "package",
@@ -1051,6 +1128,13 @@
       "path": "plugin.localnotification/11.1.4",
       "hashPath": "plugin.localnotification.11.1.4.nupkg.sha512"
     },
+    "SixLabors.ImageSharp/3.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lNtlq7dSI/QEbYey+A0xn48z5w4XHSffF8222cC4F4YwTXfEImuiBavQcWjr49LThT/pRmtWJRcqA/PlL+eJ6g==",
+      "path": "sixlabors.imagesharp/3.1.5",
+      "hashPath": "sixlabors.imagesharp.3.1.5.nupkg.sha512"
+    },
     "sqlite-net-pcl/1.9.172": {
       "type": "package",
       "serviceable": true,
@@ -1134,6 +1218,13 @@
       "sha512": "sha512-okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
       "path": "system.valuetuple/4.5.0",
       "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
+    },
+    "TiffLibrary/0.6.65": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nlONBCj7VeEHY9pbZPQcxK5hYWv8R8IbfrUVCi9YZSMd7Nnf4zwMx1+81F/q6nDB4xkUDslJrpbfgOBDrDa5tg==",
+      "path": "tifflibrary/0.6.65",
+      "hashPath": "tifflibrary.0.6.65.nupkg.sha512"
     }
   }
 }

@@ -49,6 +49,61 @@
           }
         }
       },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Configuration/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -726,6 +781,22 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
       "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
@@ -827,6 +898,22 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
             "related": ".xml"
           }
         }
@@ -2725,6 +2812,61 @@
           }
         }
       },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Configuration/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -3402,6 +3544,22 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
       "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
@@ -3503,6 +3661,22 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
             "related": ".xml"
           }
         }
@@ -5401,6 +5575,61 @@
           }
         }
       },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Configuration/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -6078,6 +6307,22 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
       "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
@@ -6179,6 +6424,22 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
             "related": ".xml"
           }
         }
@@ -8077,6 +8338,61 @@
           }
         }
       },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Configuration/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -8754,6 +9070,22 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
       "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
@@ -8855,6 +9187,22 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
             "related": ".xml"
           }
         }
@@ -10753,6 +11101,61 @@
           }
         }
       },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Configuration/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -11430,6 +11833,22 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
       "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
@@ -11531,6 +11950,22 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
             "related": ".xml"
           }
         }
@@ -13429,6 +13864,61 @@
           }
         }
       },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Configuration/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -14106,6 +14596,22 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
       "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
@@ -14207,6 +14713,22 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
             "related": ".xml"
           }
         }
@@ -16093,6 +16615,61 @@
           }
         }
       },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Configuration/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -17005,6 +17582,22 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
       "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
@@ -17275,6 +17868,22 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        }
       }
     },
     "net8.0-windows10.0.19041/android-arm": {
@@ -17311,6 +17920,61 @@
           "lib/net8.0-windows10.0.19041/CommunityToolkit.Maui.Core.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "Microsoft.Extensions.Configuration/8.0.0": {
@@ -18167,6 +18831,22 @@
           "lib/net8.0-windows10.0.19041/Plugin.LocalNotification.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
         }
       },
       "sqlite-net-pcl/1.9.172": {
@@ -18322,6 +19002,22 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        }
       }
     },
     "net8.0-windows10.0.19041/android-arm64": {
@@ -18358,6 +19054,61 @@
           "lib/net8.0-windows10.0.19041/CommunityToolkit.Maui.Core.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "Microsoft.Extensions.Configuration/8.0.0": {
@@ -19214,6 +19965,22 @@
           "lib/net8.0-windows10.0.19041/Plugin.LocalNotification.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
         }
       },
       "sqlite-net-pcl/1.9.172": {
@@ -19369,6 +20136,22 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        }
       }
     },
     "net8.0-windows10.0.19041/android-x64": {
@@ -19405,6 +20188,61 @@
           "lib/net8.0-windows10.0.19041/CommunityToolkit.Maui.Core.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "Microsoft.Extensions.Configuration/8.0.0": {
@@ -20261,6 +21099,22 @@
           "lib/net8.0-windows10.0.19041/Plugin.LocalNotification.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
         }
       },
       "sqlite-net-pcl/1.9.172": {
@@ -20416,6 +21270,22 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        }
       }
     },
     "net8.0-windows10.0.19041/android-x86": {
@@ -20452,6 +21322,61 @@
           "lib/net8.0-windows10.0.19041/CommunityToolkit.Maui.Core.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "Microsoft.Extensions.Configuration/8.0.0": {
@@ -21310,6 +22235,22 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
       "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
@@ -21463,6 +22404,22 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        }
       }
     },
     "net8.0-windows10.0.19041/win10-x64": {
@@ -21499,6 +22456,61 @@
           "lib/net8.0-windows10.0.19041/CommunityToolkit.Maui.Core.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "JpegLibrary/0.4.32": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JpegLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "Microsoft.Extensions.Configuration/8.0.0": {
@@ -22363,6 +23375,22 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
       "sqlite-net-pcl/1.9.172": {
         "type": "package",
         "dependencies": {
@@ -22516,6 +23544,22 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "TiffLibrary/0.6.65": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.4.32"
+        },
+        "compile": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -22589,6 +23633,87 @@
         "lib/net6.0-android31.0/GoogleGson.aar",
         "lib/net6.0-android31.0/GoogleGson.dll",
         "lib/net6.0-android31.0/GoogleGson.xml"
+      ]
+    },
+    "JpegLibrary/0.4.32": {
+      "sha512": "Lv11HXsyGZxuRUG/0sw+3itw930/c08VkEVXDPin819yheN3Y3YpWQYccs1dW+sBlsGs9S4Y4q6DzyBCctsEeQ==",
+      "type": "package",
+      "path": "jpeglibrary/0.4.32",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "jpeglibrary.0.4.32.nupkg.sha512",
+        "jpeglibrary.nuspec",
+        "lib/net461/JpegLibrary.dll",
+        "lib/net461/JpegLibrary.xml",
+        "lib/net6.0/JpegLibrary.dll",
+        "lib/net6.0/JpegLibrary.xml",
+        "lib/netcoreapp3.1/JpegLibrary.dll",
+        "lib/netcoreapp3.1/JpegLibrary.xml",
+        "lib/netstandard2.0/JpegLibrary.dll",
+        "lib/netstandard2.0/JpegLibrary.xml",
+        "lib/netstandard2.1/JpegLibrary.dll",
+        "lib/netstandard2.1/JpegLibrary.xml"
+      ]
+    },
+    "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+      "sha512": "3KuSxeHoNYdxVYfg2IRZCThcrlJ1XJqIXkAWikCsbm5C/bCjv7G0WoKDyuR98Q+T607QT2Zl5GsbGRkENcV2yQ==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.abstractions/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Caching.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Caching.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.Caching.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.Caching.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.Caching.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.xml",
+        "microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.caching.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Caching.Memory/8.0.1": {
+      "sha512": "HFDnhYLccngrzyGgHkjEDU5FMLn4MpOsr5ElgsBMC4yx6lJh4jeWO7fHS8+TXPq+dgxCmUa/Trl8svObmwW4QA==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.memory/8.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Caching.Memory.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Caching.Memory.targets",
+        "lib/net462/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/net462/Microsoft.Extensions.Caching.Memory.xml",
+        "lib/net6.0/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/net6.0/Microsoft.Extensions.Caching.Memory.xml",
+        "lib/net7.0/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/net7.0/Microsoft.Extensions.Caching.Memory.xml",
+        "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/net8.0/Microsoft.Extensions.Caching.Memory.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.xml",
+        "microsoft.extensions.caching.memory.8.0.1.nupkg.sha512",
+        "microsoft.extensions.caching.memory.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.Configuration/8.0.0": {
@@ -25327,6 +26452,22 @@
         "plugin.localnotification.nuspec"
       ]
     },
+    "SixLabors.ImageSharp/3.1.5": {
+      "sha512": "lNtlq7dSI/QEbYey+A0xn48z5w4XHSffF8222cC4F4YwTXfEImuiBavQcWjr49LThT/pRmtWJRcqA/PlL+eJ6g==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/3.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "build/SixLabors.ImageSharp.props",
+        "lib/net6.0/SixLabors.ImageSharp.dll",
+        "lib/net6.0/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.128.png",
+        "sixlabors.imagesharp.3.1.5.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
+      ]
+    },
     "sqlite-net-pcl/1.9.172": {
       "sha512": "go533+huyvg5bOMmCpX+DyvLrcVRiEBIpqEiDHgXRijWIBBNkWnyMr/w+5ZzrUArKY+4ApucsbBnFtP3QITrJg==",
       "type": "package",
@@ -25778,6 +26919,27 @@
         "system.valuetuple.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "TiffLibrary/0.6.65": {
+      "sha512": "nlONBCj7VeEHY9pbZPQcxK5hYWv8R8IbfrUVCi9YZSMd7Nnf4zwMx1+81F/q6nDB4xkUDslJrpbfgOBDrDa5tg==",
+      "type": "package",
+      "path": "tifflibrary/0.6.65",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/TiffLibrary.dll",
+        "lib/net461/TiffLibrary.xml",
+        "lib/net6.0/TiffLibrary.dll",
+        "lib/net6.0/TiffLibrary.xml",
+        "lib/netcoreapp3.1/TiffLibrary.dll",
+        "lib/netcoreapp3.1/TiffLibrary.xml",
+        "lib/netstandard2.0/TiffLibrary.dll",
+        "lib/netstandard2.0/TiffLibrary.xml",
+        "lib/netstandard2.1/TiffLibrary.dll",
+        "lib/netstandard2.1/TiffLibrary.xml",
+        "tifflibrary.0.6.65.nupkg.sha512",
+        "tifflibrary.nuspec"
       ]
     },
     "Xamarin.Android.Glide/4.15.1.2": {
@@ -27819,6 +28981,7 @@
   "projectFileDependencyGroups": {
     "net8.0-android34.0": [
       "CommunityToolkit.Maui >= 9.1.0",
+      "Microsoft.Extensions.Caching.Memory >= 8.0.1",
       "Microsoft.Extensions.Configuration >= 8.0.0",
       "Microsoft.Extensions.Configuration.UserSecrets >= 8.0.1",
       "Microsoft.Extensions.Http >= 8.0.1",
@@ -27827,6 +28990,8 @@
       "Microsoft.Maui.Controls.Compatibility >= 8.0.91",
       "Microsoft.NET.ILLink.Tasks >= 8.0.7",
       "Plugin.LocalNotification >= 11.1.4",
+      "SixLabors.ImageSharp >= 3.1.5",
+      "TiffLibrary >= 0.6.65",
       "Xamarin.AndroidX.Activity >= 1.9.0.3",
       "Xamarin.AndroidX.Activity.Ktx >= 1.9.0.3",
       "Xamarin.AndroidX.AppCompat >= 1.6.1.6",
@@ -27839,6 +29004,7 @@
     ],
     "net8.0-windows10.0.19041": [
       "CommunityToolkit.Maui >= 9.1.0",
+      "Microsoft.Extensions.Caching.Memory >= 8.0.1",
       "Microsoft.Extensions.Configuration >= 8.0.0",
       "Microsoft.Extensions.Configuration.UserSecrets >= 8.0.1",
       "Microsoft.Extensions.Http >= 8.0.1",
@@ -27846,6 +29012,8 @@
       "Microsoft.Maui.Controls >= 8.0.91",
       "Microsoft.Maui.Controls.Compatibility >= 8.0.91",
       "Plugin.LocalNotification >= 11.1.4",
+      "SixLabors.ImageSharp >= 3.1.5",
+      "TiffLibrary >= 0.6.65",
       "sqlite-net-pcl >= 1.9.172"
     ]
   },
@@ -27909,6 +29077,10 @@
             "target": "Package",
             "version": "[9.1.0, )"
           },
+          "Microsoft.Extensions.Caching.Memory": {
+            "target": "Package",
+            "version": "[8.0.1, )"
+          },
           "Microsoft.Extensions.Configuration": {
             "target": "Package",
             "version": "[8.0.0, )"
@@ -27942,6 +29114,14 @@
           "Plugin.LocalNotification": {
             "target": "Package",
             "version": "[11.1.4, )"
+          },
+          "SixLabors.ImageSharp": {
+            "target": "Package",
+            "version": "[3.1.5, )"
+          },
+          "TiffLibrary": {
+            "target": "Package",
+            "version": "[0.6.65, )"
           },
           "Xamarin.AndroidX.Activity": {
             "target": "Package",
@@ -28008,6 +29188,10 @@
             "target": "Package",
             "version": "[9.1.0, )"
           },
+          "Microsoft.Extensions.Caching.Memory": {
+            "target": "Package",
+            "version": "[8.0.1, )"
+          },
           "Microsoft.Extensions.Configuration": {
             "target": "Package",
             "version": "[8.0.0, )"
@@ -28035,6 +29219,14 @@
           "Plugin.LocalNotification": {
             "target": "Package",
             "version": "[11.1.4, )"
+          },
+          "SixLabors.ImageSharp": {
+            "target": "Package",
+            "version": "[3.1.5, )"
+          },
+          "TiffLibrary": {
+            "target": "Package",
+            "version": "[0.6.65, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",

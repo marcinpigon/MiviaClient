@@ -21,17 +21,20 @@ namespace MiviaMaui.Services
         private readonly Dictionary<int, FileSystemWatcher> _watchers;
         private readonly ICommandBus _commandBus;
         private readonly IQueryBus _queryBus;
+        private readonly IImagePathService _imagePathService;
 
         public DirectoryWatcherService(
         DirectoryService directoryService,
         ICommandBus commandBus,
-        IQueryBus queryBus)
+        IQueryBus queryBus,
+        IImagePathService imagePathService)
         {
             _directoryService = directoryService;
             _commandBus = commandBus;
             _queryBus = queryBus;
             _watchers = new Dictionary<int, FileSystemWatcher>();
             InitializeWatchers();
+            _imagePathService = imagePathService;
         }
 
         private void InitializeWatchers()
@@ -119,6 +122,8 @@ namespace MiviaMaui.Services
                         FilePath = e.FullPath, 
                         WatcherId = watcherId 
                     });
+
+                    await _imagePathService.StoreImagePath(imageId, e.FullPath);
 
                     var monitoredDirectory = _directoryService.MonitoredDirectories.FirstOrDefault(d => d.Id == watcherId);
 

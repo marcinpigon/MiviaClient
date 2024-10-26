@@ -1114,7 +1114,6 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\stamp\_Convert
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\stamp\_GenerateJavaStubs.stamp
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\src\crc6448f82a713a47b1c1\FolderContentObserver.java
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\src\crc642ae2537dc01cf643\AndroidFileObserver.java
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\resizetizer\sp\drawable-hdpi\miviasplash.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\resizetizer\sp\drawable-mdpi\miviasplash.png
@@ -1125,3 +1124,10 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\resizetizer\sp
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\resizetizer\sp\drawable\maui_splash_image.xml
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\resizetizer\sp\values\maui_colors.xml
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\resizetizer\A52E68AE06E1868A-files.cache
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\resizetizer\r\drawable\check.png
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\resizetizer\r\drawable\microstructure.tif
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\assets\JpegLibrary.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\assets\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\assets\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\assets\SixLabors.ImageSharp.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-android\android\assets\TiffLibrary.dll

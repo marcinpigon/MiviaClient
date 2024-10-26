@@ -23,6 +23,7 @@ namespace MiviaMaui.Dtos
 
         public bool Validated { get; set; }
         public ObservableCollection<ModelDto> SelectedModels { get; set; }
+        public string ImagePath { get; set; }
 
         private bool _isSelected;
         public bool IsSelected

@@ -60,6 +60,10 @@
               "target": "Package",
               "version": "[9.1.0, )"
             },
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -93,6 +97,14 @@
             "Plugin.LocalNotification": {
               "target": "Package",
               "version": "[11.1.4, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "TiffLibrary": {
+              "target": "Package",
+              "version": "[0.6.65, )"
             },
             "Xamarin.AndroidX.Activity": {
               "target": "Package",
@@ -159,6 +171,10 @@
               "target": "Package",
               "version": "[9.1.0, )"
             },
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -186,6 +202,14 @@
             "Plugin.LocalNotification": {
               "target": "Package",
               "version": "[11.1.4, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "TiffLibrary": {
+              "target": "Package",
+              "version": "[0.6.65, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",

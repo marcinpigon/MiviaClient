@@ -413,3 +413,10 @@ C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\wi
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-200.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\miviasplashSplashScreen.scale-400.png
 C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\check.scale-100.png
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\SixLabors.ImageSharp.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\JpegLibrary.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\TiffLibrary.dll
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\microstructure.scale-100.tif
+C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\image_unavailable.scale-100.png

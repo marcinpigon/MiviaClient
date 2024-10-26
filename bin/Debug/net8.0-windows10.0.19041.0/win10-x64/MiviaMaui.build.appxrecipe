@@ -232,6 +232,12 @@
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\folder.scale-100.png">
       <PackagePath>folder.scale-100.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\image_unavailable.scale-100.png">
+      <PackagePath>image_unavailable.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\microstructure.scale-100.tif">
+      <PackagePath>microstructure.scale-100.tif</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\OneDrive\Pulpit\MiviaMaui\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\mivia_background.scale-100.jpg">
       <PackagePath>mivia_background.scale-100.jpg</PackagePath>
     </AppxPackagedFile>
@@ -258,6 +264,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\communitytoolkit.maui.core\9.1.0\lib\net8.0-windows10.0.19041\CommunityToolkit.Maui.Core.dll">
       <PackagePath>CommunityToolkit.Maui.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\jpeglibrary\0.4.32\lib\net6.0\JpegLibrary.dll">
+      <PackagePath>JpegLibrary.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\microsoft.extensions.caching.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.Caching.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Caching.Abstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\microsoft.extensions.caching.memory\8.0.1\lib\net8.0\Microsoft.Extensions.Caching.Memory.dll">
+      <PackagePath>Microsoft.Extensions.Caching.Memory.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\microsoft.extensions.configuration\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.dll">
       <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
@@ -400,6 +415,9 @@
     <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\plugin.localnotification\11.1.4\lib\net8.0-windows10.0.19041\Plugin.LocalNotification.dll">
       <PackagePath>Plugin.LocalNotification.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\sixlabors.imagesharp\3.1.5\lib\net6.0\SixLabors.ImageSharp.dll">
+      <PackagePath>SixLabors.ImageSharp.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\sqlite-net-pcl\1.9.172\lib\netstandard2.0\SQLite-net.dll">
       <PackagePath>SQLite-net.dll</PackagePath>
     </AppxPackagedFile>
@@ -417,6 +435,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\system.speech\8.0.0\runtimes\win\lib\net8.0\System.Speech.dll">
       <PackagePath>System.Speech.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\tifflibrary\0.6.65\lib\net6.0\TiffLibrary.dll">
+      <PackagePath>TiffLibrary.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\marci\.nuget\packages\microsoft.maui.controls.core\8.0.91\lib\net8.0-windows10.0.19041\ar\Microsoft.Maui.Controls.resources.dll">
       <PackagePath>ar\Microsoft.Maui.Controls.resources.dll</PackagePath>

@@ -3,40 +3,35 @@
   "WorkspaceRootPath": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\selectedimagespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:selectedimagespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\selectedimagespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:selectedimagespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\services\\imagepathservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:services\\imagepathservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\viewmodels\\selectedimagesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:viewmodels\\selectedimagesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\handlers\\command handlers\\generatereportmultiplejobshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:handlers\\command handlers\\generatereportmultiplejobshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marci\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.91\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\commands\\generatereportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:commands\\generatereportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\handlers\\command handlers\\generatereporthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:handlers\\command handlers\\generatereporthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\interfaces\\iimagepathservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:interfaces\\iimagepathservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\commands\\generatereportmultiplejobscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:commands\\generatereportmultiplejobscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:miviaclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\services\\directorywatcherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:services\\directorywatcherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\dtos\\modeldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:dtos\\modeldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\dtos\\imagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:dtos\\imagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,121 +41,104 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MauiProgram.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MauiProgram.cs",
-              "RelativeDocumentMoniker": "MauiProgram.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MauiProgram.cs",
-              "RelativeToolTip": "MauiProgram.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAgwDgAAACFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T19:40:33.234Z",
-              "EditorCaption": ""
+              "DocumentIndex": 4,
+              "Title": "Microsoft.Maui.Resizetizer.After.targets",
+              "DocumentMoniker": "C:\\Users\\marci\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.91\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.91\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
+              "ToolTip": "C:\\Users\\marci\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.91\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
+              "RelativeToolTip": "..\\..\\..\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.91\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
+              "ViewState": "AQIAAGECAAAAAAAAAAAewG8CAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-10-25T15:43:53.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MainPage.xaml",
+              "RelativeDocumentMoniker": "MainPage.xaml",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MainPage.xaml",
+              "RelativeToolTip": "MainPage.xaml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-25T15:40:52.26Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "DirectoryWatcherService.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\DirectoryWatcherService.cs",
-              "RelativeDocumentMoniker": "Services\\DirectoryWatcherService.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\DirectoryWatcherService.cs",
-              "RelativeToolTip": "Services\\DirectoryWatcherService.cs",
-              "ViewState": "AQIAAJ4AAAAAAAAAAAAuwAAAAAAAAAAA",
+              "Title": "ImageDto.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Dtos\\ImageDto.cs",
+              "RelativeDocumentMoniker": "Dtos\\ImageDto.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Dtos\\ImageDto.cs",
+              "RelativeToolTip": "Dtos\\ImageDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T19:33:05.498Z",
+              "WhenOpened": "2024-10-24T16:41:52.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ImagePathService.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\ImagePathService.cs",
+              "RelativeDocumentMoniker": "Services\\ImagePathService.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\ImagePathService.cs",
+              "RelativeToolTip": "Services\\ImagePathService.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAgwGoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T16:31:03.474Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "MiviaClient.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaClient.cs",
-              "RelativeDocumentMoniker": "MiviaClient.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaClient.cs",
-              "RelativeToolTip": "MiviaClient.cs",
-              "ViewState": "AQIAACoBAAAAAAAAAAAYwDkBAAAQAAAA",
+              "Title": "IImagePathService.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Interfaces\\IImagePathService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IImagePathService.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Interfaces\\IImagePathService.cs",
+              "RelativeToolTip": "Interfaces\\IImagePathService.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAAAwAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T19:25:57.41Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T16:30:32.259Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ModelDto.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Dtos\\ModelDto.cs",
-              "RelativeDocumentMoniker": "Dtos\\ModelDto.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Dtos\\ModelDto.cs",
-              "RelativeToolTip": "Dtos\\ModelDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T19:12:03.23Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GenerateReportHandler.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\GenerateReportHandler.cs",
-              "RelativeDocumentMoniker": "Handlers\\Command Handlers\\GenerateReportHandler.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\GenerateReportHandler.cs",
-              "RelativeToolTip": "Handlers\\Command Handlers\\GenerateReportHandler.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAowC4AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T18:57:51.787Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GenerateReportMultipleJobsHandler.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\GenerateReportMultipleJobsHandler.cs",
-              "RelativeDocumentMoniker": "Handlers\\Command Handlers\\GenerateReportMultipleJobsHandler.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Handlers\\Command Handlers\\GenerateReportMultipleJobsHandler.cs",
-              "RelativeToolTip": "Handlers\\Command Handlers\\GenerateReportMultipleJobsHandler.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwA0AAABmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T18:57:49.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GenerateReportCommand.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Commands\\GenerateReportCommand.cs",
-              "RelativeDocumentMoniker": "Commands\\GenerateReportCommand.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Commands\\GenerateReportCommand.cs",
-              "RelativeToolTip": "Commands\\GenerateReportCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T18:55:16.076Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GenerateReportMultipleJobsCommand.cs",
-              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Commands\\GenerateReportMultipleJobsCommand.cs",
-              "RelativeDocumentMoniker": "Commands\\GenerateReportMultipleJobsCommand.cs",
-              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Commands\\GenerateReportMultipleJobsCommand.cs",
-              "RelativeToolTip": "Commands\\GenerateReportMultipleJobsCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T18:56:50.08Z",
+              "DocumentIndex": 0,
+              "Title": "SelectedImagesPage.xaml",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\SelectedImagesPage.xaml",
+              "RelativeDocumentMoniker": "SelectedImagesPage.xaml",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\SelectedImagesPage.xaml",
+              "RelativeToolTip": "SelectedImagesPage.xaml",
+              "ViewState": "AQIAAJQAAAAAAAAAAAAAACsAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-24T16:20:38.341Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "SelectedImagesPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\SelectedImagesPage.xaml.cs",
+              "RelativeDocumentMoniker": "SelectedImagesPage.xaml.cs",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\SelectedImagesPage.xaml.cs",
+              "RelativeToolTip": "SelectedImagesPage.xaml.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAswEEAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T16:20:37.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "SelectedImagesViewModel.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\ViewModels\\SelectedImagesViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\SelectedImagesViewModel.cs",
               "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\ViewModels\\SelectedImagesViewModel.cs",
               "RelativeToolTip": "ViewModels\\SelectedImagesViewModel.cs",
-              "ViewState": "AQIAAPoAAAAAAAAAAAAewAoBAABNAAAA",
+              "ViewState": "AQIAAFMAAAAAAAAAAAArwGMAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T16:45:24.836Z",
               "EditorCaption": ""
