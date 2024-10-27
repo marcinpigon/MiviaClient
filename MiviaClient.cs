@@ -17,6 +17,7 @@ namespace MiviaMaui
         private readonly HttpClient _httpClient;    // HttpClient passed through Dependency Injection container
         private readonly HistoryService _historyService;
         private readonly INotificationService _notificationService;
+        private readonly ISnackbarService _snackbarService;
         private readonly string? _accessToken;
 
         private readonly string _baseUrl = "https://app.mivia.ai";
@@ -26,11 +27,13 @@ namespace MiviaMaui
         private const string ReportUri = "/api/reports/pdf2";
         private bool _initialized = false;
 
-        public MiviaClient(HttpClient httpClient, HistoryService historyService, INotificationService notificationService)
+        public MiviaClient(HttpClient httpClient, HistoryService historyService, 
+            INotificationService notificationService, ISnackbarService snackbarService)
         {
             _httpClient = httpClient;
             _historyService = historyService;
             _notificationService = notificationService;
+            _snackbarService = snackbarService;
         }
 
         private async Task InitializeClient()
@@ -51,26 +54,34 @@ namespace MiviaMaui
         public async Task<List<ModelDto>> GetModelsAsync()
         {
             await InitializeClient();
-            var response = await _httpClient.GetAsync("/api/settings/models");
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var historyMessage = "Models fetched";
-                var record = new HistoryRecord(EventType.HttpModels, historyMessage);
-                await _historyService.SaveHistoryRecordAsync(record);
+                var response = await _httpClient.GetAsync("/api/settings/models");
 
-                var jsonString = await response.Content.ReadAsStringAsync();
-                Debug.WriteLine($"Models JSON: {jsonString}");
-                return JsonSerializer.Deserialize<List<ModelDto>>(jsonString);
+                if (response.IsSuccessStatusCode)
+                {
+                    var historyMessage = "Models fetched";
+                    var record = new HistoryRecord(EventType.HttpModels, historyMessage);
+                    await _historyService.SaveHistoryRecordAsync(record);
 
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    await _snackbarService.ShowSuccessSnackbarAsync("Models fetched successfully");
+                    return JsonSerializer.Deserialize<List<ModelDto>>(jsonString);
+                }
+                else
+                {
+                    var historyMessage = $"Failed fetching models: {response.StatusCode}";
+                    var record = new HistoryRecord(EventType.HttpError, historyMessage);
+                    await _historyService.SaveHistoryRecordAsync(record);
+
+                    await _snackbarService.ShowErrorSnackbarAsync($"Failed to fetch models: {response.StatusCode}");
+                    throw new HttpRequestException($"Request failed with Status code {response.StatusCode}");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                var historyMessage = $"Failed fetching models: {response.StatusCode}";
-                var record = new HistoryRecord(EventType.HttpError, historyMessage);
-                await _historyService.SaveHistoryRecordAsync(record);
-
-                throw new HttpRequestException($"Request failed with Status code {response.StatusCode}");
+                await _snackbarService.ShowErrorSnackbarAsync($"Failed to fetch models. Please check your internet connection");
+                return new List<ModelDto>();
             }
         }
 
@@ -131,7 +142,7 @@ namespace MiviaMaui
 
                     List<ImageDto>? uploadedImage = JsonSerializer.Deserialize<List<ImageDto>>(jsonString) ?? null;
 
-                    _notificationService.ShowNotification($"Image: {uploadedImage[0].Id}", $"Image: {filePath} sent successfully!");
+                    await _snackbarService.ShowSuccessSnackbarAsync($"Image: {Path.GetFileName(filePath)} sent successfully!");
 
                     var historyMessage = $"Image sent successfully: {filePath}";
                     var record = new HistoryRecord(EventType.HttpImages, historyMessage);
@@ -143,6 +154,7 @@ namespace MiviaMaui
             catch (Exception e)
             {
                 _notificationService.ShowNotification("Image", $"Error sending image: {e.Message}");
+                await _snackbarService.ShowErrorSnackbarAsync($"Error sending image: {e.Message}");
                 return "";
             }
         }
@@ -154,12 +166,12 @@ namespace MiviaMaui
                 await InitializeClient();
                 var response = await _httpClient.DeleteAsync(ImageUri + $"/{id}");
                 response.EnsureSuccessStatusCode();
-                _notificationService.ShowNotification("Image", $"Deleted image: {id}");
+                await _snackbarService.ShowSuccessSnackbarAsync($"Deleted image: {id}");
 
             }
             catch ( Exception e ) 
             {
-                _notificationService.ShowNotification("Image", $"Error deleting image: {e.Message}");
+                await _snackbarService.ShowErrorSnackbarAsync($"Error deleting image: {e.Message}");
             }
         }
 
@@ -167,6 +179,7 @@ namespace MiviaMaui
         {
             try
             {
+                await InitializeClient();
                 var requestContent = new
                 {
                     imageIds = new[] { imageId },
@@ -174,10 +187,6 @@ namespace MiviaMaui
                 };
                 var jsonContent = JsonSerializer.Serialize(requestContent);
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-
-                _notificationService.ShowNotification(
-                    "Scheduling job",
-                    $"Image ID: {imageId}");
 
                 var response = await _httpClient.PostAsync(JobsUri, content);
 
@@ -187,14 +196,14 @@ namespace MiviaMaui
 
                 var jsonJobIds = JsonSerializer.Deserialize<List<PostJobDto>>(jsonResponse);
 
-                _notificationService.ShowNotification(
-                    "Job Scheduled!", $"Succesfully scheduled job for image: {jsonJobIds?[0].JobId}");
+                await _snackbarService.ShowSuccessSnackbarAsync($"Succesfully scheduled job for image: {jsonJobIds?[0].JobId}");
 
                 return jsonJobIds?[0].JobId;
             }
             catch (Exception ex)
             {
                 _notificationService.ShowNotification("Job scheduling failed",$"Failed to schedule job: {ex.Message}");
+                await _snackbarService.ShowErrorSnackbarAsync($"Failed to schedule job: {ex.Message}");
                 return null;
             }
         }
@@ -233,6 +242,8 @@ namespace MiviaMaui
 
         public async Task<bool> IsJobFinishedAsync(string jobId, int maxRetries = 10, int delayMs = 10000)
         {
+            await InitializeClient();
+
             int retries = 0;
             while (retries < maxRetries)
             {
@@ -247,6 +258,9 @@ namespace MiviaMaui
                         var historyMessage = $"[{DateTime.Now}] Job ID: {jobId} has failed. No report will be generated.";
                         var record = new HistoryRecord(EventType.HttpJobs, historyMessage);
                         await _historyService.SaveHistoryRecordAsync(record);
+
+                        await _snackbarService.ShowErrorSnackbarAsync(historyMessage);
+
                         return false;
                     }
 
@@ -255,6 +269,8 @@ namespace MiviaMaui
                         var historyMessage = $"[{DateTime.Now}] Job ID: {jobId}, Status: {jobDetails.Status}";
                         var record = new HistoryRecord(EventType.HttpJobs, historyMessage);
                         await _historyService.SaveHistoryRecordAsync(record);
+
+                        await _snackbarService.ShowSuccessSnackbarAsync(historyMessage);
                         return true;
                     }
 
@@ -273,6 +289,8 @@ namespace MiviaMaui
             var finalMessage = $"[{DateTime.Now}] Job ID: {jobId} did not complete within the allowed retries.";
             var finalRecord = new HistoryRecord(EventType.HttpJobs, finalMessage);
             await _historyService.SaveHistoryRecordAsync(finalRecord);
+
+            await _snackbarService.ShowErrorSnackbarAsync(finalMessage);
 
             return false;
         }
@@ -308,6 +326,7 @@ namespace MiviaMaui
                 }
 
                 _notificationService.ShowNotification("Report Saved", $"PDF report successfully saved to {filePath}");
+                await _snackbarService.ShowSuccessSnackbarAsync($"PDF report successfully saved to {filePath}");
 
             }
             catch (Exception ex)

@@ -2,12 +2,16 @@
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using MiviaMaui.Interfaces;
+using MiviaMaui.Platforms.Android;
+using MiviaMaui.Services;
 
 namespace MiviaMaui
 {
     [Activity(Theme = "@style/Maui.SplashTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Density)]
     public class MainActivity : MauiAppCompatActivity
     {
+        private AndroidFileObserver? _directoryFileObserver;
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
@@ -33,6 +37,9 @@ namespace MiviaMaui
                 }
             }
 
+            var directoryWatcherService = App.ServiceProvider.GetRequiredService<IDirectoryWatcherService>();
+            directoryWatcherService.StartWatching();
+
             Platforms.Android.ActivityStateManager.CurrentActivity = this;
         }
 
@@ -47,6 +54,14 @@ namespace MiviaMaui
         {
             Platforms.Android.ActivityStateManager.CurrentActivity = null;
             base.OnPause();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            // Stop observing when the activity is destroyed to avoid memory leaks
+            _directoryFileObserver?.StopWatching();
         }
     }
 }

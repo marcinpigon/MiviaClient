@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MiviaMaui.Interfaces;
 using MiviaMaui.Services;
 using MiviaMaui.ViewModels;
 using MiviaMaui.Views;
@@ -43,8 +44,7 @@ namespace MiviaMaui
 
         private async void OnNavigateToImagesPageButtonClicked(object sender, EventArgs e)
         {
-            var imagesViewModel = App.ServiceProvider.GetRequiredService<ImagesViewModel>();
-            var imagesPage = new ImagesPage(imagesViewModel);
+            var imagesPage = new ImagesPage(App.ServiceProvider.GetRequiredService<IMiviaClient>(), App.ServiceProvider.GetRequiredService<ModelService>());
 
             await Navigation.PushAsync(imagesPage);
         }

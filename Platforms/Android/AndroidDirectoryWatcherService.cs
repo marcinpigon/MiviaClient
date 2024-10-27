@@ -12,6 +12,7 @@ using Android.Database;
 using Path = System.IO.Path;
 using Uri = Android.Net.Uri;
 using static Android.Provider.MediaStore;
+using MiviaMaui.Platforms.Android;
 
 namespace MiviaMaui.Services
 {
@@ -20,9 +21,9 @@ namespace MiviaMaui.Services
         private readonly DirectoryService _directoryService;
         private readonly HistoryService _historyService;
         private readonly IMiviaClient _miviaClient;
-        private readonly Dictionary<int, ContentObserver> _observers;
         private readonly Dictionary<string, HashSet<string>> _processedFiles;
         private bool _isWatching;
+        private Timer _pollingTimer;
 
         public AndroidDirectoryWatcherService(DirectoryService directoryService,
             HistoryService historyService,
@@ -31,7 +32,6 @@ namespace MiviaMaui.Services
             _directoryService = directoryService;
             _historyService = historyService;
             _miviaClient = miviaClient;
-            _observers = new Dictionary<int, ContentObserver>();
             _processedFiles = new Dictionary<string, HashSet<string>>();
 
             InitializeWatchers();
@@ -41,7 +41,7 @@ namespace MiviaMaui.Services
         {
             foreach (var directory in _directoryService.MonitoredDirectories)
             {
-                AddWatcherForDirectory(directory);
+                _processedFiles[directory.Path] = new HashSet<string>();
             }
 
             _directoryService.MonitoredDirectories.CollectionChanged += MonitoredDirectories_CollectionChanged;
@@ -53,7 +53,7 @@ namespace MiviaMaui.Services
             {
                 foreach (MonitoredDirectory newDir in e.NewItems)
                 {
-                    AddWatcherForDirectory(newDir);
+                    _processedFiles[newDir.Path] = new HashSet<string>();
                 }
             }
 
@@ -61,47 +61,35 @@ namespace MiviaMaui.Services
             {
                 foreach (MonitoredDirectory oldDir in e.OldItems)
                 {
-                    RemoveWatcherForDirectory(oldDir);
+                    _processedFiles.Remove(oldDir.Path);
                 }
             }
         }
 
-        private void AddWatcherForDirectory(MonitoredDirectory directory)
+        public void StartWatching()
         {
-            if (string.IsNullOrEmpty(directory.Path))
-                return;
-
-            var activity = Platforms.Android.ActivityStateManager.CurrentActivity;
-            if (activity == null)
-            {
-
-                return;
-            }
-
-            var uri = Uri.Parse(directory.Path);
-            var documentFile = DocumentFile.FromTreeUri(Platform.CurrentActivity, uri);
-
-            if (documentFile == null || !documentFile.Exists())
-                return;
-
-            if (!_processedFiles.ContainsKey(directory.Path))
-            {
-                _processedFiles[directory.Path] = new HashSet<string>();
-            }
-
-            var handler = new Handler(Looper.MainLooper);
-            var observer = new FolderContentObserver(handler,
-                async () => await CheckForNewFiles(directory));
-
-            _observers[directory.Id] = observer;
-
-            Platform.CurrentActivity?.ContentResolver?.RegisterContentObserver(
-                MediaStore.Files.GetContentUri("external"),
-                true,
-                observer);
-
-            MainThread.BeginInvokeOnMainThread(async () => await CheckForNewFiles(directory));
+            _isWatching = true;
+            _pollingTimer = new Timer(PollDirectories, null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
         }
+
+        public void StopWatching()
+        {
+            _isWatching = false;
+            _pollingTimer?.Dispose();
+        }
+
+        private async void PollDirectories(object state)
+        {
+            await LogError("CHECKING FOR NEW FILES");
+            if (!_isWatching) return;
+
+            foreach (var directory in _directoryService.MonitoredDirectories)
+            {
+
+                MainThread.BeginInvokeOnMainThread(async () => await CheckForNewFiles(directory));
+            }
+        }
+
 
         private async Task CheckForNewFiles(MonitoredDirectory directory)
         {
@@ -111,7 +99,10 @@ namespace MiviaMaui.Services
                 var documentFile = DocumentFile.FromTreeUri(Platform.CurrentActivity, uri);
 
                 if (documentFile == null || !documentFile.Exists())
+                {
+                    await LogError($"Directory not found or inaccessible: {directory.Path}");
                     return;
+                }
 
                 foreach (var file in documentFile.ListFiles())
                 {
@@ -130,13 +121,15 @@ namespace MiviaMaui.Services
                     {
                         await ProcessNewFileAsync(actualPath, directory.Id);
                     }
+                    else
+                    {
+                        await LogError($"Failed to copy file to cache: {file.Name}");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                var historyMessage = $"[{DateTime.Now}] Error checking directory {directory.Path}: {ex.Message}";
-                var record = new HistoryRecord(EventType.FileError, historyMessage);
-                await _historyService.SaveHistoryRecordAsync(record);
+                await LogError($"Error checking directory {directory.Path}: {ex.Message}");
             }
         }
 
@@ -153,24 +146,16 @@ namespace MiviaMaui.Services
 
                 if (inputStream == null) return null;
 
-                using var dotNetInputStream = new StreamReader(inputStream).BaseStream;
-                using var dotNetOutputStream = System.IO.File.OpenWrite(tempFile.AbsolutePath);
+                await using var dotNetInputStream = new StreamReader(inputStream).BaseStream;
+                await using var dotNetOutputStream = System.IO.File.OpenWrite(tempFile.AbsolutePath);
                 await dotNetInputStream.CopyToAsync(dotNetOutputStream);
 
                 return tempFile.AbsolutePath;
             }
-            catch
+            catch (Exception ex)
             {
+                await LogError($"Error copying file to cache: {file.Name}, Error: {ex.Message}");
                 return null;
-            }
-        }
-
-        private void RemoveWatcherForDirectory(MonitoredDirectory directory)
-        {
-            if (_observers.TryGetValue(directory.Id, out var observer))
-            {
-                Platform.CurrentActivity?.ContentResolver?.UnregisterContentObserver(observer);
-                _observers.Remove(directory.Id);
             }
         }
 
@@ -285,30 +270,11 @@ namespace MiviaMaui.Services
             }
         }
 
-        private async Task ProcessModelsAsync(MonitoredDirectory directory, string imageId, string filePath, int watcherId)
+        private async Task LogError(string message)
         {
-            var jobsIds = new List<string>();
-            var modelsDictionary = new Dictionary<string, string>();
-
-            for (int i = 0; i < directory.ModelIds.Count; i++)
-            {
-                var modelId = directory.ModelIds[i];
-                var modelName = directory.ModelNames[i];
-                modelsDictionary[modelId] = modelName;
-
-                var jobId = await _miviaClient.ScheduleJobAsync(imageId, modelId);
-                if (jobId != null)
-                {
-                    jobsIds.Add(jobId);
-                    await LogJobScheduled(jobId, watcherId);
-                }
-            }
-
-            foreach (var jobId in jobsIds)
-            {
-                var fp = directory.Path;
-                await ProcessJobResultAsync(jobId, filePath, modelsDictionary, watcherId);
-            }
+            var historyMessage = $"[{DateTime.Now}] {message}";
+            var record = new HistoryRecord(EventType.FileError, historyMessage);
+            await _historyService.SaveHistoryRecordAsync(record);
         }
 
         private async Task LogJobScheduled(string jobId, int watcherId)
@@ -318,71 +284,9 @@ namespace MiviaMaui.Services
             await _historyService.SaveHistoryRecordAsync(record);
         }
 
-        private async Task ProcessJobResultAsync(string jobId, string filePath, Dictionary<string, string> modelsDictionary, int watcherId)
-        {
-            if (await _miviaClient.IsJobFinishedAsync(jobId))
-            {
-
-                var directoryPath = Path.GetDirectoryName(filePath);
-                var modelName = modelsDictionary[jobId].Replace(" ", "_");
-                var timeStamp = DateTime.Now.ToString("HH_mm");
-                var pdfFileName = $"{Path.GetFileNameWithoutExtension(filePath)}_{modelName}_{timeStamp}.pdf";
-                var pdfFilePath = Path.Combine(directoryPath, pdfFileName);
-
-                var aaaa = $"[{DateTime.Now}] JOB FINISHED, TRYING TO DOWNLOAD PDF FILE: {pdfFilePath}";
-                var bbbbb = new HistoryRecord(EventType.HttpJobs, aaaa);
-                await _historyService.SaveHistoryRecordAsync(bbbbb);
-
-                await _miviaClient.GetSaveReportsPDF(new List<string> { jobId }, pdfFilePath);
-
-                var historyMessage = $"[{DateTime.Now}] Report generated for Job ID: {jobId}, saved at: {pdfFilePath}";
-                var record = new HistoryRecord(EventType.HttpJobs, historyMessage);
-                await _historyService.SaveHistoryRecordAsync(record);
-            }
-        }
-
-        public void StartWatching()
-        {
-            _isWatching = true;
-            foreach (var directory in _directoryService.MonitoredDirectories)
-            {
-                MainThread.BeginInvokeOnMainThread(async () => await CheckForNewFiles(directory));
-            }
-        }
-
-        public void StopWatching()
-        {
-            _isWatching = false;
-            foreach (var observer in _observers.Values)
-            {
-                Platform.CurrentActivity?.ContentResolver?.UnregisterContentObserver(observer);
-            }
-            _observers.Clear();
-        }
-
         public void Dispose()
         {
             StopWatching();
-        }
-    }
-
-    public class FolderContentObserver : ContentObserver
-    {
-        private readonly Func<Task> _onChangeCallback;
-
-        public FolderContentObserver(Handler handler, Func<Task> onChangeCallback) : base(handler)
-        {
-            _onChangeCallback = onChangeCallback;
-        }
-
-        public override async void OnChange(bool selfChange)
-        {
-            await _onChangeCallback();
-        }
-
-        public override async void OnChange(bool selfChange, Uri uri)
-        {
-            await _onChangeCallback();
         }
     }
 }
