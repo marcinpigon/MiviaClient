@@ -107,10 +107,18 @@ namespace MiviaMaui.ViewModels
         private void RefreshModelSelections()
         {
             var updatedModels = new ObservableCollection<ModelDto>();
+            var selectedImages = SelectedImages.Where(img => img.IsCurrentlySelected).ToList();
 
             foreach (var model in _models)
             {
-                var isSelected = _currentImage?.SelectedModels.Any(m => m.Name == model.Name) ?? false;
+                bool isSelected = false;
+
+                if (selectedImages.Any())
+                {
+                    // Check if ALL selected images have this model
+                    isSelected = selectedImages.All(img =>
+                        img.SelectedModels.Any(m => m.Name == model.Name));
+                }
 
                 updatedModels.Add(new ModelDto
                 {
@@ -121,45 +129,65 @@ namespace MiviaMaui.ViewModels
                 });
             }
 
-            Models = updatedModels; 
+            Models = updatedModels;
+            OnPropertyChanged(nameof(CanProcess));
         }
 
         public void HandleModelSelection(ModelDto model)
         {
-            if (_currentImage == null) return;
+            if (model == null) return;
 
-            if (model.IsSelected)
+            var selectedImages = SelectedImages.Where(img => img.IsCurrentlySelected).ToList();
+            if (!selectedImages.Any()) return;
+
+            // If ANY image has this model and we're unchecking, remove from ALL
+            // If NOT ALL images have this model and we're checking, add to ALL
+            bool shouldAddToAll = !selectedImages.All(img =>
+                img.SelectedModels.Any(m => m.Name == model.Name));
+
+            foreach (var image in selectedImages)
             {
-                if (!_currentImage.SelectedModels.Any(m => m.Name == model.Name))
+                if (shouldAddToAll)
                 {
-                    _currentImage.SelectedModels.Add(new ModelDto
+                    if (!image.SelectedModels.Any(m => m.Name == model.Name))
                     {
-                        Name = model.Name,
-                        DisplayName = model.DisplayName,
-                        Id= model.Id,
-                        IsSelected = true
-                    });
+                        image.SelectedModels.Add(new ModelDto
+                        {
+                            Name = model.Name,
+                            DisplayName = model.DisplayName,
+                            Id = model.Id,
+                            IsSelected = true
+                        });
+                    }
                 }
-            }
-            else
-            {
-                var existingModel = _currentImage.SelectedModels.FirstOrDefault(m => m.Name == model.Name);
-                if (existingModel != null)
+                else
                 {
-                    _currentImage.SelectedModels.Remove(existingModel);
+                    var existingModel = image.SelectedModels.FirstOrDefault(m => m.Name == model.Name);
+                    if (existingModel != null)
+                    {
+                        image.SelectedModels.Remove(existingModel);
+                    }
                 }
             }
+
+            // Update the model's IsSelected state based on the new state
+            model.IsSelected = shouldAddToAll;
 
             OnPropertyChanged(nameof(CanProcess));
+            UpdateModelSelections(); // Refresh all checkboxes to maintain consistency
         }
 
         public void UpdateModelSelections()
         {
-            if (_currentImage != null)
+            var selectedImages = SelectedImages.Where(img => img.IsCurrentlySelected).ToList();
+
+            if (selectedImages.Any())
             {
                 foreach (var model in Models)
                 {
-                    model.IsSelected = _currentImage.SelectedModels.Any(m => m.Name == model.Name);
+                    // Check if ALL selected images have this model
+                    model.IsSelected = selectedImages.All(img =>
+                        img.SelectedModels.Any(m => m.Name == model.Name));
                 }
             }
             else
@@ -170,7 +198,6 @@ namespace MiviaMaui.ViewModels
                 }
             }
 
-            // Force UI update for the entire Models collection
             OnPropertyChanged(nameof(Models));
             OnPropertyChanged(nameof(CanProcess));
         }
@@ -229,10 +256,34 @@ namespace MiviaMaui.ViewModels
             foreach (var image in SelectedImages)
             {
                 image.IsCurrentlySelected = shouldSelect;
+
+                if (shouldSelect)
+                {
+                    // Clear existing selected models to avoid duplicates
+                    image.SelectedModels.Clear();
+
+                    // Add all currently selected models to this image
+                    foreach (var model in Models.Where(m => m.IsSelected))
+                    {
+                        image.SelectedModels.Add(new ModelDto
+                        {
+                            Name = model.Name,
+                            DisplayName = model.DisplayName,
+                            Id = model.Id,
+                            IsSelected = true
+                        });
+                    }
+                }
+                else
+                {
+                    // If deselecting all, clear the selected models
+                    image.SelectedModels.Clear();
+                }
             }
 
             CurrentImage = shouldSelect ? SelectedImages.FirstOrDefault() : null;
             UpdateModelSelections();
+            OnPropertyChanged(nameof(CanProcess));
         }
 
         private void OnClearSelection()
