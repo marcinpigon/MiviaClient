@@ -87,9 +87,16 @@ namespace MiviaMaui.Views
 
         private async void OnProcessImagesClicked(object sender, EventArgs e)
         {
-            await _viewModel.ProcessImagesAsync();
-            await DisplayAlert("Success", "jobs sent for processing", "OK");
-            await Navigation.PopAsync();
+            try
+            {
+                await _viewModel.ProcessImagesAsync();
+                await DisplayAlert("Success", "Images processed successfully", "OK");
+                await Navigation.PopAsync();
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", "An error occurred while processing images", "OK");
+            }
         }
 
     }

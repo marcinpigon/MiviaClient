@@ -49,10 +49,23 @@ namespace MiviaMaui.ViewModels
                         _currentImage.IsCurrentlySelected = true;
 
                     OnPropertyChanged(nameof(CurrentImage));
-                    RefreshModelSelections(); 
+                    RefreshModelSelections();
                 }
             }
         }
+
+        private string _processingStatusText = "";
+        public string ProcessingStatusText
+        {
+            get => _processingStatusText;
+            set
+            {
+                _processingStatusText = value;
+                OnPropertyChanged(nameof(ProcessingStatusText));
+            }
+        }
+
+        private CancellationTokenSource _cancellationTokenSource;
 
         public bool CanProcess => SelectedImages.Any() &&
                                 SelectedImages.Any(img => img.SelectedModels.Any());
@@ -60,6 +73,7 @@ namespace MiviaMaui.ViewModels
         public Command<ImageDto> ToggleImageSelectionCommand { get; }
         public Command ToggleAllSelectionCommand { get; }
         public Command ClearSelectionCommand { get; }
+        public Command CancelProcessingCommand { get; }
 
         private readonly ICommandBus _commandBus;
         private readonly IQueryBus _queryBus;
@@ -87,6 +101,7 @@ namespace MiviaMaui.ViewModels
             ToggleImageSelectionCommand = new Command<ImageDto>(OnToggleImageSelection);
             ToggleAllSelectionCommand = new Command(OnToggleAllSelection);
             ClearSelectionCommand = new Command(OnClearSelection);
+            CancelProcessingCommand = new Command(CancelProcessing);
             _queryBus = queryBus;
             _commandBus = commandBus;
             _notificationService = notificationService;
@@ -296,18 +311,35 @@ namespace MiviaMaui.ViewModels
             OnPropertyChanged(nameof(CanProcess));
         }
 
+        private void CancelProcessing()
+        {
+            _cancellationTokenSource?.Cancel();
+            ProcessingStatusText = "Cancelling...";
+        }
+
         public async Task ProcessImagesAsync()
         {
             if (IsBusy) return;
             IsBusy = true;
+            ProcessingStatusText = "Initializing...";
 
+            _cancellationTokenSource = new CancellationTokenSource();
             try
             {
                 var jobIds = new List<string>();
+                var totalImages = SelectedImages.Count;
+                var currentImage = 0;
                 foreach (var image in SelectedImages)
                 {
+                    _cancellationTokenSource.Token.ThrowIfCancellationRequested();
+
+                    currentImage++;
+                    ProcessingStatusText = $"Processing image {currentImage} of {totalImages}";
+
                     foreach (var model in image.SelectedModels)
                     {
+                        _cancellationTokenSource.Token.ThrowIfCancellationRequested();
+
                         var jobId = await _commandBus.SendAsync<ScheduleJobCommand, string>(new ScheduleJobCommand
                         {
                             ImageId = image.Id,
@@ -318,28 +350,31 @@ namespace MiviaMaui.ViewModels
                     }
                 }
 
+                ProcessingStatusText = "Checking job status...";
                 var finishedJobIds = new List<string>();
-                foreach(var jobId in jobIds)
+                foreach (var jobId in jobIds)
                 {
+                    _cancellationTokenSource.Token.ThrowIfCancellationRequested();
+
                     var isJobFinished = await _queryBus.SendAsync<IsJobFinishedQuery, bool>(new IsJobFinishedQuery
                     {
                         JobId = jobId
                     });
 
-                    if(isJobFinished) finishedJobIds.Add(jobId);
+                    if (isJobFinished) finishedJobIds.Add(jobId);
                 }
-
-                string downloadsPath = @"C:\Users\marci\Downloads";
-                string fileName = "Report1.pdf";
-                string outputPath = Path.Combine(downloadsPath, fileName);
-                if (DeviceInfo.Platform == DevicePlatform.Android)
-                {
-                    downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Downloads");
-                }
-                outputPath = Path.Combine(downloadsPath, fileName);
 
                 if (finishedJobIds.Count > 0)
                 {
+                    _cancellationTokenSource.Token.ThrowIfCancellationRequested();
+
+                    ProcessingStatusText = "Generating report...";
+                    string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                    string reportPrefix = $"ImageAnalysisReport_{finishedJobIds.Count}images_{timestamp}";
+                    string fileName = $"{reportPrefix}.pdf";
+
+                    string downloadsPath = GetDownloadsPath();
+                    string outputPath = Path.Combine(downloadsPath, fileName);
                     var success = await _commandBus.SendAsync<GenerateReportMultipleJobsCommand, bool>(new GenerateReportMultipleJobsCommand
                     {
                         JobIds = finishedJobIds,
@@ -356,15 +391,35 @@ namespace MiviaMaui.ViewModels
                     _notificationService.ShowNotification("Report failed", "No images were succesfully analysed within the timeframe.");
                 }
             }
+            catch (OperationCanceledException)
+            {
+                _notificationService.ShowNotification("Cancelled", "Image processing was cancelled by user.");
+            }
             catch (Exception ex)
             {
                 _notificationService.ShowNotification("Report failed", "Failed to generate collection report for images");
             }
             finally
             {
+                ProcessingStatusText = "";
                 IsBusy = false;
+                _cancellationTokenSource?.Dispose();
+                _cancellationTokenSource = null;
             }
         }
-    }
 
+        private string GetDownloadsPath()
+        {
+            if (DeviceInfo.Platform == DevicePlatform.Android)
+            {
+                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Downloads");
+            }
+
+            // For Windows, use the standard Downloads folder
+            return Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                "Downloads"
+            );
+        }
+    }
 }
