@@ -17,9 +17,9 @@ namespace MiviaMaui.ViewModels
     public class SelectedImagesViewModel : BaseViewModel
     {
         private readonly ModelService _modelService;
-        public Queue<ImageDto> RemainingImages { get; set; }
-        private bool _isLoadingMore;
-        public ObservableCollection<ImageDto> SelectedImages { get; } = new();
+        private readonly IMiviaClient _miviaClient;
+
+        public ObservableCollection<ImageDto> Images { get; } = new();
         private ObservableCollection<ModelDto> _models = new();
         private readonly IImagePathService _imagePathService;
         private readonly INotificationService _notificationService;
@@ -67,8 +67,8 @@ namespace MiviaMaui.ViewModels
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        public bool CanProcess => SelectedImages.Any() &&
-                                SelectedImages.Any(img => img.SelectedModels.Any());
+        public bool CanProcess => Images.Any() &&
+                                Images.Any(img => img.SelectedModels.Any());
 
         public Command<ImageDto> ToggleImageSelectionCommand { get; }
         public Command ToggleAllSelectionCommand { get; }
@@ -78,36 +78,57 @@ namespace MiviaMaui.ViewModels
         private readonly ICommandBus _commandBus;
         private readonly IQueryBus _queryBus;
 
-        public SelectedImagesViewModel(ModelService modelService,
-                                     List<ImageDto> selectedImages,
-                                     ICommandBus commandBus,
-                                     IQueryBus queryBus,
-                                     IImagePathService imagePathService,
-                                     INotificationService notificationService)
+        public SelectedImagesViewModel(
+       ModelService modelService,
+       List<ImageDto> selectedImages,
+       ICommandBus commandBus,
+       IQueryBus queryBus,
+       IImagePathService imagePathService,
+       INotificationService notificationService,
+       IMiviaClient miviaClient)
         {
             _modelService = modelService;
+            _miviaClient = miviaClient;
             _imagePathService = imagePathService;
-
-            foreach (var image in selectedImages)
-            {
-                image.SelectedModels = new ObservableCollection<ModelDto>();
-                image.IsCurrentlySelected = false;
-
-                LoadImage(image);
-
-                SelectedImages.Add(image);
-            }
+            _notificationService = notificationService;
+            _commandBus = commandBus;
+            _queryBus = queryBus;
 
             ToggleImageSelectionCommand = new Command<ImageDto>(OnToggleImageSelection);
             ToggleAllSelectionCommand = new Command(OnToggleAllSelection);
             ClearSelectionCommand = new Command(OnClearSelection);
             CancelProcessingCommand = new Command(CancelProcessing);
-            _queryBus = queryBus;
-            _commandBus = commandBus;
-            _notificationService = notificationService;
         }
 
-        private async void LoadImage(ImageDto image)
+        public async Task LoadImagesAsync()
+        {
+            if (IsBusy) return;
+            IsBusy = true;
+
+            try
+            {
+                ProcessingStatusText = "Loading images";
+                var images = await _miviaClient.GetImagesAsync();
+                Images.Clear();
+                foreach (var image in images)
+                {
+                    image.SelectedModels = new ObservableCollection<ModelDto>();
+                    image.IsCurrentlySelected = false;
+                    await LoadImage(image);
+                    Images.Add(image);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error loading images: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private async Task LoadImage(ImageDto image)
         {
             try
             {
@@ -122,7 +143,7 @@ namespace MiviaMaui.ViewModels
         private void RefreshModelSelections()
         {
             var updatedModels = new ObservableCollection<ModelDto>();
-            var selectedImages = SelectedImages.Where(img => img.IsCurrentlySelected).ToList();
+            var selectedImages = Images.Where(img => img.IsCurrentlySelected).ToList();
 
             foreach (var model in _models)
             {
@@ -152,7 +173,7 @@ namespace MiviaMaui.ViewModels
         {
             if (model == null) return;
 
-            var selectedImages = SelectedImages.Where(img => img.IsCurrentlySelected).ToList();
+            var selectedImages = Images.Where(img => img.IsCurrentlySelected).ToList();
             if (!selectedImages.Any()) return;
 
             // If ANY image has this model and we're unchecking, remove from ALL
@@ -194,7 +215,7 @@ namespace MiviaMaui.ViewModels
 
         public void UpdateModelSelections()
         {
-            var selectedImages = SelectedImages.Where(img => img.IsCurrentlySelected).ToList();
+            var selectedImages = Images.Where(img => img.IsCurrentlySelected).ToList();
 
             if (selectedImages.Any())
             {
@@ -255,7 +276,7 @@ namespace MiviaMaui.ViewModels
         {
             if (image == null) return;
 
-            foreach (var img in SelectedImages)
+            foreach (var img in Images)
             {
                 img.IsCurrentlySelected = false;
             }
@@ -266,9 +287,9 @@ namespace MiviaMaui.ViewModels
 
         private void OnToggleAllSelection()
         {
-            bool shouldSelect = !SelectedImages.All(x => x.IsCurrentlySelected);
+            bool shouldSelect = !Images.All(x => x.IsCurrentlySelected);
 
-            foreach (var image in SelectedImages)
+            foreach (var image in Images)
             {
                 image.IsCurrentlySelected = shouldSelect;
 
@@ -296,14 +317,14 @@ namespace MiviaMaui.ViewModels
                 }
             }
 
-            CurrentImage = shouldSelect ? SelectedImages.FirstOrDefault() : null;
+            CurrentImage = shouldSelect ? Images.FirstOrDefault() : null;
             UpdateModelSelections();
             OnPropertyChanged(nameof(CanProcess));
         }
 
         private void OnClearSelection()
         {
-            foreach (var image in SelectedImages)
+            foreach (var image in Images)
             {
                 image.IsCurrentlySelected = false;
             }
@@ -327,14 +348,14 @@ namespace MiviaMaui.ViewModels
             try
             {
                 var jobIds = new List<string>();
-                var totalImages = SelectedImages.Count;
+                var selectedImages = Images.Where(image => image.SelectedModels.Count > 0);
                 var currentImage = 0;
-                foreach (var image in SelectedImages)
+                foreach (var image in selectedImages)
                 {
                     _cancellationTokenSource.Token.ThrowIfCancellationRequested();
 
                     currentImage++;
-                    ProcessingStatusText = $"Processing image {currentImage} of {totalImages}";
+                    ProcessingStatusText = $"Processing image {currentImage} of {selectedImages.Count()}";
 
                     foreach (var model in image.SelectedModels)
                     {

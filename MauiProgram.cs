@@ -43,7 +43,6 @@ namespace MiviaMaui
             builder.Services.AddSingleton<ModelService>();
 
             builder.Services.AddSingleton<ModelsViewModel>();
-            builder.Services.AddSingleton<ImagesViewModel>();
 
             builder.Services.AddTransient<ModelsPage>();
             builder.Services.AddTransient<ImagesPage>();
