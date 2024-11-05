@@ -325,7 +325,7 @@ namespace MiviaMaui
                     }
                 }
 
-                _notificationService.ShowNotification("Report Saved", $"PDF report successfully saved to {filePath}");
+                _notificationService.ShowClickableNotification("Report Saved", $"PDF report successfully saved to {filePath}", filePath);
                 await _snackbarService.ShowSuccessSnackbarAsync($"PDF report successfully saved to {filePath}");
 
             }

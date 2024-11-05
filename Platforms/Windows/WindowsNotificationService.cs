@@ -15,4 +15,9 @@ public class WindowsNotificationService : INotificationService
         var toast = new ToastNotification(toastXml);
         ToastNotificationManager.CreateToastNotifier().Show(toast);
     }
+
+    public void ShowClickableNotification(string title, string message, string filePath)
+    {
+
+    }
 }
