@@ -8,7 +8,7 @@ namespace MiviaMaui.Interfaces
 {
     public interface ISnackbarService
     {
-        Task ShowSuccessSnackbarAsync(string message, int durationMs = 3000);
+        Task ShowSuccessSnackbarAsync(string message, string? filePath = null, int durationMs = 3000);
         Task ShowErrorSnackbarAsync(string message, int durationMs = 3000);
     }
 }

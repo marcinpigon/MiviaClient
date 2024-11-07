@@ -3,70 +3,163 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MiviaMaui.DirectoriesPage"
              xmlns:lang="clr-namespace:MiviaMaui.Resources.Languages"
-             Title="Directories Page">
+             Title="Directories Page"
+             BackgroundColor="#F5F5F5">
 
-    <ContentPage.Content>
-        <Grid>
-            <!-- Background image -->
-            <Image 
-            Source="mivia_background.jpg"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="Center"
-            Aspect="Center" />
-            <StackLayout VerticalOptions="FillAndExpand"
-                     HorizontalOptions="FillAndExpand"
-                     Padding="20">
+    <ContentPage.Resources>
+        <Style x:Key="MonitorButtonStyle"
+               TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="#2E7D32" />
+            <Setter Property="TextColor"
+                    Value="White" />
+            <Setter Property="CornerRadius"
+                    Value="8" />
+            <Setter Property="Padding"
+                    Value="15,10" />
+            <Setter Property="FontSize"
+                    Value="16" />
+        </Style>
 
-                <!-- Button to monitor a new directory -->
-                <Button Text="{x:Static lang:AppResources.directoryMonitorNewDirectory}"
+        <Style x:Key="ActionButtonStyle"
+               TargetType="ImageButton">
+            <Setter Property="BackgroundColor"
+                    Value="Transparent" />
+            <Setter Property="WidthRequest"
+                    Value="24" />
+            <Setter Property="HeightRequest"
+                    Value="24" />
+            <Setter Property="Padding"
+                    Value="2" />
+        </Style>
+
+        <Style x:Key="FolderCardStyle"
+               TargetType="Grid">
+            <Setter Property="BackgroundColor"
+                    Value="White" />
+        </Style>
+
+        <Style x:Key="FolderNameStyle"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="#424242" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="FontAttributes"
+                    Value="Bold" />
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+            <Setter Property="LineBreakMode"
+                    Value="TailTruncation" />
+        </Style>
+
+        <Style x:Key="NoDirectoriesStyle"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="#757575" />
+            <Setter Property="FontSize"
+                    Value="16" />
+            <Setter Property="Margin"
+                    Value="0,20" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid Padding="20">
+        <StackLayout>
+            <Button Text="{x:Static lang:AppResources.directoryMonitorNewDirectory}"
                     Clicked="OnMonitorNewDirectoryClicked"
+                    Style="{StaticResource MonitorButtonStyle}"
                     HorizontalOptions="End"
-                    VerticalOptions="Start"
                     Margin="0,0,0,20" />
 
-                <!-- CollectionView to display monitored directories -->
-                <CollectionView x:Name="directoriesCollectionView"
+            <CollectionView x:Name="directoriesCollectionView"
                             ItemsSource="{Binding MonitoredDirectories}"
                             VerticalOptions="FillAndExpand">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid WidthRequest="100"
-                              HeightRequest="120"
-                              Margin="10">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeShape="RoundRectangle 10"
+                                Padding="10"
+                                Margin="8"
+                                BackgroundColor="White"
+                                Stroke="Transparent">
+                            <Border.Shadow>
+                                <Shadow Brush="#20000000"
+                                        Offset="0,2"
+                                        Radius="4" />
+                            </Border.Shadow>
+                            <Grid Style="{StaticResource FolderCardStyle}"
+                                  WidthRequest="100">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="80" />
+                                    <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-                                <Image Source="folder.png"
-                                   Aspect="AspectFit"
-                                   Grid.Row="0"
-                                   HeightRequest="80"
-                                   WidthRequest="80" />
-                                <Label Text="{Binding Name}"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center"
-                                   Grid.Row="1" />
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer 
-                                    NumberOfTapsRequired="2" 
-                                    Tapped="OnDirectoryDoubleTapped" />
-                                </Grid.GestureRecognizers>
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical"
-                                     Span="3" />
-                    </CollectionView.ItemsLayout>
-                </CollectionView>
 
-                <!-- Label to display when there are no monitored directories -->
-                <Label x:Name="noDirectoriesLabel"
+                                <!-- Folder Icon -->
+                                <Image Source="folder.png"
+                                       Aspect="AspectFit"
+                                       Grid.Row="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnOpenDirectoryClicked" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <!-- Folder Name -->
+                                <Label Text="{Binding Name}"
+                                       Style="{StaticResource FolderNameStyle}"
+                                       Grid.Row="1"
+                                       Margin="0,5" />
+
+                                <!-- Action Buttons -->
+                                <HorizontalStackLayout Grid.Row="2"
+                                                       HorizontalOptions="Center"
+                                                       Spacing="15"
+                                                       Margin="0,5,0,0">
+                                    <ImageButton Source="edit.png"
+                                                 Style="{StaticResource ActionButtonStyle}"
+                                                 Clicked="OnEditDirectoryClicked"
+                                                 ToolTipProperties.Text="Edit directory">
+                                        <ImageButton.Triggers>
+                                            <DataTrigger TargetType="ImageButton"
+                                                         Binding="{Binding Source={RelativeSource Self}, Path=IsPressed}"
+                                                         Value="True">
+                                                <Setter Property="Opacity"
+                                                        Value="0.6" />
+                                            </DataTrigger>
+                                        </ImageButton.Triggers>
+                                    </ImageButton>
+
+                                    <ImageButton Source="delete.png"
+                                                 Style="{StaticResource ActionButtonStyle}"
+                                                 Clicked="OnDeleteDirectoryClicked"
+                                                 ToolTipProperties.Text="Delete directory">
+                                        <ImageButton.Triggers>
+                                            <DataTrigger TargetType="ImageButton"
+                                                         Binding="{Binding Source={RelativeSource Self}, Path=IsPressed}"
+                                                         Value="True">
+                                                <Setter Property="Opacity"
+                                                        Value="0.6" />
+                                            </DataTrigger>
+                                        </ImageButton.Triggers>
+                                    </ImageButton>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="3"
+                                     HorizontalItemSpacing="5"
+                                     VerticalItemSpacing="5" />
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+
+            <Label x:Name="noDirectoriesLabel"
                    Text="{x:Static lang:AppResources.directoryNoDirectoriesMonitored}"
+                   Style="{StaticResource NoDirectoriesStyle}"
                    HorizontalOptions="Center"
-                   VerticalOptions="Center"
                    IsVisible="False" />
-            </StackLayout>
-        </Grid>
-    </ContentPage.Content>
+        </StackLayout>
+    </Grid>
 </ContentPage>
