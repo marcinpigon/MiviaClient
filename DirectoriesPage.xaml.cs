@@ -50,7 +50,7 @@ namespace MiviaMaui
 
         private async void OnEditDirectoryClicked(object sender, EventArgs e)
         {
-            if (sender is ImageButton button && button.BindingContext is MonitoredDirectory directory)
+            if (sender is Image image && image.BindingContext is MonitoredDirectory directory)
             {
                 await Navigation.PushAsync(new EditDirectoryPage(
                     _directoryService,
@@ -69,7 +69,7 @@ namespace MiviaMaui
 
         private async void OnDeleteDirectoryClicked(object sender, EventArgs e)
         {
-            if (sender is ImageButton button && button.BindingContext is MonitoredDirectory directory)
+            if (sender is Image image && image.BindingContext is MonitoredDirectory directory)
             {
                 bool answer = await DisplayAlert(
                     "Confirm Delete",

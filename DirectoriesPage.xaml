@@ -21,36 +21,30 @@
                     Value="16" />
         </Style>
 
-        <Style x:Key="ActionButtonStyle"
-               TargetType="ImageButton">
-            <Setter Property="BackgroundColor"
-                    Value="Transparent" />
-            <Setter Property="WidthRequest"
-                    Value="24" />
-            <Setter Property="HeightRequest"
-                    Value="24" />
-            <Setter Property="Padding"
-                    Value="2" />
-        </Style>
-
-        <Style x:Key="FolderCardStyle"
-               TargetType="Grid">
-            <Setter Property="BackgroundColor"
-                    Value="White" />
-        </Style>
-
         <Style x:Key="FolderNameStyle"
                TargetType="Label">
             <Setter Property="TextColor"
-                    Value="#424242" />
+                    Value="#1A1A1A" />
             <Setter Property="FontSize"
-                    Value="14" />
-            <Setter Property="FontAttributes"
-                    Value="Bold" />
-            <Setter Property="HorizontalOptions"
-                    Value="Center" />
+                    Value="16" />
             <Setter Property="LineBreakMode"
                     Value="TailTruncation" />
+            <Setter Property="VerticalOptions"
+                    Value="Center" />
+            <Setter Property="HorizontalOptions"
+                    Value="Start" />
+        </Style>
+
+        <Style x:Key="FolderPathStyle"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="#999999" />
+            <Setter Property="FontSize"
+                    Value="12" />
+            <Setter Property="LineBreakMode"
+                    Value="TailTruncation" />
+            <Setter Property="Opacity"
+                    Value="0.8" />
         </Style>
 
         <Style x:Key="NoDirectoriesStyle"
@@ -77,81 +71,67 @@
                             VerticalOptions="FillAndExpand">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Border StrokeShape="RoundRectangle 10"
-                                Padding="10"
+                        <Border StrokeShape="RoundRectangle 8"
+                                Padding="16,12"
                                 Margin="8"
-                                BackgroundColor="White"
-                                Stroke="Transparent">
-                            <Border.Shadow>
-                                <Shadow Brush="#20000000"
-                                        Offset="0,2"
-                                        Radius="4" />
-                            </Border.Shadow>
-                            <Grid Style="{StaticResource FolderCardStyle}"
-                                  WidthRequest="100">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="80" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
+                                BackgroundColor="#F0F0F0"
+                                Stroke="#D3D3D3">
+                            <Grid ColumnDefinitions="*, Auto"
+                                  MinimumHeightRequest="100">
+                                <!-- Folder Info -->
+                                <StackLayout Grid.Column="0"
+                                             Spacing="4"
+                                             VerticalOptions="Center">
+                                    <Label Text="{Binding Name}"
+                                           Style="{StaticResource FolderNameStyle}" />
+                                    <Label Text="{Binding Path}"
+                                           Style="{StaticResource FolderPathStyle}" />
+                                </StackLayout>
 
-                                <!-- Folder Icon -->
-                                <Image Source="folder.png"
-                                       Aspect="AspectFit"
-                                       Grid.Row="0">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="OnOpenDirectoryClicked" />
-                                    </Image.GestureRecognizers>
-                                </Image>
+                                <!-- Action Icons Column -->
+                                <StackLayout Grid.Column="1"
+                                             Spacing="12"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="End">
+                                    <Image Source="folder.png"
+                                           HeightRequest="24"
+                                           WidthRequest="24"
+                                           Aspect="AspectFit"
+                                           ToolTipProperties.Text="Open directory">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnOpenDirectoryClicked" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
 
-                                <!-- Folder Name -->
-                                <Label Text="{Binding Name}"
-                                       Style="{StaticResource FolderNameStyle}"
-                                       Grid.Row="1"
-                                       Margin="0,5" />
+                                    <Image Source="edit.png"
+                                           HeightRequest="24"
+                                           WidthRequest="24"
+                                           Aspect="AspectFit"
+                                           ToolTipProperties.Text="Edit directory">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnEditDirectoryClicked" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
 
-                                <!-- Action Buttons -->
-                                <HorizontalStackLayout Grid.Row="2"
-                                                       HorizontalOptions="Center"
-                                                       Spacing="15"
-                                                       Margin="0,5,0,0">
-                                    <ImageButton Source="edit.png"
-                                                 Style="{StaticResource ActionButtonStyle}"
-                                                 Clicked="OnEditDirectoryClicked"
-                                                 ToolTipProperties.Text="Edit directory">
-                                        <ImageButton.Triggers>
-                                            <DataTrigger TargetType="ImageButton"
-                                                         Binding="{Binding Source={RelativeSource Self}, Path=IsPressed}"
-                                                         Value="True">
-                                                <Setter Property="Opacity"
-                                                        Value="0.6" />
-                                            </DataTrigger>
-                                        </ImageButton.Triggers>
-                                    </ImageButton>
-
-                                    <ImageButton Source="delete.png"
-                                                 Style="{StaticResource ActionButtonStyle}"
-                                                 Clicked="OnDeleteDirectoryClicked"
-                                                 ToolTipProperties.Text="Delete directory">
-                                        <ImageButton.Triggers>
-                                            <DataTrigger TargetType="ImageButton"
-                                                         Binding="{Binding Source={RelativeSource Self}, Path=IsPressed}"
-                                                         Value="True">
-                                                <Setter Property="Opacity"
-                                                        Value="0.6" />
-                                            </DataTrigger>
-                                        </ImageButton.Triggers>
-                                    </ImageButton>
-                                </HorizontalStackLayout>
+                                    <Image Source="delete.png"
+                                           HeightRequest="24"
+                                           WidthRequest="24"
+                                           Aspect="AspectFit"
+                                           ToolTipProperties.Text="Delete directory">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnDeleteDirectoryClicked" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
                             </Grid>
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
-                                     Span="3"
-                                     HorizontalItemSpacing="5"
-                                     VerticalItemSpacing="5" />
+                                     Span="{OnIdiom Phone=1, Desktop=3}"
+                                     HorizontalItemSpacing="10"
+                                     VerticalItemSpacing="10" />
                 </CollectionView.ItemsLayout>
             </CollectionView>
 
