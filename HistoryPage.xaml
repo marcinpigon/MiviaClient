@@ -55,23 +55,40 @@
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Text="{Binding Timestamp, StringFormat='{0:G}'}"
+                                        <Label Grid.Column="0"
+                                               Text="{Binding Timestamp, StringFormat='{0:G}'}"
                                                FontSize="Medium"
                                                TextColor="Black"
                                                FontAttributes="Bold"
                                                VerticalOptions="Center" />
 
-                                        <ImageButton Source="delete.png"
+                                        <ImageButton Grid.Column="1"
+                                                     Source="folder.png"
                                                      HeightRequest="16"
                                                      WidthRequest="16"
                                                      Scale="{OnPlatform Android=1, WinUI=0.6}"
-                                                BackgroundColor="Transparent"
-                                                HorizontalOptions="End"
-                                                Clicked="OnDeleteClicked"
-                                                CommandParameter="{Binding .}" />
+                                                     BackgroundColor="Transparent"
+                                                     IsVisible="{Binding HasPath}"
+                                                     Clicked="OnFolderClicked"
+                                                     CommandParameter="{Binding .}"
+                                                     Margin="10,0,0,0" />
+
+                                        <ImageButton Grid.Column="2"
+                                                     Source="delete.png"
+                                                     HeightRequest="16"
+                                                     WidthRequest="16"
+                                                     Scale="{OnPlatform Android=1, WinUI=0.6}"
+                                                     BackgroundColor="Transparent"
+                                                     HorizontalOptions="End"
+                                                     VerticalOptions="Center"
+                                                     Margin="0,-2,0,0"
+                                                     Clicked="OnDeleteClicked"
+                                                     CommandParameter="{Binding .}" />
                                     </Grid>
+
 
                                     <BoxView Grid.Row="1"
                                              HeightRequest="1"

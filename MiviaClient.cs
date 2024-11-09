@@ -145,7 +145,7 @@ namespace MiviaMaui
                     await _snackbarService.ShowSuccessSnackbarAsync($"Image: {Path.GetFileName(filePath)} sent successfully!");
 
                     var historyMessage = $"Image sent successfully: {filePath}";
-                    var record = new HistoryRecord(EventType.HttpImages, historyMessage);
+                    var record = new HistoryRecord(EventType.HttpImages, historyMessage, null, filePath);
                     await _historyService.SaveHistoryRecordAsync(record);
 
                     return uploadedImage?[0]?.Id ?? "";
