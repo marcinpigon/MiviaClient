@@ -41,8 +41,8 @@ namespace MiviaMaui
 
         private async void OnMonitorNewDirectoryClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NewDirectory(_directoryService, 
-                App.ServiceProvider.GetRequiredService<ModelService>(), 
+            await Navigation.PushAsync(new NewDirectory(_directoryService,
+                App.ServiceProvider.GetRequiredService<ModelService>(),
                 App.ServiceProvider.GetRequiredService<IFolderPicker>()));
         }
 
@@ -88,13 +88,33 @@ namespace MiviaMaui
         {
             try
             {
-                if (!Directory.Exists(directory.Path))
+                if (DeviceInfo.Platform == DevicePlatform.Android)
                 {
-                    await DisplayAlert("Error", "Directory not found. Please verify the path exists.", "OK");
-                    return;
-                }
+#if ANDROID
+                    var contentUri = Android.Net.Uri.Parse(directory.Path);
 
-                if (DeviceInfo.Platform == DevicePlatform.WinUI)
+                    if (contentUri != null)
+                    {
+                        var intent = new Android.Content.Intent(Android.Content.Intent.ActionView);
+                        intent.SetDataAndType(contentUri, "vnd.android.document/directory");
+                        intent.AddFlags(Android.Content.ActivityFlags.GrantReadUriPermission | Android.Content.ActivityFlags.NewTask);
+
+                        try
+                        {
+                            Android.App.Application.Context.StartActivity(intent);
+                        }
+                        catch (Exception ex)
+                        {
+                            await DisplayAlert("Error", $"Failed to open directory: {ex.Message}", "OK");
+                        }
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "Invalid URI. Could not access the directory.", "OK");
+                    }
+#endif
+                }
+                else if (DeviceInfo.Platform == DevicePlatform.WinUI)
                 {
                     Process.Start(new ProcessStartInfo
                     {
@@ -103,46 +123,14 @@ namespace MiviaMaui
                         UseShellExecute = true
                     });
                 }
-                else if (DeviceInfo.Platform == DevicePlatform.Android)
-                {
-                    try
-                    {
-#if ANDROID
-                        var androidPath = directory.Path;
-                        var intent = new Android.Content.Intent();
-                        intent.SetAction(Android.Content.Intent.ActionView);
-                        var androidUri = AndroidX.DocumentFile.Provider.DocumentFile
-                            .FromFile(new Java.IO.File(androidPath))
-                            ?.Uri;
-
-                        if (androidUri != null)
-                        {
-                            intent.SetDataAndType(androidUri, "resource/folder");
-                            intent.AddFlags(Android.Content.ActivityFlags.NewTask);
-                            Android.App.Application.Context.StartActivity(intent);
-                        }
-                        else
-                        {
-                            await DisplayAlert("Error", "Could not access the directory.", "OK");
-                        }
-#endif
-                    }
-                    catch (Exception ex)
-                    {
-                        await DisplayAlert("Error",
-                            $"Failed to open directory on Android: {ex.Message}", "OK");
-                    }
-                }
                 else
                 {
-                    await DisplayAlert("Information",
-                        "Opening directories is currently supported only on Windows & Android.", "OK");
+                    await DisplayAlert("Information", "Opening directories is supported only on Windows & Android.", "OK");
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error",
-                    $"Failed to open directory: {ex.Message}", "OK");
+                await DisplayAlert("Error", $"Failed to open directory: {ex.Message}", "OK");
             }
         }
     }

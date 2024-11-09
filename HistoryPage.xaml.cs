@@ -28,9 +28,8 @@ namespace MiviaMaui
 
         private async void OnDeleteClicked(object sender, EventArgs e)
         {
-            var button = sender as Button;
+            var button = sender as ImageButton;
             var record = button?.CommandParameter as HistoryRecord;
-
             if (record != null)
             {
                 await _historyService.DeleteHistoryRecordAsync(record);

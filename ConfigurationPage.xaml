@@ -3,45 +3,98 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:lang="clr-namespace:MiviaMaui.Resources.Languages"
              x:Class="MiviaMaui.ConfigurationPage"
-             Title="Configuration Page">
+             Title="Configuration Page"
+             BackgroundColor="White">
 
-    <Grid>
-        <!-- Background image -->
-        <Image 
-            Source="mivia_background.jpg"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="Center"
-            Aspect="Center" />
+    <Grid VerticalOptions="FillAndExpand"
+          HorizontalOptions="FillAndExpand">
 
-        <StackLayout VerticalOptions="CenterAndExpand"
-                 HorizontalOptions="CenterAndExpand"
-                 Padding="20">
-            <Label Text="{x:Static lang:AppResources.configurationAccessTokenTitle}"
-               FontSize="Medium"
-               HorizontalOptions="Center"/>
-            <Entry x:Name="accessTokenEntry"
-               Placeholder="{x:Static lang:AppResources.configurationAccessTokenPlaceholder}"
+        <Image Source="mivia_background.jpg"
+               Aspect="AspectFill"
+               IsVisible="True"
                HorizontalOptions="FillAndExpand"
-               IsPassword="True"/>
-            <Button x:Name="toggleVisibilityButton"
-            Text="{x:Static lang:AppResources.configurationShowPassword}"
-            Clicked="OnToggleVisibilityClicked"
-            HorizontalOptions="Start"
-            VerticalOptions="Center"/>
-            <Button Text="{x:Static lang:AppResources.save}"
-            Clicked="OnSaveClicked"
-            HorizontalOptions="Start"
-            VerticalOptions="Center"/>
-            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                <CheckBox x:Name="enableNotificationsCheckBox"
-                      Margin="10,0,0,0"
-                      VerticalOptions="Center"
-                      IsChecked="True"/>
-                <Label Text="{x:Static lang:AppResources.configurationEnableNotifications}"
-                   FontSize="Medium"
-                   VerticalOptions="Center"/>
-            </StackLayout>
-        </StackLayout>
-    </Grid>
+               VerticalOptions="FillAndExpand" />
 
+        <Frame BackgroundColor="LightGray"
+               CornerRadius="15"
+               BorderColor="DarkGray"
+               HasShadow="True"
+               Padding="20"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               WidthRequest="350">
+
+            <StackLayout Spacing="20">
+
+                <Label Text="{x:Static lang:AppResources.configurationAccessTokenTitle}"
+                       FontSize="Medium"
+                       TextColor="DarkSlateGray"
+                       HorizontalOptions="Center" />
+
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             Spacing="10">
+                    <Frame BackgroundColor="#F5F5F5"
+                           CornerRadius="5"
+                           Padding="0"
+                           BorderColor="LightGray"
+                           HorizontalOptions="FillAndExpand">
+                        <Entry x:Name="accessTokenEntry"
+                               Placeholder="{x:Static lang:AppResources.configurationAccessTokenPlaceholder}"
+                               IsPassword="True"
+                               FontSize="Medium"
+                               TextColor="Black"
+                               BackgroundColor="#F5F5F5"
+                               HorizontalOptions="FillAndExpand" />
+                    </Frame>
+                    <Button x:Name="toggleVisibilityButton"
+                            Text="{x:Static lang:AppResources.configurationShowPassword}"
+                            Clicked="OnToggleVisibilityClicked"
+                            BackgroundColor="#E0E0E0"
+                            TextColor="DarkSlateGray"
+                            CornerRadius="10"
+                            Padding="5,0"
+                            HorizontalOptions="Start" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="Center"
+                             HorizontalOptions="FillAndExpand"
+                             Spacing="10">
+                    <CheckBox x:Name="enableNotificationsCheckBox"
+                              Margin="10,0,0,0"
+                              VerticalOptions="Center"
+                              IsChecked="True" />
+                    <Label Text="{x:Static lang:AppResources.configurationEnableNotifications}"
+                           FontSize="Medium"
+                           TextColor="DarkSlateGray"
+                           VerticalOptions="Center" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="Center"
+                             HorizontalOptions="FillAndExpand"
+                             Spacing="10">
+                    <CheckBox x:Name="enableDeveloperOptions"
+                              Margin="10,0,0,0"
+                              VerticalOptions="Center"
+                              IsChecked="False" />
+                    <Label Text="Developer options"
+                           FontSize="Medium"
+                           TextColor="DarkSlateGray"
+                           VerticalOptions="Center" />
+                </StackLayout>
+
+                <Button Text="{x:Static lang:AppResources.save}"
+                        Clicked="OnSaveClicked"
+                        BackgroundColor="#008080"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        Padding="10"
+                        VerticalOptions="End" />
+
+            </StackLayout>
+        </Frame>
+    </Grid>
 </ContentPage>

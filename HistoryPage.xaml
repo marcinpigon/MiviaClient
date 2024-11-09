@@ -3,53 +3,98 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:lang="clr-namespace:MiviaMaui.Resources.Languages"
              x:Class="MiviaMaui.HistoryPage"
-             Title="History">
+             Title="History"
+             BackgroundColor="#F5F5F5">
 
-    <Grid Padding="10">
-        <!-- Grid definition with two rows -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid Margin="10">
+        <Grid RowDefinitions="Auto, *">
+            <Grid Grid.Row="0"
+                  Margin="0,0,0,15">
+                <Label Text="History Records"
+                       TextColor="#008080"
+                       HorizontalOptions="Start"
+                       FontSize="Medium" />
 
-        <!-- Clear History Button -->
-        <StackLayout Orientation="Horizontal"
-                     HorizontalOptions="End"
-                     VerticalOptions="Start"
-                     Grid.Row="0"
-                     Spacing="10">
-            <Button Text="{x:Static lang:AppResources.historyClearHistory}"
-                    Clicked="OnClearHistoryClicked"
-                    HorizontalOptions="End"
-                    BackgroundColor="Red"
-                    TextColor="White"/>
-        </StackLayout>
+                <Button Text="{x:Static lang:AppResources.historyClearHistory}"
+                        Clicked="OnClearHistoryClicked"
+                        HorizontalOptions="End"
+                        BackgroundColor="#FF4040"
+                        TextColor="White"
+                        WidthRequest="120"
+                        HeightRequest="40"
+                        CornerRadius="10" />
+            </Grid>
 
-        <!-- History ListView -->
-        <ListView x:Name="HistoryListView"
-                  Grid.Row="1"
-                  HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="5">
-                            <!-- StackLayout for the history entry details -->
-                            <StackLayout HorizontalOptions="StartAndExpand">
-                                <Label Text="{Binding Timestamp}" FontAttributes="Bold" FontSize="Medium" />
-                                <Label Text="{Binding EventType}" FontAttributes="Italic" />
-                                <Label Text="{Binding Description}" />
-                            </StackLayout>
-                            <!-- Button for deleting the entry -->
-                            <Button Text="X"
-                                    TextColor="White"
-                                    BackgroundColor="Transparent"
-                                    HorizontalOptions="End"
-                                    Clicked="OnDeleteClicked"
-                                    CommandParameter="{Binding .}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <CollectionView Grid.Row="1"
+                            x:Name="HistoryListView"
+                            ItemsSource="{Binding .}"
+                            SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="15" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeThickness="1.5"
+                                Stroke="#666666"
+                                Padding="0"
+                                BackgroundColor="White">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+
+                            <Frame Padding="0"
+                                   BackgroundColor="White"
+                                   HasShadow="True"
+                                   CornerRadius="8"
+                                   Margin="1">
+                                <Grid RowDefinitions="Auto, Auto, *">
+                                    <Grid Grid.Row="0"
+                                          BackgroundColor="#E8E8E8"
+                                          Padding="15,10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="{Binding Timestamp, StringFormat='{0:G}'}"
+                                               FontSize="Medium"
+                                               TextColor="Black"
+                                               FontAttributes="Bold"
+                                               VerticalOptions="Center" />
+
+                                        <ImageButton Source="delete.png"
+                                                     HeightRequest="16"
+                                                     WidthRequest="16"
+                                                     Scale="{OnPlatform Android=1, WinUI=0.6}"
+                                                BackgroundColor="Transparent"
+                                                HorizontalOptions="End"
+                                                Clicked="OnDeleteClicked"
+                                                CommandParameter="{Binding .}" />
+                                    </Grid>
+
+                                    <BoxView Grid.Row="1"
+                                             HeightRequest="1"
+                                             BackgroundColor="#A9A9A9" />
+
+                                    <StackLayout Grid.Row="2"
+                                                 Padding="15,10"
+                                                 Spacing="5">
+                                        <Label Text="{Binding EventType}"
+                                               TextColor="#008080"
+                                               FontAttributes="Italic"
+                                               FontSize="Small" />
+                                        <Label Text="{Binding Description}"
+                                               TextColor="Black"
+                                               FontSize="Medium"
+                                               LineBreakMode="WordWrap" />
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </Grid>
 </ContentPage>

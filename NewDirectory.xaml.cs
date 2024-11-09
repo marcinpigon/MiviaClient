@@ -39,32 +39,86 @@ namespace MiviaMaui
             }
         }
 
-        private void UpdateModelUI(List<ModelDto> models)
-        {     
-            foreach (var model in models)
+        // In your code-behind file where you populate the models
+        private void PopulateModelOptions(List<ModelDto> models)
+        {
+            // Clear existing options
+            modelOptionsStackLayoutLeft.Children.Clear();
+            modelOptionsStackLayoutRight.Children.Clear();
+
+            for (int i = 0; i < models.Count; i++)
             {
+                var model = models[i];
+                var checkbox = new CheckBox
+                {
+                    // Your existing checkbox configuration
+                    IsChecked = false,
+                    Color = Colors.DarkSlateGray
+                };
+
+                var label = new Label
+                {
+                    Text = model.Name,
+                    TextColor = Colors.DarkSlateGray,
+                    VerticalOptions = LayoutOptions.Center
+                };
+
+                var container = new StackLayout
+                {
+                    Orientation = StackOrientation.Horizontal,
+                    Children = { checkbox, label },
+                    Spacing = 10
+                };
+
+                // Add to left column if index is even, right column if odd
+                if (i % 2 == 0)
+                    modelOptionsStackLayoutLeft.Children.Add(container);
+                else
+                    modelOptionsStackLayoutRight.Children.Add(container);
+            }
+        }
+
+        private void UpdateModelUI(List<ModelDto> models)
+        {
+            // Clear existing options
+            modelOptionsStackLayoutLeft.Children.Clear();
+            modelOptionsStackLayoutRight.Children.Clear();
+
+            // Calculate midpoint to ensure even distribution
+            int midPoint = (models.Count + 1) / 2;  // Adding 1 ensures proper distribution for odd numbers
+
+            for (int i = 0; i < models.Count; i++)
+            {
+                var model = models[i];
                 var modelLayout = new StackLayout
                 {
                     Orientation = StackOrientation.Horizontal,
-                    Padding = new Thickness(5)
+                    Padding = new Thickness(5),
+                    Spacing = 10
                 };
 
-                var switchControl = new Switch
+                var checkbox = new CheckBox
                 {
-                    IsToggled = false 
+                    IsChecked = false,
+                    Color = Colors.DarkSlateGray
                 };
-                switchControl.Toggled += (sender, args) => OnModelToggled(model.Id, model.DisplayName, args.Value);
+                checkbox.CheckedChanged += (sender, args) => OnModelToggled(model.Id, model.DisplayName, args.Value);
 
                 var label = new Label
                 {
                     Text = model.DisplayName,
+                    TextColor = Colors.DarkSlateGray,
                     VerticalOptions = LayoutOptions.Center
                 };
 
-                modelLayout.Children.Add(switchControl);
+                modelLayout.Children.Add(checkbox);
                 modelLayout.Children.Add(label);
 
-                modelOptionsStackLayout.Children.Add(modelLayout);
+                // Add to left column for first half, right column for second half
+                if (i < midPoint)
+                    modelOptionsStackLayoutLeft.Children.Add(modelLayout);
+                else
+                    modelOptionsStackLayoutRight.Children.Add(modelLayout);
             }
         }
 
