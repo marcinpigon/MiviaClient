@@ -19,7 +19,7 @@ jobs:
     - name: Install MAUI workload
       run: dotnet workload install maui
     - name: Build
-      run: dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 --self-contained true
+      run: dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 --self-contained true /p:WindowsPackageType=None /p:WindowsAppSDKSelfContained=true
     - name: List directory structure
       run: |
         Get-ChildItem -Path "bin" -Recurse | Select-Object FullName
