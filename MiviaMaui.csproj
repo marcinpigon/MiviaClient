@@ -85,6 +85,7 @@
 	  <MauiImage Remove="Resources\Images\splash.svg" />
 	</ItemGroup>
 	<ItemGroup>
+	  <None Remove="Platforms\Android\Resources\xml\file_paths.xml" />
 	  <None Remove="Resources\Images\check.png" />
 	  <None Remove="Resources\Images\microstructure.tif" />
 	  <None Remove="Resources\Images\splash.svg" />

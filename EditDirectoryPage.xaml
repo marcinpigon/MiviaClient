@@ -3,54 +3,121 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:lang="clr-namespace:MiviaMaui.Resources.Languages"
              x:Class="MiviaMaui.EditDirectoryPage"
-             Title="Edit Directory">
+             Title="Edit Directory"
+             BackgroundColor="White">
 
-    <ContentPage.Content>
-        <Grid>
-            <!-- Background image -->
-            <Image 
-                Source="mivia_background.jpg"
-                Aspect="AspectFill"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand" />
+    <Grid VerticalOptions="FillAndExpand"
+          HorizontalOptions="FillAndExpand">
 
-            <!-- Overlay content -->
-            <ScrollView VerticalOptions="FillAndExpand">
-                <StackLayout Padding="20">
-                    <Label Text="{x:Static lang:AppResources.newdirectoryNameLabel}" />
-                    <Entry Text="{Binding Name}" />
+        <Image Source="mivia_background.jpg"
+               Aspect="AspectFill"
+               IsVisible="True"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" />
 
-                    <Label Text="{x:Static lang:AppResources.newdirectoryFolderLabel}" />
-                    <Entry Text="{Binding Path}" />
+        <ScrollView VerticalOptions="FillAndExpand">
+            <Frame BackgroundColor="LightGray"
+                   CornerRadius="15"
+                   BorderColor="DarkGray"
+                   HasShadow="True"
+                   Padding="20"
+                   Margin="20"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   MinimumWidthRequest="450">
 
-                    <!-- Model selection section -->
-                    <Label Text="{x:Static lang:AppResources.newdirectoryModels}" FontSize="Medium" Margin="0,10,0,10"/>
-                    <StackLayout x:Name="modelOptionsStackLayout"
-                                 Orientation="Vertical"
-                                 HorizontalOptions="StartAndExpand"
-                                 Margin="0,0,0,10">
-                        <!-- Model options will be dynamically added here -->
+                <StackLayout Spacing="20">
+                    <!-- Directory Name -->
+                    <Label Text="{x:Static lang:AppResources.newdirectoryNameLabel}"
+                           FontSize="Medium"
+                           TextColor="DarkSlateGray" />
+                    <Frame BackgroundColor="#F5F5F5"
+                           CornerRadius="5"
+                           Padding="0"
+                           BorderColor="LightGray"
+                           HorizontalOptions="FillAndExpand">
+                        <Entry Text="{Binding Name}"
+                               FontSize="Medium"
+                               TextColor="Black"
+                               BackgroundColor="#F5F5F5"
+                               HorizontalOptions="FillAndExpand" />
+                    </Frame>
+
+                    <!-- Directory Path -->
+                    <Label Text="{x:Static lang:AppResources.newdirectoryFolderLabel}"
+                           FontSize="Medium"
+                           TextColor="DarkSlateGray" />
+                    <Frame BackgroundColor="#F5F5F5"
+                           CornerRadius="5"
+                           Padding="0"
+                           BorderColor="LightGray"
+                           HorizontalOptions="FillAndExpand">
+                        <Entry Text="{Binding Path}"
+                               FontSize="Medium"
+                               TextColor="Black"
+                               BackgroundColor="#F5F5F5"
+                               HorizontalOptions="FillAndExpand" />
+                    </Frame>
+
+                    <!-- Models Section -->
+                    <Label Text="{x:Static lang:AppResources.newdirectoryModels}"
+                           FontSize="Medium"
+                           TextColor="DarkSlateGray" />
+                    <Frame BackgroundColor="#F5F5F5"
+                           CornerRadius="5"
+                           Padding="10"
+                           BorderColor="LightGray"
+                           HorizontalOptions="FillAndExpand">
+                        <Grid x:Name="modelOptionsGrid"
+                              ColumnDefinitions="*, *"
+                              RowSpacing="10"
+                              ColumnSpacing="15"
+                              BackgroundColor="#F5F5F5">
+                            <StackLayout x:Name="modelOptionsStackLayoutLeft"
+                                         Grid.Column="0"
+                                         Orientation="Vertical"
+                                         HorizontalOptions="FillAndExpand"
+                                         Spacing="10" />
+                            <StackLayout x:Name="modelOptionsStackLayoutRight"
+                                         Grid.Column="1"
+                                         Orientation="Vertical"
+                                         HorizontalOptions="FillAndExpand"
+                                         Spacing="10" />
+                        </Grid>
+                    </Frame>
+
+                    <!-- Action Buttons -->
+                    <StackLayout Spacing="10">
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="10"
+                                     HorizontalOptions="FillAndExpand">
+                            <Button Text="{x:Static lang:AppResources.save}"
+                                    Clicked="OnSaveClicked"
+                                    BackgroundColor="#008080"
+                                    TextColor="White"
+                                    CornerRadius="10"
+                                    HorizontalOptions="FillAndExpand"
+                                    Padding="10" />
+                            <Button Text="{x:Static lang:AppResources.cancel}"
+                                    Clicked="OnCancelClicked"
+                                    BackgroundColor="#E0E0E0"
+                                    TextColor="DarkSlateGray"
+                                    CornerRadius="10"
+                                    HorizontalOptions="FillAndExpand"
+                                    Padding="10" />
+                        </StackLayout>
+
+                        <Button Text="{x:Static lang:AppResources.delete}"
+                                Clicked="OnDeleteClicked"
+                                BackgroundColor="#FFE5E5"
+                                TextColor="Red"
+                                CornerRadius="10"
+                                HorizontalOptions="FillAndExpand"
+                                Padding="10" />
                     </StackLayout>
-
-                    <StackLayout Orientation="Horizontal"
-                                 HorizontalOptions="End"
-                                 Margin="0,20,0,0">
-                        <Button Text="{x:Static lang:AppResources.save}"
-                                Clicked="OnSaveClicked"
-                                HorizontalOptions="EndAndExpand" />
-                        <Button Text="{x:Static lang:AppResources.cancel}"
-                                Clicked="OnCancelClicked"
-                                HorizontalOptions="End" />
-                    </StackLayout>
-
-                    <Button Text="{x:Static lang:AppResources.delete}"
-                            Clicked="OnDeleteClicked"
-                            HorizontalOptions="Center"
-                            Margin="0,20,0,0"
-                            TextColor="Red" />
 
                 </StackLayout>
-            </ScrollView>
-        </Grid>
-    </ContentPage.Content>
+            </Frame>
+        </ScrollView>
+    </Grid>
 </ContentPage>

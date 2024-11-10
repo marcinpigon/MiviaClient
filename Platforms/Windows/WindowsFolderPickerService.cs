@@ -1,12 +1,13 @@
 ﻿using CommunityToolkit.Maui.Storage;
 
-    public class WindowsFolderPickerService : MiviaMaui.Interfaces.IFolderPicker
+public class WindowsFolderPickerService : MiviaMaui.Interfaces.IFolderPicker
+{
+    public async Task<string> PickFolderAsync()
     {
-        public async Task<string> PickFolderAsync()
-        {
-            var folder = await FolderPicker.PickAsync(default);
-
-            return folder?.Folder.Path;
-        }
+        var folder = await FolderPicker.PickAsync(default);
+        if (folder == null)
+            return string.Empty;
+        return folder.Folder?.Path ?? string.Empty;
     }
+}
 

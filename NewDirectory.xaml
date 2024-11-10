@@ -3,57 +3,115 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:lang="clr-namespace:MiviaMaui.Resources.Languages"
              x:Class="MiviaMaui.NewDirectory"
-             Title="New Directory">
+             Title="New Directory"
+             BackgroundColor="White">
 
-    <Grid>
-        <!-- Background image -->
-        <Image 
-            Source="mivia_background.jpg"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="Center"
-            Aspect="Center" />
+    <Grid VerticalOptions="FillAndExpand"
+          HorizontalOptions="FillAndExpand">
+
+        <Image Source="mivia_background.jpg"
+               Aspect="AspectFill"
+               IsVisible="True"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" />
+
         <ScrollView VerticalOptions="FillAndExpand">
-            <StackLayout VerticalOptions="CenterAndExpand"
-                     HorizontalOptions="CenterAndExpand"
-                     Padding="20">
-                <!-- Name of the directory -->
-                <Label Text="{x:Static lang:AppResources.newdirectoryNameLabel}"
-                   FontSize="Medium"/>
-                <Entry x:Name="directoryNameEntry"
-                   Placeholder="{x:Static lang:AppResources.newdirectoryNamePlaceholder}"
-                   HorizontalOptions="FillAndExpand"
-                   Margin="0,0,0,10"/>
+            <Frame BackgroundColor="LightGray"
+                   CornerRadius="15"
+                   BorderColor="DarkGray"
+                   HasShadow="True"
+                   Padding="20"
+                   Margin="20"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   MinimumWidthRequest="450">
 
-                <!-- Directory filepath -->
-                <Label Text="{x:Static lang:AppResources.newdirectoryFolderLabel}"
-                   FontSize="Medium"/>
-                <HorizontalStackLayout>
-                    <Entry x:Name="folderPath"
-                       Placeholder="{x:Static lang:AppResources.newdirectoryFolderPlaceholder}"
-                       HorizontalOptions="FillAndExpand"
-                       Margin="0,0,0,10"/>
-                    <Button 
-                        Text="{x:Static lang:AppResources.newdirectoryPickFolder}"
-                        FontAttributes="Bold"
-                        SemanticProperties.Hint="Allows you to pick a folder on the filesystem"
-                        Clicked="OnPickFolderClicked"
-                        HorizontalOptions="Center" />
-                </HorizontalStackLayout>
+                <StackLayout Spacing="20">
+                    <!-- Directory Name -->
+                    <Label Text="{x:Static lang:AppResources.newdirectoryNameLabel}"
+                           FontSize="Medium"
+                           TextColor="DarkSlateGray" />
+                    <Frame BackgroundColor="#F5F5F5"
+                           CornerRadius="5"
+                           Padding="0"
+                           BorderColor="LightGray"
+                           HorizontalOptions="FillAndExpand">
+                        <Entry x:Name="directoryNameEntry"
+                               Placeholder="{x:Static lang:AppResources.newdirectoryNamePlaceholder}"
+                               FontSize="Medium"
+                               TextColor="Black"
+                               BackgroundColor="#F5F5F5"
+                               HorizontalOptions="FillAndExpand" />
+                    </Frame>
 
-                <!-- Dynamic UI for options -->
-                <Label Text="{x:Static lang:AppResources.newdirectoryModels}"
-                   FontSize="Medium"/>
-                <StackLayout x:Name="modelOptionsStackLayout"
-                         Orientation="Vertical"
-                         HorizontalOptions="StartAndExpand"
-                         Margin="0,0,0,10">
+                    <!-- Directory Filepath -->
+                    <Label Text="{x:Static lang:AppResources.newdirectoryFolderLabel}"
+                           FontSize="Medium"
+                           TextColor="DarkSlateGray" />
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="10">
+                        <Frame BackgroundColor="#F5F5F5"
+                               CornerRadius="5"
+                               Padding="0"
+                               BorderColor="LightGray"
+                               HorizontalOptions="FillAndExpand">
+                            <Entry x:Name="folderPath"
+                                   Placeholder="{x:Static lang:AppResources.newdirectoryFolderPlaceholder}"
+                                   FontSize="Medium"
+                                   TextColor="Black"
+                                   BackgroundColor="#F5F5F5"
+                                   HorizontalOptions="FillAndExpand" />
+                        </Frame>
+                        <ImageButton Source="folder.png"
+                                     Clicked="OnPickFolderClicked"
+                                     BackgroundColor="#E0E0E0"
+                                     CornerRadius="10"
+                                     WidthRequest="24"
+                                     HeightRequest="24"
+                                     Padding="5,0"
+                                     HorizontalOptions="Start" />
+                    </StackLayout>
+
+                    <!-- Models Section -->
+                    <Label Text="{x:Static lang:AppResources.newdirectoryModels}"
+                           FontSize="Medium"
+                           TextColor="DarkSlateGray" />
+                    <Frame BackgroundColor="#F5F5F5"
+                           CornerRadius="5"
+                           Padding="10"
+                           BorderColor="LightGray"
+                           HorizontalOptions="FillAndExpand">
+                        <Grid x:Name="modelOptionsGrid"
+                              ColumnDefinitions="*, *"
+                              RowSpacing="10"
+                              ColumnSpacing="15"
+                              BackgroundColor="#F5F5F5">
+                            <!-- The modelOptionsStackLayout will be split into two columns in code-behind -->
+                            <StackLayout x:Name="modelOptionsStackLayoutLeft"
+                                         Grid.Column="0"
+                                         Orientation="Vertical"
+                                         HorizontalOptions="FillAndExpand"
+                                         Spacing="10" />
+                            <StackLayout x:Name="modelOptionsStackLayoutRight"
+                                         Grid.Column="1"
+                                         Orientation="Vertical"
+                                         HorizontalOptions="FillAndExpand"
+                                         Spacing="10" />
+                        </Grid>
+                    </Frame>
+
+                    <!-- Save Button -->
+                    <Button Text="{x:Static lang:AppResources.newdirectorySaveDirectory}"
+                            Clicked="OnSaveDirectoryClicked"
+                            BackgroundColor="#008080"
+                            TextColor="White"
+                            CornerRadius="10"
+                            HorizontalOptions="FillAndExpand"
+                            Padding="10"
+                            VerticalOptions="End" />
+
                 </StackLayout>
-
-                <Button Text="{x:Static lang:AppResources.newdirectorySaveDirectory}"
-                    Clicked="OnSaveDirectoryClicked"
-                    HorizontalOptions="FillAndExpand"
-                    Margin="0,20,0,0"/>
-            </StackLayout>
+            </Frame>
         </ScrollView>
     </Grid>
 </ContentPage>
