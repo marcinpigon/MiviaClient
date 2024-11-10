@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|c:\\users\\marci\\onedrive\\pulpit\\miviamaui\\miviamaui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}|MiviaMaui.csproj|solutionrelative:miviamaui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marci\\AppData\\Roaming\\Microsoft\\UserSecrets\\43f254c1-3484-4c2a-b7fd-254d98ccb821\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
@@ -70,6 +78,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-10T18:49:34.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MiviaMaui",
+              "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaMaui.csproj",
+              "RelativeDocumentMoniker": "MiviaMaui.csproj",
+              "ToolTip": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaMaui.csproj",
+              "RelativeToolTip": "MiviaMaui.csproj",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-11-10T18:48:35.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "secrets.json",
               "DocumentMoniker": "C:\\Users\\marci\\AppData\\Roaming\\Microsoft\\UserSecrets\\43f254c1-3484-4c2a-b7fd-254d98ccb821\\secrets.json",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\43f254c1-3484-4c2a-b7fd-254d98ccb821\\secrets.json",
@@ -82,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ImagesPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\ImagesPage.xaml.cs",
               "RelativeDocumentMoniker": "ImagesPage.xaml.cs",
@@ -90,12 +124,11 @@
               "RelativeToolTip": "ImagesPage.xaml.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAABMAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T18:23:04.303Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T18:23:04.303Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "MiviaClient.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\MiviaClient.cs",
               "RelativeDocumentMoniker": "MiviaClient.cs",
@@ -103,12 +136,11 @@
               "RelativeToolTip": "MiviaClient.cs",
               "ViewState": "AQIAABEAAAAAAAAAAAAQwCAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T17:52:42.018Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T17:52:42.018Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "HistoryViewModel.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\ViewModels\\HistoryViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\HistoryViewModel.cs",
@@ -116,12 +148,11 @@
               "RelativeToolTip": "ViewModels\\HistoryViewModel.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAswAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T22:22:13.114Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T22:22:13.114Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "HistoryService.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\Services\\HistoryService.cs",
               "RelativeDocumentMoniker": "Services\\HistoryService.cs",
@@ -129,12 +160,11 @@
               "RelativeToolTip": "Services\\HistoryService.cs",
               "ViewState": "AQIAABgAAAAAAAAAAAA3wCoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T22:09:14.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T22:09:14.385Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "EditDirectoryPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\EditDirectoryPage.xaml.cs",
               "RelativeDocumentMoniker": "EditDirectoryPage.xaml.cs",
@@ -142,12 +172,11 @@
               "RelativeToolTip": "EditDirectoryPage.xaml.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAA1wAgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T21:47:39.35Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T21:47:39.35Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "EditDirectoryPage.xaml",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\EditDirectoryPage.xaml",
               "RelativeDocumentMoniker": "EditDirectoryPage.xaml",
@@ -159,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "NewDirectory.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\NewDirectory.xaml.cs",
               "RelativeDocumentMoniker": "NewDirectory.xaml.cs",
@@ -167,12 +196,11 @@
               "RelativeToolTip": "NewDirectory.xaml.cs",
               "ViewState": "AQIAAJkAAAAAAAAAAAAQwHoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T21:30:44.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T21:30:44.742Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "HistoryPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\HistoryPage.xaml.cs",
               "RelativeDocumentMoniker": "HistoryPage.xaml.cs",
@@ -184,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "EditDirectoryViewModel.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\ViewModels\\EditDirectoryViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\EditDirectoryViewModel.cs",
@@ -196,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "NewDirectory.xaml",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\NewDirectory.xaml",
               "RelativeDocumentMoniker": "NewDirectory.xaml",
@@ -208,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "ConfigurationPage.xaml",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\ConfigurationPage.xaml",
               "RelativeDocumentMoniker": "ConfigurationPage.xaml",
@@ -220,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "DirectoriesPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\DirectoriesPage.xaml.cs",
               "RelativeDocumentMoniker": "DirectoriesPage.xaml.cs",
@@ -232,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ImagesPage.xaml",
               "DocumentMoniker": "C:\\Users\\marci\\OneDrive\\Pulpit\\MiviaMaui\\ImagesPage.xaml",
               "RelativeDocumentMoniker": "ImagesPage.xaml",
@@ -240,8 +268,7 @@
               "RelativeToolTip": "ImagesPage.xaml",
               "ViewState": "AQIAAMQAAAAAAAAAAAAmwOYAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-09T14:17:51.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T14:17:51.959Z"
             }
           ]
         }

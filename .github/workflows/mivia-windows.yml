@@ -1,41 +1,49 @@
-# This workflow will build a .NET project
 name: Build MiViA Client Windows
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
+
 jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-    - name: Install MAUI workload
-      run: dotnet workload install maui
-    - name: Build
-      run: dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 --self-contained true -p:PublishSingleFile=true -p:PublishReadyToRun=true
-    - name: Create ZIP archive
-      run: |
-        Compress-Archive -Path .\bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\* -DestinationPath MiviaMaui-Windows.zip
-    - name: Configure Git
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-    - name: Create Git Tag
-      run: |
-        git tag v1.0.${{ github.run_number }}
-        git push origin v1.0.${{ github.run_number }}
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: v1.0.${{ github.run_number }}
-        files: MiviaMaui-Windows.zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui
+
+      - name: Build
+        run: |
+          dotnet publish MiviaMaui.csproj `
+            -c Release `
+            -f:net8.0-windows10.0.19041.0 `
+            --self-contained true `
+            -p:PublishSingleFile=true `
+            -p:PublishReadyToRun=true `
+            -p:RuntimeIdentifier=win-x64
+
+      - name: Create ZIP archive
+        run: |
+          Compress-Archive -Path .\bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\* -DestinationPath MiviaMaui-Windows.zip -Force
+
+      - name: Create Git Tag
+        run: |
+          git tag v1.0.${{ github.run_number }}
+          git push origin v1.0.${{ github.run_number }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          files: MiviaMaui-Windows.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
