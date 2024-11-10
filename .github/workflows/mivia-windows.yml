@@ -22,15 +22,15 @@ jobs:
       run: dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 --self-contained true
     - name: List directory structure
       run: |
-        dir /s /b bin
+        Get-ChildItem -Path "bin" -Recurse | Select-Object FullName
     - name: Create ZIP archive
       run: |
-        $publishDir = Get-ChildItem -Path "bin" -Recurse -Directory | Where-Object { $_.Name -eq "publish" } | Select-Object -First 1
-        if ($publishDir) {
-            Write-Host "Found publish directory at: $($publishDir.FullName)"
-            Compress-Archive -Path "$($publishDir.FullName)\*" -DestinationPath "MiviaMaui-Windows.zip"
+        $publishPath = "bin\Release\net8.0-windows10.0.19041.0\win10-x64\publish"
+        if (Test-Path $publishPath) {
+            Write-Host "Creating zip from: $publishPath"
+            Compress-Archive -Path "$publishPath\*" -DestinationPath "MiviaMaui-Windows.zip" -Force
         } else {
-            Write-Error "Could not find publish directory"
+            Write-Error "Publish directory not found at: $publishPath"
             exit 1
         }
     - name: Configure Git
