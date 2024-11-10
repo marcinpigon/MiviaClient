@@ -19,7 +19,12 @@ jobs:
     - name: Install MAUI workload
       run: dotnet workload install maui
     - name: Build
-      run: dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 --self-contained true /p:WindowsPackageType=None /p:WindowsAppSDKSelfContained=true /p:InvariantGlobalization=true /p:SatelliteResourceLanguages="en;de;pl"
+      run: |
+        dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 --self-contained true `
+        /p:WindowsPackageType=None `
+        /p:WindowsAppSDKSelfContained=true `
+        /p:InvariantGlobalization=true `
+        '/p:SatelliteResourceLanguages=""en;de;pl""'
     - name: Create batch launcher
       run: |
         @"
