@@ -19,10 +19,11 @@ jobs:
     - name: Install MAUI workload
       run: dotnet workload install maui
     - name: Build
-      run: dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 --self-contained true -p:PublishSingleFile=true -p:PublishReadyToRun=true
+      run: dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 --self-contained true
     - name: Create ZIP archive
       run: |
-        Compress-Archive -Path .\bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\* -DestinationPath MiviaMaui-Windows.zip
+        cd bin\Release\net8.0-windows10.0.19041.0\win-x64\publish
+        Compress-Archive -Path .\* -DestinationPath ..\..\..\..\..\MiviaMaui-Windows.zip
     - name: Configure Git
       run: |
         git config user.name "github-actions[bot]"
