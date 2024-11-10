@@ -1,71 +1,49 @@
-# This workflow will build a .NET project
 name: Build MiViA Client Windows
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
+
 jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-    - name: Install MAUI workload
-      run: dotnet workload install maui
-    - name: Build
-      shell: cmd
-      run: >-
-        dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 --self-contained true
-        /p:WindowsPackageType=None
-        /p:WindowsAppSDKSelfContained=true
-        /p:InvariantGlobalization=true
-        /p:SatelliteResourceLanguages=en;de;pl
-    - name: Create batch launcher
-      run: |
-        @"
-        @echo off
-        echo Starting application...
-        echo Current directory: %CD%
-        start /wait MiviaMaui.exe
-        if errorlevel 1 (
-            echo Application failed to start with error code: %errorlevel%
-            pause
-        )
-        "@ > "bin\Release\net8.0-windows10.0.19041.0\win10-x64\publish\StartApp.bat"
-    - name: Create ZIP archive
-      run: |
-        $publishPath = "bin\Release\net8.0-windows10.0.19041.0\win10-x64\publish"
-        if (Test-Path $publishPath) {
-            # Remove unnecessary language folders except en, de, pl
-            Get-ChildItem -Path $publishPath -Directory | 
-            Where-Object { $_.Name -match '^[a-z]{2}(-[A-Z]{2})?$' -and $_.Name -notin @('en', 'de', 'pl') } |
-            Remove-Item -Recurse -Force
-            
-            Write-Host "Creating zip from: $publishPath"
-            Compress-Archive -Path "$publishPath\*" -DestinationPath "MiviaMaui-Windows.zip" -Force
-        } else {
-            Write-Error "Publish directory not found at: $publishPath"
-            exit 1
-        }
-    - name: Configure Git
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-    - name: Create Git Tag
-      run: |
-        git tag v1.0.${{ github.run_number }}
-        git push origin v1.0.${{ github.run_number }}
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: v1.0.${{ github.run_number }}
-        files: MiviaMaui-Windows.zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui
+
+      - name: Build
+        run: |
+          dotnet publish MiviaMaui.csproj `
+            -c Release `
+            -f:net8.0-windows10.0.19041.0 `
+            --self-contained true `
+            -p:PublishSingleFile=true `
+            -p:PublishReadyToRun=true `
+            -p:RuntimeIdentifier=win-x64
+
+      - name: Create ZIP archive
+        run: |
+          Compress-Archive -Path .\bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\* -DestinationPath MiviaMaui-Windows.zip -Force
+
+      - name: Create Git Tag
+        run: |
+          git tag v1.0.${{ github.run_number }}
+          git push origin v1.0.${{ github.run_number }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          files: MiviaMaui-Windows.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
