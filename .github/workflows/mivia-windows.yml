@@ -1,19 +1,13 @@
 # This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
 name: Build MiViA Client Windows
-
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 jobs:
   build:
-
     runs-on: windows-latest
-
     steps:
     - uses: actions/checkout@v4
       with:
@@ -23,19 +17,12 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Install MAUI workload
-      run: dotnet workload install maui 
-    - name: Decrypt PFX 
-      run: |
-        echo "${{ secrets.MIVIA_WINDOWS_PFX_CERT }}" > mivia_cert.pfx.asc
-        certutil -decode mivia_cert.pfx.asc mivia_cert.pfx
-    - name: Add certificate to local storage
-      run: certutil -user -q -p ${{ secrets.MIVIA_WINDOWS_PFX_PASSWORD }} -importpfx mivia_cert.pfx NoRoot
+      run: dotnet workload install maui
     - name: Build
-      run: dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true /p:AppxPackageSigningEnabled=true /p:PackageCertificateThumbprint="${{ secrets.MIVIA_WINDOWS_PFX_THUMBPRINT }}"
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.2.1-node20
-      with:
-        path: .\**\AppPackages\**\*.*
+      run: dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 --self-contained true -p:PublishSingleFile=true -p:PublishReadyToRun=true
+    - name: Create ZIP archive
+      run: |
+        Compress-Archive -Path .\bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\* -DestinationPath MiviaMaui-Windows.zip
     - name: Configure Git
       run: |
         git config user.name "github-actions[bot]"
@@ -49,6 +36,6 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         tag_name: v1.0.${{ github.run_number }}
-        files: '**/AppPackages/MiviaMaui_1.0.0.1_Test/*.msix'
+        files: MiviaMaui-Windows.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
