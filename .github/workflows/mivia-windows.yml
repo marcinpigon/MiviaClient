@@ -1,12 +1,10 @@
 # This workflow will build a .NET project
 name: Build MiViA Client Windows
-
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 jobs:
   build:
     runs-on: windows-latest
@@ -26,11 +24,13 @@ jobs:
     # Create certificate for signing
     - name: Create Code Signing Certificate
       run: |
-        $certificate = New-SelfSignedCertificate -Type Custom -Subject "CN=MiViA Development, O=Your Organization" `
+        $publisher = "CN=MiviaMaui, O=MiviaMaui, C=US"
+        $certificate = New-SelfSignedCertificate -Type Custom -Subject $publisher `
           -KeyUsage DigitalSignature `
-          -FriendlyName "MiViA Development Certificate" `
           -CertStoreLocation "Cert:\CurrentUser\My" `
-          -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}false")
+          -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}") `
+          -FriendlyName "MiviaMaui Application Certificate" `
+          -NotAfter (Get-Date).AddYears(3)
         
         $thumbprint = $certificate.Thumbprint
         echo "CERT_THUMBPRINT=$thumbprint" | Out-File -FilePath $env:GITHUB_ENV -Append
@@ -51,7 +51,7 @@ jobs:
           /p:PackageCertificateThumbprint="$env:CERT_THUMBPRINT" `
           /p:PackageCertificateKeyFile="signing_certificate.pfx" `
           /p:PackageCertificatePassword="TempPassword123!"
-
+          
     # Upload both MSIX and certificate
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3.2.1-node20
@@ -60,18 +60,7 @@ jobs:
         path: |
           .\**\AppPackages\**\*.msix
           .\signing_certificate.cer
-
-    - name: Configure Git
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-        
-    - name: Create Git Tag
-      run: |
-        git tag v1.0.${{ github.run_number }}
-        git push origin v1.0.${{ github.run_number }}
-        
+          
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
       with:
