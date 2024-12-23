@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiviaMaui", "MiviaMaui.csproj", "{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiviaTest", "..\MiviaTest\MiviaTest.csproj", "{89447919-E9DD-4A6E-BAD3-B587A32C2CC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiviaTest", "MiviaTest\MiviaTest.csproj", "{3FF91554-EDEE-4BDA-986F-1E34A05CE99E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,10 @@ Global
 		{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{683ED31D-BC3C-4CE7-8DE3-01F12FC0AF99}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{89447919-E9DD-4A6E-BAD3-B587A32C2CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89447919-E9DD-4A6E-BAD3-B587A32C2CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89447919-E9DD-4A6E-BAD3-B587A32C2CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89447919-E9DD-4A6E-BAD3-B587A32C2CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FF91554-EDEE-4BDA-986F-1E34A05CE99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FF91554-EDEE-4BDA-986F-1E34A05CE99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FF91554-EDEE-4BDA-986F-1E34A05CE99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FF91554-EDEE-4BDA-986F-1E34A05CE99E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
