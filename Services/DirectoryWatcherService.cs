@@ -106,7 +106,7 @@ namespace MiviaMaui.Services
                    extension == ".tiff";
         }
 
-        private async void OnCreated(object sender, FileSystemEventArgs e, int watcherId)
+        public async void OnCreated(object sender, FileSystemEventArgs e, int watcherId)
         {
             if (!IsAllowedFileType(e.FullPath))
             {

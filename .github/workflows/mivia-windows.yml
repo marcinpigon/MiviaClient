@@ -2,71 +2,74 @@
 name: Build MiViA Client Windows
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-        
-    - name: Install MAUI workload
-      run: dotnet workload install maui
-      
-    # Create certificate for signing
-    - name: Create Code Signing Certificate
-      run: |
-        $publisher = "CN=MiviaMaui, O=MiviaMaui, C=US"
-        $certificate = New-SelfSignedCertificate -Type Custom -Subject $publisher `
-          -KeyUsage DigitalSignature `
-          -CertStoreLocation "Cert:\CurrentUser\My" `
-          -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}") `
-          -FriendlyName "MiviaMaui Application Certificate" `
-          -NotAfter (Get-Date).AddYears(3)
-        
-        $thumbprint = $certificate.Thumbprint
-        echo "CERT_THUMBPRINT=$thumbprint" | Out-File -FilePath $env:GITHUB_ENV -Append
-        
-        # Export certificate with private key
-        $password = ConvertTo-SecureString -String "TempPassword123!" -Force -AsPlainText
-        Export-PfxCertificate -Cert $certificate -FilePath "./signing_certificate.pfx" -Password $password
-        
-        # Export public certificate for distribution
-        Export-Certificate -Cert $certificate -FilePath "./signing_certificate.cer" -Type CERT
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-    # Sign and build the MSIX package
-    - name: Build
-      run: |
-        dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 `
-          /p:GenerateAppxPackageOnBuild=true `
-          /p:AppxPackageSigningEnabled=true `
-          /p:PackageCertificateThumbprint="$env:CERT_THUMBPRINT" `
-          /p:PackageCertificateKeyFile="signing_certificate.pfx" `
-          /p:PackageCertificatePassword="TempPassword123!"
-          
-    # Upload both MSIX and certificate
-    - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v3.2.1-node20
-      with:
-        name: msix-package
-        path: |
-          .\**\AppPackages\**\*.msix
-          .\signing_certificate.cer
-          
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: v1.0.${{ github.run_number }}
-        files: |
-          **/AppPackages/MiviaMaui_1.0.0.1_Test/*.msix
-          ./signing_certificate.cer
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui
+
+      # Create certificate for signing
+      - name: Create Code Signing Certificate
+        run: |
+          $publisher = "CN=MiviaMaui, O=MiviaMaui, C=US"
+          $certificate = New-SelfSignedCertificate -Type Custom -Subject $publisher `
+            -KeyUsage DigitalSignature `
+            -CertStoreLocation "Cert:\CurrentUser\My" `
+            -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}") `
+            -FriendlyName "MiviaMaui Application Certificate" `
+            -NotAfter (Get-Date).AddYears(3)
+
+          $thumbprint = $certificate.Thumbprint
+          echo "CERT_THUMBPRINT=$thumbprint" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+          # Export certificate with private key
+          $password = ConvertTo-SecureString -String "TempPassword123!" -Force -AsPlainText
+          Export-PfxCertificate -Cert $certificate -FilePath "./signing_certificate.pfx" -Password $password
+
+          # Export public certificate for distribution
+          Export-Certificate -Cert $certificate -FilePath "./signing_certificate.cer" -Type CERT
+
+      # Sign and build the MSIX package
+      - name: Build
+        run: |
+          dotnet publish MiviaMaui.csproj -c Release -f:net8.0-windows10.0.19041.0 `
+            /p:GenerateAppxPackageOnBuild=true `
+            /p:AppxPackageSigningEnabled=true `
+            /p:PackageCertificateThumbprint="$env:CERT_THUMBPRINT" `
+            /p:PackageCertificateKeyFile="signing_certificate.pfx" `
+            /p:PackageCertificatePassword="TempPassword123!"
+
+      - name: Run Tests
+        run: dotnet test MiviaMaui.Tests.csproj --configuration Release
+
+      # Upload both MSIX and certificate
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3.2.1-node20
+        with:
+          name: msix-package
+          path: |
+            .\**\AppPackages\**\*.msix
+            .\signing_certificate.cer
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          files: |
+            **/AppPackages/MiviaMaui_1.0.0.1_Test/*.msix
+            ./signing_certificate.cer
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

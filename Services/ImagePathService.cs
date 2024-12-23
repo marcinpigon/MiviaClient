@@ -101,7 +101,7 @@ namespace MiviaMaui.Services
     {
         public static IServiceCollection AddImagePathService(this IServiceCollection services, string? dbPath = null)
         {
-            services.AddSingleton<IImagePathService>(provider => new ImagePathService(dbPath));
+            services.AddScoped<IImagePathService>(provider => new ImagePathService(dbPath));
             return services;
         }
     }

@@ -13,6 +13,7 @@ artifacts/
 *.userprefs
 *.ide.config
 .vscode/
+.vs/
 
 # Mono Auto Generated Files
 mono_crash.*
