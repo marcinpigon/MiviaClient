@@ -14,21 +14,25 @@ namespace MiviaMaui.Command_Handlers
     {
         private readonly IMiviaClient _miviaClient;
         private readonly HistoryService _historyService;
+        private readonly IImageUploadContextService _imageUploadContextService;
 
-        public UploadImageCommandHandler(IMiviaClient miviaClient, HistoryService historyService)
+        public UploadImageCommandHandler(IMiviaClient miviaClient, HistoryService historyService, 
+            IImageUploadContextService imageUploadContextService)
         {
             _miviaClient = miviaClient;
             _historyService = historyService;
+            _imageUploadContextService = imageUploadContextService;
         }
 
         public async Task<string> HandleAsync(UploadImageCommand command)
         {
-            var images = await _miviaClient.GetImagesAsync();
             var fileName = Path.GetFileName(command.FilePath);
+            var existingImage = await _imageUploadContextService.IsImageAlreadyExistsAsync(fileName)
+                ? (await _imageUploadContextService.GetCurrentImagesAsync())
+                    .FirstOrDefault(img => img.OriginalFilename == fileName)
+                : null;
 
-            var existingImage = images.FirstOrDefault(img => img.OriginalFilename == fileName);
             string imageId;
-
             if (existingImage != null)
             {
                 imageId = existingImage.Id;
@@ -40,7 +44,6 @@ namespace MiviaMaui.Command_Handlers
                 var record = new HistoryRecord(EventType.FileUploaded, historyMessage);
                 await _historyService.SaveHistoryRecordAsync(record);
             }
-
             return imageId;
         }
     }

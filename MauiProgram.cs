@@ -42,6 +42,8 @@ namespace MiviaMaui
             builder.Services.AddSingleton<HistoryService>();
             builder.Services.AddSingleton<ModelService>();
 
+            builder.Services.AddScoped<IImageUploadContextService,  ImageUploadContextService>();
+
             builder.Services.AddSingleton<ModelsViewModel>();
 
             builder.Services.AddTransient<ModelsPage>();
@@ -58,8 +60,8 @@ namespace MiviaMaui
             builder.Services.AddTransient<ICommandHandler<GenerateReportMultipleJobsCommand, bool>, GenerateReportMultipleJobsHandler>();
 
             builder.Services.AddTransient<IQueryHandler<IsJobFinishedQuery, bool>, IsJobFinishedQueryHandler>();
-            builder.Services.AddTransient<ICommandBus, CommandBus>();
-            builder.Services.AddTransient<IQueryBus, QueryBus>();
+            builder.Services.AddSingleton<ICommandBus, CommandBus>();
+            builder.Services.AddSingleton<IQueryBus, QueryBus>();
 
 #if ANDROID
             builder.Services.AddSingleton<MiviaMaui.Interfaces.INotificationService, LocalNotificationService>();
