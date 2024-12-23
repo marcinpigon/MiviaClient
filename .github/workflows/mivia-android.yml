@@ -32,8 +32,11 @@ jobs:
       - name: Build Android App
         run: dotnet publish MiviaMaui.csproj -c Release -f:net8.0-android
 
-      - name: Run Tests
-        run: dotnet test MiviaMaui.Tests.csproj --configuration Release
+      - name: Run Tests in MiviaTest
+        run: |
+          cd MiviaTest
+          dotnet test
+          cd ..
 
       - name: Upload APK
         uses: actions/upload-artifact@v3.2.1-node20
