@@ -33,12 +33,18 @@ namespace MiviaMaui
         }
 
         public MiviaClient(HttpClient httpClient, HistoryService historyService,
-            INotificationService notificationService, ISnackbarService snackbarService)
+            INotificationService notificationService, ISnackbarService snackbarService, string? accessToken = null)
         {
             _httpClient = httpClient;
             _historyService = historyService;
             _notificationService = notificationService;
             _snackbarService = snackbarService;
+
+            if (!string.IsNullOrEmpty(accessToken))
+            {
+                _httpClient.DefaultRequestHeaders.Add("authorization", accessToken);
+                _initialized = true;
+            }
         }
 
         private async Task InitializeClient()
