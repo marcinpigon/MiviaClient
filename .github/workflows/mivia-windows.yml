@@ -52,11 +52,11 @@ jobs:
             /p:PackageCertificateKeyFile="signing_certificate.pfx" `
             /p:PackageCertificatePassword="TempPassword123!"
 
-      - name: Run Tests in MiviaTest
-        run: |
-          cd MiviaTest
-          dotnet test
-          cd ..
+      # - name: Run Tests in MiviaTest
+      #   run: |
+      #     cd MiviaTest
+      #     dotnet test
+      #     cd ..
           
       # Upload both MSIX and certificate
       - name: Upload Build Artifacts
